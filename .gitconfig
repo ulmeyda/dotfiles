@@ -1,0 +1,21 @@
+[alias]
+	co = checkout
+	st = status
+	br = branch
+    tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+[core]
+    excludesfile = ~/.gitignore
+	editor = vim
+	autoCRLF = false
+[include]
+    path = ~/.gitconfig.local
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[http]
+    sslVerify = false
