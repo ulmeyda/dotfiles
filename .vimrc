@@ -24,6 +24,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 source ~/dotfiles/.vim/source/base.vim
 source ~/dotfiles/.vim/source/search.vim
+source ~/dotfiles/.vim/source/css.vim
 source ~/dotfiles/.vim/source/color.vim
 source ~/dotfiles/.vim/source/edit.vim
 source ~/dotfiles/.vim/source/ref.vim

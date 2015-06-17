@@ -7,6 +7,7 @@
     excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
+	quotepath = false
 [include]
     path = ~/.gitconfig.local
 [diff]
@@ -19,3 +20,5 @@
 	prompt = false
 [http]
     sslVerify = false
+[color]
+	ui = auto
