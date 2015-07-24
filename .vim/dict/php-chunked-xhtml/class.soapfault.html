@@ -15,7 +15,7 @@
  <h1 class="title">SoapFault クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.0.1)</p>
 
 
   <div class="section" id="soapfault.intro">
@@ -45,12 +45,33 @@
      </span>
      {</div>
 
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* プロパティ */</div>
-
     
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 継承したプロパティ */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.message">$<var class="varname">message</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.code">$<var class="varname">code</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.file">$<var class="varname">file</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.line">$<var class="varname">line</var></a></var>
+    ;</div>
+
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-    <span class="methodname"><a href="soapfault.construct.html" class="methodname">__construct</a></span>
+   <span class="methodname"><a href="soapfault.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultcode</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultstring</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultactor</code></span>
@@ -59,7 +80,7 @@
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$headerfault</code></span>
   ]]]] )</div>
 <div class="methodsynopsis dc-description">
-    <span class="methodname"><a href="soapfault.soapfault.html" class="methodname">SoapFault</a></span>
+   <span class="methodname"><a href="soapfault.soapfault.html" class="methodname">SoapFault</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultcode</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultstring</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultactor</code></span>
@@ -118,53 +139,6 @@
   </div>
 
   
-
-  <div class="section" id="soapfault.props">
-   <h2 class="title">プロパティ</h2>
-   <dl>
-
-    <dt id="soapfault.props.message">
-     <span class="term"><var class="varname"><var class="varname">message</var></var></span>
-     <dd>
-
-      <p class="para">Prop description</p>
-     </dd>
-
-    </dt>
-
-    <dt id="soapfault.props.code">
-     <span class="term"><var class="varname"><var class="varname">code</var></var></span>
-     <dd>
-
-      <p class="para">Prop description</p>
-     </dd>
-
-    </dt>
-
-    <dt id="soapfault.props.file">
-     <span class="term"><var class="varname"><var class="varname">file</var></var></span>
-     <dd>
-
-      <p class="para">Prop description</p>
-     </dd>
-
-    </dt>
-
-    <dt id="soapfault.props.line">
-     <span class="term"><var class="varname"><var class="varname">line</var></var></span>
-     <dd>
-
-      <p class="para">Prop description</p>
-     </dd>
-
-    </dt>
-
-   </dl>
-
-  </div>
-
-
-
  </div>
 
  

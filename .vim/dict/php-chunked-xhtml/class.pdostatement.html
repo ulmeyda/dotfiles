@@ -50,7 +50,7 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-    <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindcolumn.html" class="methodname">bindColumn</a></span>
+    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindcolumn.html" class="methodname">bindColumn</a></span>
      ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$column</code></span>
     , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$param</code></span>
     [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
@@ -58,7 +58,7 @@
     [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$driverdata</code></span>
    ]]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindparam.html" class="methodname">bindParam</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindparam.html" class="methodname">bindParam</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$parameter</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$variable</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$data_type</code><span class="initializer"> = PDO::PARAM_STR</span></span>
@@ -66,79 +66,79 @@
    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$driver_options</code></span>
   ]]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindvalue.html" class="methodname">bindValue</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.bindvalue.html" class="methodname">bindValue</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$parameter</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$data_type</code><span class="initializer"> = PDO::PARAM_STR</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.closecursor.html" class="methodname">closeCursor</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.closecursor.html" class="methodname">closeCursor</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="pdostatement.columncount.html" class="methodname">columnCount</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="pdostatement.columncount.html" class="methodname">columnCount</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.debugdumpparams.html" class="methodname">debugDumpParams</a></span>
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="pdostatement.debugdumpparams.html" class="methodname">debugDumpParams</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">string</span> <span class="methodname"><a href="pdostatement.errorcode.html" class="methodname">errorCode</a></span>
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="pdostatement.errorcode.html" class="methodname">errorCode</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">array</span> <span class="methodname"><a href="pdostatement.errorinfo.html" class="methodname">errorInfo</a></span>
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="pdostatement.errorinfo.html" class="methodname">errorInfo</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.execute.html" class="methodname">execute</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.execute.html" class="methodname">execute</a></span>
     ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$input_parameters</code></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.fetch.html" class="methodname">fetch</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.fetch.html" class="methodname">fetch</a></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$cursor_orientation</code><span class="initializer"> = PDO::FETCH_ORI_NEXT</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$cursor_offset</code><span class="initializer"> = 0</span></span>
   ]]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">array</span> <span class="methodname"><a href="pdostatement.fetchall.html" class="methodname">fetchAll</a></span>
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="pdostatement.fetchall.html" class="methodname">fetchAll</a></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code></span>
    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fetch_argument</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code><span class="initializer"> = array()</span></span>
   ]]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">string</span> <span class="methodname"><a href="pdostatement.fetchcolumn.html" class="methodname">fetchColumn</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.fetchcolumn.html" class="methodname">fetchColumn</a></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$column_number</code><span class="initializer"> = 0</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.fetchobject.html" class="methodname">fetchObject</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.fetchobject.html" class="methodname">fetchObject</a></span>
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;stdClass&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code></span>
   ]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.getattribute.html" class="methodname">getAttribute</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="pdostatement.getattribute.html" class="methodname">getAttribute</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attribute</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">array</span> <span class="methodname"><a href="pdostatement.getcolumnmeta.html" class="methodname">getColumnMeta</a></span>
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="pdostatement.getcolumnmeta.html" class="methodname">getColumnMeta</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$column</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.nextrowset.html" class="methodname">nextRowset</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.nextrowset.html" class="methodname">nextRowset</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="pdostatement.rowcount.html" class="methodname">rowCount</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="pdostatement.rowcount.html" class="methodname">rowCount</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.setattribute.html" class="methodname">setAttribute</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.setattribute.html" class="methodname">setAttribute</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attribute</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pdostatement.setfetchmode.html" class="methodname">setFetchMode</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pdostatement.setfetchmode.html" class="methodname">setFetchMode</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
    )</div>
 
@@ -151,8 +151,9 @@
    <h2 class="title">プロパティ</h2>
    <dl>
 
-    <dt id="pdostatement.props.querystring">
-     <span class="term"><var class="varname"><var class="varname">queryString</var></var></span>
+    
+     <dt id="pdostatement.props.querystring"><var class="varname"><var class="varname">queryString</var></var></dt>
+
      <dd>
 
       <p class="para">
@@ -160,8 +161,7 @@
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
  </div>

@@ -24,17 +24,18 @@
    オブジェクト指向型
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="type">string</span>
-    <span class="methodname"><strong>Collator::getLocale</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-  ] )</div>
+   <span class="modifier">public</span>
+   <span class="type">string</span> 
+   <span class="methodname"><strong>Collator::getLocale</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
+   )</div>
 
   <p class="para rdfs-comment">
    手続き型
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="type">string</span>
-    <span class="methodname"><strong>collator_get_locale</strong></span>
+   <span class="type">string</span> 
+   <span class="methodname"><strong>collator_get_locale</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.collator.html" class="type Collator">Collator</a></span> <code class="parameter">$coll</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
    )</div>
@@ -50,9 +51,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">coll</code></dt>
 
-     <span class="term"><em><code class="parameter">coll</code></em></span>
      <dd>
 
       <p class="para">
@@ -60,23 +62,21 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">type</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">type</code></em></span>
      <dd>
 
       <p class="para">
        妥当なロケールか実際のロケール (それぞれ
        <strong><code>Locale::VALID_LOCALE</code></strong> および
        <strong><code>Locale::ACTUAL_LOCALE</code></strong>)。
-       デフォルトは実際のロケールです。
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -97,11 +97,11 @@
  <div class="refsect1 examples" id="refsect1-collator.getlocale-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2447">
-    <p><strong>例1  <span class="function"><strong>collator_get_locale()</strong></span> の例</strong></p>
+   <div class="example" id="example-2685">
+    <p><strong>例1 <span class="function"><strong>collator_get_locale()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$coll&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_create</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'en_US_California'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res_val&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_get_locale</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Locale</span><span style="color: #007700">::</span><span style="color: #0000BB">VALID_LOCALE&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res_act&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_get_locale</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Locale</span><span style="color: #007700">::</span><span style="color: #0000BB">ACTUAL_LOCALE&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">"Valid&nbsp;locale&nbsp;name:&nbsp;%s\nActual&nbsp;locale&nbsp;name:&nbsp;%s\n"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$res_req</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res_val</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res_act&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$coll&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_create</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'en_US_California'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res_val&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_get_locale</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Locale</span><span style="color: #007700">::</span><span style="color: #0000BB">VALID_LOCALE&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res_act&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">collator_get_locale</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$coll</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Locale</span><span style="color: #007700">::</span><span style="color: #0000BB">ACTUAL_LOCALE&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">"Valid&nbsp;locale&nbsp;name:&nbsp;%s\nActual&nbsp;locale&nbsp;name:&nbsp;%s\n"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$res_val</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res_act&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -123,7 +123,7 @@ Actual locale name: en
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="collator.create.html" class="function" rel="rdfs-seeAlso">collator_create()</a> - collator を作成する</span></li>
+    <li class="member"><span class="function"><a href="collator.create.html" class="function" rel="rdfs-seeAlso">collator_create()</a> - collator を作成する</span></li>
    </ul>
   </p>
  </div>

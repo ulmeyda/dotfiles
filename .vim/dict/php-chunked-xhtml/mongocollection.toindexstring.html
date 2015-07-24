@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.setslaveokay.html">MongoCollection::setSlaveOkay</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.setwriteconcern.html">MongoCollection::setWriteConcern</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mongocollection.--tostring.html">MongoCollection::__toString</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -24,6 +24,11 @@
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$keys</code></span>
    )</div>
 
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    このメソッドは、バージョン 1.5.0 以降は非推奨となりました。
+   </p>
+  </div>
  </div>
 
 
@@ -32,11 +37,12 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
 
-     <span class="term">
-      <em><code class="parameter">keys</code></em>
-     </span>
+      <code class="parameter">keys</code>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -44,8 +50,7 @@
       </p>
      </dd>
 
-    </dt>
-   
+       
    </dl>
 
   </p>
@@ -62,15 +67,15 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.toindexstring-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1521">
-   <p><strong>例1  <span class="function"><strong>MongoCollection::toIndexString()</strong></span> の例</strong></p>
+  <div class="example" id="example-1539">
+   <p><strong>例1 <span class="function"><strong>MongoCollection::toIndexString()</strong></span> の例</strong></p>
    <div class="example-contents"><p>
     この例は、キーからインデックス名を作成する方法を示します。
     このメソッドは protected (static) メソッドなので、まずは子クラスでオーバーロードしなければなりません。
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;派生クラスを作ってメソッドを&nbsp;"public"&nbsp;にします<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyCollection&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MongoCollection<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">MyCollection</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">)),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;foo_1<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">MyCollection</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'age'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;name_1_age_-1<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;派生クラスを作ってメソッドを&nbsp;"public"&nbsp;にします<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyCollection&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MongoCollection<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">MyCollection</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;foo_1<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">MyCollection</span><span style="color: #007700">::</span><span style="color: #0000BB">toIndexString</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'age'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;name_1_age_-1<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -87,8 +92,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-mongocollection.toindexstring-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.5.0</td>
+       <td>
+        このメソッドは非推奨になりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.setslaveokay.html">MongoCollection::setSlaveOkay</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.setwriteconcern.html">MongoCollection::setWriteConcern</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mongocollection.--tostring.html">MongoCollection::__toString</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

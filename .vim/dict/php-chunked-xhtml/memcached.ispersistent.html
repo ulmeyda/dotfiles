@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Check if a persitent connection to memcache is being used</title>
+  <title>memcache への接続で持続的接続を使っているかどうかを調べる</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="memcached.ispersistent" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Memcached::isPersistent</h1>
-  <p class="verinfo">(PECL memcached &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Memcached::isPersistent</span> &mdash; <span class="dc-title">Check if a persitent connection to memcache is being used</span></p>
+  <p class="verinfo">(PECL memcached &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Memcached::isPersistent</span> &mdash; <span class="dc-title">memcache への接続で持続的接続を使っているかどうかを調べる</span></p>
 
  </div>
 
@@ -25,8 +25,8 @@
    )</div>
 
   <p class="para rdfs-comment">
-    <span class="function"><strong>Memcached::isPersistent()</strong></span> checks if the connections to
-   the memcache servers are persistent connections.
+   <span class="function"><strong>Memcached::isPersistent()</strong></span> は、
+   memcache サーバーへの接続が持続的接続かどうかを調べます。
   </p>
 
  </div>
@@ -41,7 +41,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.ispersistent-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns true if Memcache instance uses a persistent connection, false otherwise.
+   Memcache インスタンスが持続的接続を使っている場合に <strong><code>TRUE</code></strong>、それ以外の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -50,7 +50,7 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="methodname"><a href="memcached.ispristine.html" class="methodname" rel="rdfs-seeAlso">Memcached::isPristine()</a> - Check if the instance was recently created</span></li>
+    <li class="member"><span class="methodname"><a href="memcached.ispristine.html" class="methodname" rel="rdfs-seeAlso">Memcached::isPristine()</a> - 直近に作られたインスタンスかどうかを調べる</span></li>
    </ul>
   </p>
  </div>

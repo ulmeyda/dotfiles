@@ -19,7 +19,7 @@
  <div class="refsect1 description" id="refsect1-ziparchive.statname-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>ZipArchive::statName</strong></span>
+   <span class="type">array</span> <span class="methodname"><strong>ZipArchive::statName</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
   ] )</div>
@@ -34,9 +34,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">name</code></dt>
 
-     <span class="term"><em><code class="parameter">name</code></em></span>
      <dd>
 
       <p class="para">
@@ -44,40 +45,39 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">flags</code></em></span>
      <dd>
 
       <p class="para">
        名前をどのように探すのかを設定します。
-       また <strong><code>ZIPARCHIVE::FL_UNCHANGED</code></strong> を OR で連結すると、
+       また <strong><code>ZipArchive::FL_UNCHANGED</code></strong> を OR で連結すると、
        アーカイブ内に最初に記録された際の情報を取得します。
        変更内容は無視されます。
        <ul class="itemizedlist">
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_NOCASE</code></strong>
+          <strong><code>ZipArchive::FL_NOCASE</code></strong>
          </p>
         </li>
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_NODIR</code></strong>
+          <strong><code>ZipArchive::FL_NODIR</code></strong>
          </p>
         </li>
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_UNCHANGED</code></strong>
+          <strong><code>ZipArchive::FL_UNCHANGED</code></strong>
          </p>
         </li>
        </ul>
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -92,7 +92,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.statname-examples">
   <h3 class="title">例</h3>
-    <div class="example" id="example-880">
+    <div class="example" id="example-849">
      <p><strong>例1 エントリの情報の出力</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

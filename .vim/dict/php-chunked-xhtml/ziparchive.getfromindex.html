@@ -6,20 +6,20 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.getcommentname.html">ZipArchive::getCommentName</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.getexternalattributesname.html">ZipArchive::getExternalAttributesName</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ziparchive.getfromname.html">ZipArchive::getFromName</a></div>
  <div class="up"><a href="class.ziparchive.html">ZipArchive</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ziparchive.getfromindex" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::getFromIndex</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.3.0)</p><p class="refpurpose"><span class="refname">ZipArchive::getFromIndex</span> &mdash; <span class="dc-title">インデックスを使用して、エントリの内容を返す</span></p>
+  <p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p><p class="refpurpose"><span class="refname">ZipArchive::getFromIndex</span> &mdash; <span class="dc-title">インデックスを使用して、エントリの内容を返す</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.getfromindex-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>ZipArchive::getFromIndex</strong></span>
+   <span class="type">string</span> <span class="methodname"><strong>ZipArchive::getFromIndex</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
@@ -35,9 +35,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">index</code></dt>
 
-     <span class="term"><em><code class="parameter">index</code></em></span>
      <dd>
 
       <p class="para">
@@ -45,11 +46,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">length</code></em></span>
      <dd>
 
       <p class="para">
@@ -57,11 +58,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">flags</code></em></span>
      <dd>
 
       <p class="para">
@@ -70,20 +71,19 @@
        <ul class="itemizedlist">
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_UNCHANGED</code></strong>
+          <strong><code>ZipArchive::FL_UNCHANGED</code></strong>
          </p>
         </li>
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_COMPRESSED</code></strong>
+          <strong><code>ZipArchive::FL_COMPRESSED</code></strong>
          </p>
         </li>
        </ul>
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -98,7 +98,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.getfromindex-examples">
   <h3 class="title">例</h3>
-    <div class="example" id="example-864">
+    <div class="example" id="example-832">
      <p><strong>例1 ファイルの内容の取得</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -110,8 +110,19 @@
     </div>
    </div>
 
+
+ <div class="refsect1 seealso" id="refsect1-ziparchive.getfromindex-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="ziparchive.getfromname.html" class="methodname" rel="rdfs-seeAlso">ZipArchive::getFromName()</a> - 名前を使用して、エントリの内容を返す</span></li>
+   </ul>
+  </p>
+ </div>
+
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.getcommentname.html">ZipArchive::getCommentName</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.getexternalattributesname.html">ZipArchive::getExternalAttributesName</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ziparchive.getfromname.html">ZipArchive::getFromName</a></div>
  <div class="up"><a href="class.ziparchive.html">ZipArchive</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

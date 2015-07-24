@@ -11,6 +11,7 @@
  <div class="up"><a href="pdo.drivers.html">PDO ドライバ</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ref.pdo-odbc" class="reference">
+  
   <h1 class="title">ODBC および DB2 関数 (PDO_ODBC)</h1>
   
   <div class="partintro">
@@ -26,9 +27,10 @@
      PDO_ODBC は、現在 3 種類のデータベースドライバをサポートしています。
      <dl>
 
-      <dt>
+      
+       <dt>
+ibm-db2</dt>
 
-       <span class="term">ibm-db2</span>
        <dd>
 
         <p class="para">
@@ -38,11 +40,11 @@
         </p>
        </dd>
 
-      </dt>
+      
+      
+       <dt>
+unixODBC</dt>
 
-      <dt>
-
-       <span class="term">unixODBC</span>
        <dd>
 
         <p class="para">
@@ -51,11 +53,11 @@
         </p>
        </dd>
 
-      </dt>
+      
+      
+       <dt>
+generic</dt>
 
-      <dt>
-
-       <span class="term">generic</span>
        <dd>
 
         <p class="para">
@@ -64,8 +66,7 @@
         </p>
        </dd>
 
-      </dt>
-
+      
      </dl>
 
     </p>
@@ -94,9 +95,10 @@
     <strong class="command">configure</strong> コマンドを実行します。
     <dl>
 
-     <dt>
+     
+      <dt>
+ibm_db2</dt>
 
-      <span class="term">ibm_db2</span>
       <dd>
 
        <p class="para">
@@ -120,11 +122,11 @@
        </p>
       </dd>
 
-     </dt>
+     
+     
+      <dt>
+unixODBC</dt>
 
-     <dt>
-
-      <span class="term">unixODBC</span>
       <dd>
 
        <p class="para">
@@ -138,11 +140,11 @@
        </p>
       </dd>
 
-     </dt>
+     
+     
+      <dt>
+generic</dt>
 
-     <dt>
-
-      <span class="term">generic</span>
       <dd>
 
        <div class="example-contents screen"><div class="cdata"><pre>
@@ -150,8 +152,7 @@
 </pre></div></div>
       </dd>
 
-     </dt>
-
+     
     </dl>
 
    </p>
@@ -214,11 +215,12 @@
 <p class="para">
  <dl>
 
+   
    <dt id="ini.pdo-odbc.connection-pooling">
-   <span class="term">
-    <em><code class="parameter">pdo_odbc.connection_pooling</code></em>
+    <code class="parameter">pdo_odbc.connection_pooling</code>
     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -253,13 +255,13 @@
     </div>
    </dd>
 
-  </dt>
-
-  <dt id="ini.pdo-odbc.db2-instance-name">
-   <span class="term">
-    <em><code class="parameter">pdo_odbc.db2_instance_name</code></em>
+  
+  
+   <dt id="ini.pdo-odbc.db2-instance-name">
+    <code class="parameter">pdo_odbc.db2_instance_name</code>
     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -281,8 +283,7 @@
     </p>
    </dd>
 
-  </dt>
-
+  
   
  </dl>
 

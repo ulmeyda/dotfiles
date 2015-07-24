@@ -21,7 +21,7 @@
    <p><strong>例1 レプリカセットのシードリスト</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;複数のサーバーをシードリストとして使います&nbsp;(推奨)<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017,rs2.example.com:27017/?replicaSet=myReplSetName"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;単一のサーバーをシードリストとして使います<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"myReplSetName"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;複数のサーバーをシードリストとして使います<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017,rs2.example.com:27017"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"myReplSetName"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;複数のサーバーをシードリストとして使います&nbsp;(推奨)<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017,rs2.example.com:27017/?replicaSet=myReplSetName"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;単一のサーバーをシードリストとして使います<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"myReplSetName"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;複数のサーバーをシードリストとして使います<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://rs1.example.com:27017,rs2.example.com:27017"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"myReplSetName"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -39,6 +39,50 @@
     レプリカセットのシードリストは、常に複数のメンバーに適用しなければいけません。
     高可用性を確保するには、データセンターごとに少なくとも一つシードを用意すべきです。
    </p>
+  </div>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    シードリスとで指定したホスト名は、レプリカセットの設定で指定した名前と
+    <em class="emphasis">必ず</em> 一致しなければいけません。
+    ドライバは、レプリカセットの設定で指定したホスト名だけを使って、
+    持続的接続用のハッシュを作るからです。
+   </p>
+   <p class="para">
+    シードリストでは IP アドレスを使い、レプリカセットの設定にはホスト名を使っていたとすると、
+    レプリカセットの報告するホスト名と違うシードリスト接続はすべて破棄します。
+    事実上、これらのシードリスト接続は、リクエストのたびに作り直されることになり、
+    持続的接続の利点を大きく損ねてしまいます。
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    異なるレプリカセットに同じ名前で接続することは<em class="emphasis">できません</em>。
+    これは単一のスクリプト内だけの話ではないので、個々のレプリカセットにはそれぞれ別の名前をつけておくようにしましょう。
+    これはつまり、次のようなことは<em class="emphasis">できない</em>ということです。
+   </p>
+   <div class="example" id="mongo.connecting.rs-example-wrong-replset">
+    <p><strong>例2 レプリカセット名の重複</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://devserver1,devserver2,devserver3/?replicaSet=repset"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://prodserver1,prodserver2,prodserver3/?replicaSet=repset"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <p class="para">
+    それぞれ、別の名前をつかる必要があります。
+   </p>
+   <div class="example" id="mongo.connecting.rs-example-correct-replset">
+    <p><strong>例3 異なるレプリカセットの正しい使いかた</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://devserver1,devserver2,devserver3/?replicaSet=devset"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://prodserver1,prodserver2,prodserver3/?replicaSet=prodset"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </div>
   <p class="para">
    プライマリが使えなくなったときに、セカンダリがプライマリになるには数秒かかります。

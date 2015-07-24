@@ -105,15 +105,16 @@
     <p class="para">
      <dl>
 
-      <dt id="ini.oci8.connection-class">
-       <span class="term">
-        <em><code class="parameter">oci8.connection_class</code></em>
+      
+       <dt id="ini.oci8.connection-class">
+        <code class="parameter">oci8.connection_class</code>
         <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
-         このユーザー定義テキストは、接続プールの下位区画への Oracle 11g
+         このユーザー定義テキストは、接続プールの下位区画への Oracle 11<em class="emphasis">g</em>
          データベース常駐接続プーリング (DRCP) 接続によって使用されます。
          これにより、アプリケーションによる OCI8 持続的接続で、
          前の PHP スクリプト由来のデータベース・セッションを再利用できます。
@@ -123,12 +124,12 @@
          これにより、異なるアプリケーションの間で情報を思いがけずに共有することを防ぎます。
         </p>
         <p class="para">
-         接続する前に、  <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> で実行時に
+         接続する前に、 <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> で実行時に
          値を設定できます。
         </p>
         <p class="para">
-         DRCP を使用するには、 OCI8 は Oracle 11g ライブラリとリンクされ、
-         データベースは Oracle 11g でなければいけません。
+         DRCP を使用するには、 OCI8 は Oracle 11<em class="emphasis">g</em> ライブラリとリンクされ、
+         データベースは Oracle 11<em class="emphasis">g</em> でなければいけません。
          接続プールはデータベース内で有効にしなければいけません。
          <em>oci8.connection_class</em> は、
          同一のアプリケーションを稼動する web サーバーの全てで同じ文字列を設定しなければいけません。
@@ -136,13 +137,13 @@
         </p>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.default-prefetch">
-       <span class="term">
-        <em><code class="parameter">oci8.default_prefetch</code></em>
+      
+      
+       <dt id="ini.oci8.default-prefetch">
+        <code class="parameter">oci8.default_prefetch</code>
         <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
@@ -153,12 +154,12 @@
          設定します。
         </p>
         <p class="para">
-         プリフェッチ値は、  <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span>
+         プリフェッチ値は、 <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span>
          のような関数がユーザーに返す行数を変えません。
          行のプリフェッチ及びキャッシングは OCI8 の内部で取り扱われます。
         </p>
         <p class="para">
-         その値は、ステートメント実行の前に  <span class="function"><a href="function.oci-set-prefetch.html" class="function">oci_set_prefetch()</a></span>
+         その値は、ステートメント実行の前に <span class="function"><a href="function.oci-set-prefetch.html" class="function">oci_set_prefetch()</a></span>
          でステートメントごとに設定できます。
         </p>
         <p class="para">
@@ -170,6 +171,11 @@
          <em>1</em> から <em>0</em> に減らされました。
          これにより、プリフェッチをオフにできます。
         </p>
+        <p class="para">
+          Oracle Database 12<em class="emphasis">c</em> では、PHP で設定したプリフェッチの値を
+          Oracle のクライアント設定ファイル <em>oraaccess.xml</em> で上書きできます。
+          詳細は、Oracle のドキュメントを参照ください。
+        </p>
         <blockquote class="note"><p><strong class="note">注意</strong>: 
          <span class="simpara">
           プリフェッチをより大きくすると、メモリ使用量の増加と引き替えに
@@ -179,13 +185,13 @@
         </p></blockquote>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.events">
-       <span class="term">
-        <em><code class="parameter">oci8.events</code></em>
+      
+      
+       <dt id="ini.oci8.events">
+        <code class="parameter">oci8.events</code>
         <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
@@ -206,18 +212,18 @@
          データベースも構成しなければいけません。
         </p>
         <p class="para">
-         FAN サポートは、 OCI8 が Oracle 10gR2 以降のライブラリとリンクされ、
-         Oracle データベース 10gR2 以降に接続する場合に利用できます。
+         FAN サポートは、 OCI8 が Oracle 10<em class="emphasis">g</em>R2 以降のライブラリとリンクされ、
+         Oracle データベース 10<em class="emphasis">g</em>R2 以降に接続する場合に利用できます。
         </p>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.max-persistent">
-       <span class="term">
-        <em><code class="parameter">oci8.max_persistent</code></em>
+      
+      
+       <dt id="ini.oci8.max-persistent">
+        <code class="parameter">oci8.max_persistent</code>
         <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
@@ -226,41 +232,41 @@
         </p>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.old-oci-close-semantics">
-       <span class="term">
-        <em><code class="parameter">oci8.old_oci_close_semantics</code></em>
+      
+      
+       <dt id="ini.oci8.old-oci-close-semantics">
+        <code class="parameter">oci8.old_oci_close_semantics</code>
         <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
-         このオプションは  <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span>
-         の動作を制御します。有効にすると、 <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span>
+         このオプションは <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span>
+         の動作を制御します。有効にすると、<span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span>
          は何も行いません。接続はスクリプトの終了まで閉じられません。
          これは後方互換性のためのみに存在しています。
          この設定を有効にする必要があると判明した場合、
          このオプションを有効にする代わりに、
-         アプリケーションで  <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> を調整することが
+         アプリケーションで <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> を調整することが
          <em class="emphasis">強く推奨</em>されます。
         </p>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.persistent-timeout">
-       <span class="term">
-        <em><code class="parameter">oci8.persistent_timeout</code></em>
+      
+      
+       <dt id="ini.oci8.persistent-timeout">
+        <code class="parameter">oci8.persistent_timeout</code>
         <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
          アイドル状態の持続的接続を PHP プロセスが開いたままにする最大秒数
          を指定します。
          このオプションを -1 に設定すると、 PHP 処理が終了するか、または
-         接続が  <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> で明示的に終了されるまで、
+         接続が <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> で明示的に終了されるまで、
          アイドル状態の持続的接続が保持されます。
         </p>
         <blockquote class="note"><p><strong class="note">注意</strong>: 
@@ -272,7 +278,7 @@
           PHP のプロセスが複数ある場合は、
           それぞれを個別にアクティブにしないと
           アイドル状態のリソースを消すことができません。
-          Oracle 11g でデータベース常駐接続プーリング (DRCP) が導入されたことにより、
+          Oracle 11<em class="emphasis">g</em> でデータベース常駐接続プーリング (DRCP) が導入されたことにより、
           <em>oci8.max_persistent</em> や <em>oci8.persistent_timeout</em>
           が以前に克服しようとしたメモリ及びリソースの問題が解決されます。
          </span>
@@ -280,47 +286,47 @@
         <blockquote class="note"><p><strong class="note">注意</strong>: 
          <span class="simpara">
           PHP 5.3 (PECL OCI8 1.3) では、持続的接続は
-           <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> で閉じることができます。
+          <span class="function"><a href="function.oci-close.html" class="function">oci_close()</a></span> で閉じることができます。
          </span>
         </p></blockquote>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.ping-interval">
-       <span class="term">
-        <em><code class="parameter">oci8.ping_interval</code></em>
+      
+      
+       <dt id="ini.oci8.ping-interval">
+        <code class="parameter">oci8.ping_interval</code>
         <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
-           <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> の間、ping
+          <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> の間、ping
           を発行するまでに経過させる秒数を指定します。
           ping はデータベース接続が有効か確認します。
-          0 に設定した場合、持続的接続は  <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> が
+          0 に設定した場合、持続的接続は <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> が
           呼び出される度に ping を発行します。
           ping を完全に無効にするためには、このオプションを -1 に設定します。
         </p>
         <blockquote class="note"><p><strong class="note">注意</strong>: 
          <span class="simpara">
-          ping を無効にすることにより  <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span>
+          ping を無効にすることにより <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span>
           は最高の効率で処理できますが、ネットワークの脱落や
           PHP が接続した後に Oracle データベースがダウンした場合、
           その後のスクリプトで接続が使われるまで
           利用できない接続を PHP は検出できないでしょう。
-          詳細な情報は  <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> を参照ください。
+          詳細な情報は <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> を参照ください。
          </span>
         </p></blockquote>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.privileged-connect">
-       <span class="term">
-        <em><code class="parameter">oci8.privileged_connect</code></em>
+      
+      
+       <dt id="ini.oci8.privileged-connect">
+        <code class="parameter">oci8.privileged_connect</code>
         <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
@@ -339,13 +345,13 @@
         </p></blockquote>
        </dd>
 
-      </dt>
-
-      <dt id="ini.oci8.statement-cache-size">
-       <span class="term">
-        <em><code class="parameter">oci8.statement_cache_size</code></em>
+      
+      
+       <dt id="ini.oci8.statement-cache-size">
+        <code class="parameter">oci8.statement_cache_size</code>
         <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
-       </span>
+       </dt>
+
        <dd>
 
         <p class="para">
@@ -372,10 +378,14 @@
         <p class="para">
          このオプションは、持続的接続の利用の多くの場合に役立ちます。
         </p>
+        <p class="para">
+         Oracle Database 12<em class="emphasis">c</em> では、
+         この値はOracle クライアントの <em>oraaccess.xml</em> で自動的に設定されます。
+         詳細は、Oracle のドキュメントを参照ください。
+        </p>
        </dd>
 
-      </dt>
-
+      
      </dl>
 
     </p>

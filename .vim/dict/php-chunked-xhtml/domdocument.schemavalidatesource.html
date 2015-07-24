@@ -21,9 +21,10 @@
  <div class="refsect1 description" id="refsect1-domdocument.schemavalidatesource-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><strong>DOMDocument::schemaValidateSource</strong></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>DOMDocument::schemaValidateSource</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$source</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    指定した文字列に定義されているスキーマに基づいてドキュメントを検証します。
@@ -35,9 +36,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">source</code></dt>
 
-     <span class="term"><em><code class="parameter">source</code></em></span>
      <dd>
 
       <p class="para">
@@ -45,8 +47,19 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
 
+     <dd>
+
+      <p class="para">
+       Libxml のスキーマ検証フラグのビットマスク。現在サポートしている値は <a href="libxml.constants.html" class="link">LIBXML_SCHEMA_CREATE</a> だけです。PHP 5.5.2 および Libxml 2.6.14 以降で使えます。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -59,14 +72,42 @@
   </p>
  </div>
 
+ <div class="refsect1 changelog" id="refsect1-domdocument.schemavalidatesource-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.5.2</td>
+       <td>
+        <code class="parameter">flags</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
  <div class="refsect1 seealso" id="refsect1-domdocument.schemavalidatesource-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="methodname"><a href="domdocument.schemavalidate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::schemaValidate()</a> - スキーマに基づいてドキュメントを検証する</span></li>
-    <li class="member"> <span class="methodname"><a href="domdocument.relaxngvalidate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::relaxNGValidate()</a> - ドキュメントを relaxNG で検証する</span></li>
-    <li class="member"> <span class="methodname"><a href="domdocument.relaxngvalidatesource.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::relaxNGValidateSource()</a> - ドキュメントを relaxNG で検証する</span></li>
-    <li class="member"> <span class="methodname"><a href="domdocument.validate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::validate()</a> - DTD に基づいてドキュメントを検証する</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.schemavalidate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::schemaValidate()</a> - スキーマに基づいてドキュメントを検証する</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.relaxngvalidate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::relaxNGValidate()</a> - ドキュメントを relaxNG で検証する</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.relaxngvalidatesource.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::relaxNGValidateSource()</a> - ドキュメントを relaxNG で検証する</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.validate.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::validate()</a> - DTD に基づいてドキュメントを検証する</span></li>
    </ul>
   </p>
  </div>

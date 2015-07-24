@@ -20,7 +20,7 @@
  <div class="refsect1 description" id="refsect1-mongocursor.setreadpreference-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>MongoCursor::setReadPreference</strong></span>
+   <span class="modifier">public</span> <span class="type"><a href="class.mongocursor.html" class="type MongoCursor">MongoCursor</a></span> <span class="methodname"><strong>MongoCursor::setReadPreference</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$read_preference</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code></span>
   ] )</div>
@@ -32,13 +32,13 @@
   <h3 class="title">パラメータ</h3>
   <dl>
 <dt>
-<span class="term"><em><code class="parameter">read_preference</code></em></span><dd>
+<code class="parameter">read_preference</code></dt>
+<dd>
 <p class="para">読み込みの優先モード。<strong><code>MongoClient::RP_PRIMARY</code></strong>、<strong><code>MongoClient::RP_PRIMARY_PREFERRED</code></strong>、<strong><code>MongoClient::RP_SECONDARY</code></strong>、<strong><code>MongoClient::RP_SECONDARY_PREFERRED</code></strong> あるいは <strong><code>MongoClient::RP_NEAREST</code></strong> のいずれか。</p></dd>
-</dt>
 <dt>
-<span class="term"><em><code class="parameter">tags</code></em></span><dd>
+<code class="parameter">tags</code></dt>
+<dd>
 <p class="para">ゼロ個以上のタグセットの配列。各タグセット自体も配列で、レプリカセットのメンバーのタグにマッチさせる条件として使います。</p></dd>
-</dt>
 </dl>
 
  </div>
@@ -46,7 +46,9 @@
 
  <div class="refsect1 returnvalues" id="refsect1-mongocursor.setreadpreference-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">成功した場合に <strong><code>TRUE</code></strong>、それ以外の場合に <strong><code>FALSE</code></strong> を返します。</p>
+  <p class="para">
+   このカーソルを返します。
+  </p>
  </div>
 
 
@@ -58,12 +60,12 @@
 
  <div class="refsect1 examples" id="refsect1-mongocursor.setreadpreference-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1538">
-   <p><strong>例1  <span class="methodname"><strong>MongoCursor::setReadPreference()</strong></span> タグセット配列構文の例
+  <div class="example" id="example-1558">
+   <p><strong>例1 <span class="methodname"><strong>MongoCursor::setReadPreference()</strong></span> タグセット配列構文の例
    </strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">test</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">users</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;"east"&nbsp;データセンターの一番近いサーバーをレポート用に使うようにして、<br />//&nbsp;代替として&nbsp;"west"&nbsp;データセンターのサーバーを設定します<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setReadPreference</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">::</span><span style="color: #0000BB">RP_NEAREST</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'dc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'east'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'use'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'reporting'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'dc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'west'</span><span style="color: #007700">),<br />));</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">test</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">users</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;"east"&nbsp;データセンターの一番近いサーバーをレポート用に使うようにして、<br />//&nbsp;代替として&nbsp;"west"&nbsp;データセンターのサーバーを設定します<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setReadPreference</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">::</span><span style="color: #0000BB">RP_NEAREST</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'dc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'east'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'use'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'reporting'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'dc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'west'</span><span style="color: #007700">),<br />));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -76,6 +78,8 @@
   <h3 class="title">参考</h3>
   <ul class="simplelist">
    <li class="member"><a href="mongo.readpreferences.html" class="link">優先読み込み</a>のドキュメント</li>
+   <li class="member"><span class="function"><a href="mongocursor.getreadpreference.html" class="function" rel="rdfs-seeAlso">MongoCursor::getReadPreference()</a> - このクエリの優先読み込みを取得する</span></li>
+   <li class="member"><span class="function"><a href="mongocursorinterface.setreadpreference.html" class="function" rel="rdfs-seeAlso">MongoCursorInterface::setReadPreference()</a> - Set the read preference for this query</span></li>
   </ul>
  </div>
 

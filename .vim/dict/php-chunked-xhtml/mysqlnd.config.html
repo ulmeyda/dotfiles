@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd.install.html">インストール</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.persist.html">持続的接続</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.incompatibilities.html">非互換性</a></div>
  <div class="up"><a href="book.mysqlnd.html">Mysqlnd</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlnd.config" class="chapter">
@@ -34,66 +34,73 @@
 
     <tbody class="tbody">
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.collect-statistics" class="link">mysqlnd.collect_statistics</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-statistics" class="link">mysqlnd.collect_statistics</a></td>
       <td>&quot;1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.collect-memory-statistics" class="link">mysqlnd.collect_memory_statistics</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-memory-statistics" class="link">mysqlnd.collect_memory_statistics</a></td>
       <td>&quot;0&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.debug" class="link">mysqlnd.debug</a></td>
-      <td>&quot;0&quot;</td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.debug" class="link">mysqlnd.debug</a></td>
+      <td>&quot;&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#ini.mysqlnd.log-mask" class="link">mysqlnd.log_mask</a></td>
+      <td><a href="mysqlnd.config.html#ini.ini.mysqlnd.log-mask" class="link">mysqlnd.log_mask</a></td>
       <td>0</td>
       <td>PHP_INI_ALL</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#ini.mysqlnd.mempool-default-size" class="link">mysqlnd.mempool_default_size</a></td>
+      <td><a href="mysqlnd.config.html#ini.ini.mysqlnd.mempool-default-size" class="link">mysqlnd.mempool_default_size</a></td>
       <td>16000</td>
       <td>PHP_INI_ALL</td>
       <td>PHP 5.3.3 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.net-read-timeout" class="link">mysqlnd.net_read_timeout</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-timeout" class="link">mysqlnd.net_read_timeout</a></td>
       <td>&quot;31536000&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a></td>
       <td>5.3.0 - &quot;2048&quot;, 5.3.1 - &quot;4096&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.net-read-buffer-size" class="link">mysqlnd.net_read_buffer_size</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-buffer-size" class="link">mysqlnd.net_read_buffer_size</a></td>
       <td>&quot;32768&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
 
      <tr>
-      <td><a href="mysqlnd.config.html#mysqlnd.sha256_server_public_key" class="link">mysqlnd.sha256_server_public_key</a></td>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.sha256-server-public-key" class="link">mysqlnd.sha256_server_public_key</a></td>
       <td>&quot;&quot;</td>
       <td>PHP_INI_PERDIR</td>
       <td>PHP 5.5.0 以降で利用可能。</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.fetch_data_copy" class="link">mysqlnd.fetch_data_copy</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td>PHP 5.6.0 以降で利用可能。</td>
      </tr>
 
     </tbody>
@@ -110,19 +117,20 @@
   <p class="para">
   <dl>
 
-   <dt id="mysqlnd.collect-statistics">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.collect_statistics</code></em>
+   
+    <dt id="ini.mysqlnd.collect-statistics">
+     <code class="parameter">mysqlnd.collect_statistics</code>
      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
       さまざまなクライアント統計情報の収集を有効にします。収集した情報には
-       <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span> や
-       <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>、
-       <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> でアクセスでき、
-       <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> 関数の出力の
+      <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span> や
+      <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>、
+      <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> でアクセスでき、
+      <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> 関数の出力の
       <em>mysqlnd</em> セクションにも表示されます。
      </p>
      <p class="para">
@@ -132,21 +140,21 @@
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="mysqlnd.collect-memory-statistics">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.collect_memory_statistics</code></em>
+   
+   
+    <dt id="ini.mysqlnd.collect-memory-statistics">
+     <code class="parameter">mysqlnd.collect_memory_statistics</code>
      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
       さまざまなメモリ統計情報の収集を有効にします。収集した情報には
-       <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span> や
-       <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>、
-       <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> でアクセスでき、
-       <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> 関数の出力の
+      <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span> や
+      <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>、
+      <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> でアクセスでき、
+      <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> 関数の出力の
       <em>mysqlnd</em> セクションにも表示されます。
      </p>
      <p class="para">
@@ -155,12 +163,12 @@
      </p>
     </dd>
 
-   </dt>
+   
+   
+    <dt id="ini.mysqlnd.debug">
+     <code class="parameter">mysqlnd.debug</code> <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
 
-   <dt id="mysqlnd.debug">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.debug</code></em> <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-    </span>
     <dd>
 
      <p class="para">
@@ -244,6 +252,11 @@
         x - このオプションはプロファイリングを有効にします。
        </p>
       </li>
+       <li class="listitem">
+       <p class="para">
+        m - 呼び出しに関連する、メモリの確保と解放をトレースします。
+       </p>
+      </li>
      </ul>
      <p class="para">
       利用例は、このようになります。
@@ -264,13 +277,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      <p class="para"/>
     </dd>
 
-   </dt>
-
-   <dt id="ini.mysqlnd.log-mask">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.log_mask</code></em>
+   
+   
+    <dt id="ini.ini.mysqlnd.log-mask">
+     <code class="parameter">mysqlnd.log_mask</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -290,13 +303,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="ini.mysqlnd.mempool-default-size">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.mempool_default_size</code></em>
+   
+   
+    <dt id="ini.ini.mysqlnd.mempool-default-size">
+     <code class="parameter">mysqlnd.mempool_default_size</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -304,13 +317,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="mysqlnd.net-read-timeout">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.net_read_timeout</code></em>
+   
+   
+    <dt id="ini.mysqlnd.net-read-timeout">
+     <code class="parameter">mysqlnd.net_read_timeout</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -345,13 +358,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="mysqlnd.net-cmd-buffer-size">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.net_cmd_buffer_size</code></em>
+   
+   
+    <dt id="ini.mysqlnd.net-cmd-buffer-size">
+     <code class="parameter">mysqlnd.net_cmd_buffer_size</code>
      <span class="type"><span class="type long">long</span></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -402,13 +415,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="mysqlnd.net-read-buffer-size">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.net_read_buffer_size</code></em>
+   
+   
+    <dt id="ini.mysqlnd.net-read-buffer-size">
+     <code class="parameter">mysqlnd.net_read_buffer_size</code>
      <span class="type"><span class="type long">long</span></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -430,13 +443,13 @@ d:t:x:O,/tmp/mysqlnd.trace
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="mysqlnd.sha256_server_public_key">
-    <span class="term">
-     <em><code class="parameter">mysqlnd.sha256_server_public_key</code></em>
+   
+   
+    <dt id="ini.mysqlnd.sha256-server-public-key">
+     <code class="parameter">mysqlnd.sha256_server_public_key</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -446,21 +459,47 @@ d:t:x:O,/tmp/mysqlnd.trace
      <p class="para">
       クライアントで RSA 公開鍵の設定をせずに済ませることができます。
       そのためには、この設定項目で公開鍵を設定するか、実行時に
-       <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span> で鍵を指定します。
+      <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span> で鍵を指定します。
       RSA 公開鍵をクライアントから渡さなかった場合は、
       ここで指定した鍵を使って SHA-256 認証プラグインの認証手続きを進めます。
      </p>
     </dd>
 
-   </dt>
+   
+   
+    <dt id="ini.mysqlnd.fetch_data_copy">
+     <code class="parameter">mysqlnd.fetch_data_copy</code>
+     <span class="type"><span class="type long">long</span></span>
+    </dt>
 
+    <dd>
+
+     <p class="para">
+      デフォルトの参照とコピーオンライトのロジックを使わずに、
+      内部結果セットのバッファから PHP の変数に結果セットをコピーします。
+      詳細は
+      <a href="mysqlnd.memory.html" class="link">メモリ管理の実装についての説明</a>
+      を参照ください。
+     </p>
+     <p class="para">
+      結果セットを PHP の変数から参照させるのではなくコピーすることで、
+      PHP の変数に割り当てたメモリを早めに解放できます。
+      ユーザー API のコードやクエリの内容、そして結果セットの大きさにも依存しますが、
+      これは mysqlnd のメモリ使用量の削減につながります。
+     </p>
+     <p class="para">
+       PDO_MySQL を使う場合は設定しないでください。PDO_MySQL は、まだこの新しいフェッチモードに対応していません。
+     </p>
+    </dd>
+
+   
   </dl>
 
  </p>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd.install.html">インストール</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.persist.html">持続的接続</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.incompatibilities.html">非互換性</a></div>
  <div class="up"><a href="book.mysqlnd.html">Mysqlnd</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

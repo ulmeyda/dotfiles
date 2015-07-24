@@ -21,7 +21,8 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>PharData::setStub</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$stub</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code><span class="initializer"> = -1</span></span>
+  ] )</div>
 
 
 
@@ -37,9 +38,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">stub</code></dt>
 
-     <span class="term"><em><code class="parameter">stub</code></em></span>
      <dd>
 
       <p class="para">
@@ -49,8 +51,19 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">len</code></dt>
 
+     <dd>
+
+      <p class="para">
+       
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -74,11 +87,40 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-phardata.setstub-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        <code class="parameter">len</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
  <div class="refsect1 seealso" id="refsect1-phardata.setstub-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="phar.setstub.html" class="function" rel="rdfs-seeAlso">Phar::setStub()</a> - Phar アーカイブの PHP ローダ (あるいは起動スタブ) を設定する</span></li>
+    <li class="member"><span class="function"><a href="phar.setstub.html" class="function" rel="rdfs-seeAlso">Phar::setStub()</a> - Phar アーカイブの PHP ローダ (あるいは起動スタブ) を設定する</span></li>
    </ul>
   </p>
  </div>

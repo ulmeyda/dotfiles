@@ -27,11 +27,11 @@
   </div>
 
   <div class="sect2" id="migration55.incompatible.case">
-   <h3 class="title">大文字小文字を区別しない比較がロケールごとに変わる</h3>
+   <h3 class="title">大文字小文字を区別しない比較がロケールに依存しなくなる</h3>
    
    <p class="para">
-    関数名やクラス名そして定数名は大文字小文字を区別しませんでしたが、
-    このマッチ方法が ASCII のルールに基づいてロケールを考慮した動きに変わります。
+    関数名やクラス名そして定数名は大文字小文字を区別しませんが、
+    このマッチ方法が ASCII のルールに基づいたロケールに依存しない動きに変わります。
     ラテンアルファベットを通常とは異なる照合規則で使っている言語
     (トルコ語やアゼルバイジャン語など) にきちんと対応するようになりました。
    </p>
@@ -46,44 +46,44 @@
   </div>
 
   <div class="sect2" id="migration55.incompatible.pack">
-   <h3 class="title"> <span class="function"><a href="function.pack.html" class="function">pack()</a></span> と  <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> の変更</h3>
+   <h3 class="title"><span class="function"><a href="function.pack.html" class="function">pack()</a></span> と <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> の変更</h3>
 
    <p class="para">
-     <span class="function"><a href="function.pack.html" class="function">pack()</a></span> と
-     <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> が、より Perl との互換性を高めるように変更されました。
+    <span class="function"><a href="function.pack.html" class="function">pack()</a></span> と
+    <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> が、より Perl との互換性を高めるように変更されました。
    </p>
 
    <ul class="itemizedlist">
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.pack.html" class="function">pack()</a></span> が書式文字 &quot;Z&quot; に対応しました。この文字の挙動は
+      <span class="function"><a href="function.pack.html" class="function">pack()</a></span> が書式文字 &quot;Z&quot; に対応しました。この文字の挙動は
       &quot;a&quot; とまったく同じです。
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> も書式文字 &quot;Z&quot; に対応しました。これは
+      <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> も書式文字 &quot;Z&quot; に対応しました。これは
       NULL 埋めの文字列に使うもので、以前のバージョンの &quot;a&quot; と同じ挙動です。
       最後の NULL バイトは切り捨てます。
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で書式文字 &quot;a&quot; を使ったときに、
+      <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で書式文字 &quot;a&quot; を使ったときに、
       最後の NULL バイトを維持するようになりました。
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で書式文字 &quot;A&quot; を使ったときに、
+      <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で書式文字 &quot;A&quot; を使ったときに、
       最後の ASCII 空白文字をすべて切り捨てるようになりました。
      </span>
     </li>
    </ul>
 
    <p class="para">
-     <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で &quot;a&quot; を使っているコードで過去のバージョンとの互換性を保つには、
-     <span class="function"><a href="function.version-compare.html" class="function">version_compare()</a></span> を使う必要があります。
+    <span class="function"><a href="function.unpack.html" class="function">unpack()</a></span> で &quot;a&quot; を使っているコードで過去のバージョンとの互換性を保つには、
+    <span class="function"><a href="function.version-compare.html" class="function">version_compare()</a></span> を使う必要があります。
     過去との互換性が崩れてしまったからです。
    </p>
    <p class="para">
@@ -100,6 +100,22 @@
    </div>
   </div>
 
+  <div class="sect2" id="migration55.incompatible.self-parent-static">
+   <h3 class="title"><em>self</em> や <em>parent</em> そして <em>static</em>
+   が、どんな場合であっても大文字小文字を区別しないようになる</h3>
+
+   <p class="para">
+    PHP 5.5 より前のバージョンでは、キーワード
+    <a href="language.oop5.paamayim-nekudotayim.html" class="link">self</a>、
+    <a href="language.oop5.paamayim-nekudotayim.html" class="link">parent</a> そして
+    <a href="language.oop5.late-static-bindings.html" class="link">static</a>
+    について大文字小文字を区別した扱いになる場合がありました。
+    この問題は解決し、PHP 5.5 からはどんな場合であっても大文字小文字を区別しないようになります。
+    つまり、<em>SELF::CONSTANT</em> と
+    <em>self::CONSTANT</em> はまったく同じ扱いになるということです。
+   </p>
+  </div>
+
   <div class="sect2" id="migration55.incompatible.guid">
    <h3 class="title">PHP ロゴの GUID の削除</h3>
 
@@ -111,22 +127,22 @@
    <ul class="itemizedlist">
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.php-logo-guid.html" class="function">php_logo_guid()</a></span>
+      <span class="function"><a href="function.php-logo-guid.html" class="function">php_logo_guid()</a></span>
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><strong>php_egg_logo_guid()</strong></span>
+      <span class="function"><strong>php_egg_logo_guid()</strong></span>
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><strong>php_real_logo_guid()</strong></span>
+      <span class="function"><strong>php_real_logo_guid()</strong></span>
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-       <span class="function"><a href="function.zend-logo-guid.html" class="function">zend_logo_guid()</a></span>
+      <span class="function"><a href="function.zend-logo-guid.html" class="function">zend_logo_guid()</a></span>
      </span>
     </li>
    </ul>

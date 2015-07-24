@@ -15,10 +15,8 @@
 
 
  <p class="para">
-  PECL パッケージにはテストが含まれていませんが、
-  <a href="http://github.com/mongodb/mongo-php-driver" class="link external">&raquo;&nbsp;Github</a> で公開しています。
-  テストには二種類あります。.phpt のテストと PHPUnit のテストです。
-  PHPUnit のテストが .phpt のテストに置き換えられつつあります。
+  PECL パッケージには含まれていませんが、
+  <a href="http://github.com/mongodb/mongo-php-driver" class="link external">&raquo;&nbsp;Github</a> でテストを公開しています。
  </p>
 
  <div class="section">
@@ -29,51 +27,12 @@
    を実行すると、このテストができます。テストを実行するためには
    MongoDB が動いている必要があるので、
    テストスイート自体の設定もしないといけません。
-   <em>tests/mongo-test-cfg.inc</em> ファイルを編集しましょう。
   </p>
   <p class="para">
    このあたりに関する詳細な情報は、
    <a href="https://github.com/mongodb/mongo-php-driver/blob/master/CONTRIBUTING.md#running-the-tests" class="link external">&raquo;&nbsp;GitHub</a>
    にある貢献者向けガイドラインを参照ください。
   </p>
- </div>
-
- <div class="section">
-  <h2 class="title">PHPUnit のテスト</h2>
-  <p class="para">
-   テストを実行するには、ドライバを Github からダウンロードしなければなりません
-   (テストは <em>tests/</em> ディレクトリにあります)。
-   さらに <a href="www.phpunit.de/manual/2.3/en/installation.html" class="link external">&raquo;&nbsp;PHPUnit</a> も必要です。
-   PHPUnit は PEAR でインストールできます (いくつか要件があるので、
-   インストール手順を確認しなければなりません)。
-  </p>
-  <p class="para">
-   テストの中には、警告やエラーが発生することを想定しているものもあります。
-   すべてのテストを成功させるには、php.ini の <em>error_reporting</em>
-   を <em>E_STRICT | E_ALL</em> に設定しなければなりません。
-   そうしないと、発生するはずの警告やエラーが出ないせいでいくつかのテストが失敗します。
-  </p>
-  <p class="para">
-   テストを実行する際には、MongoDB サーバーをローカルのポート 27017 で動かしておきましょう。
-   バグ報告を出す前に、最新の開発版の MongoDB でテストを実行してみてください。
-   テストの中には、まだ安定版のリリースには含まれていない機能のテストが含まれていることがよくあります。
-  </p>
-  <p class="para">
-   テストスイートで使っているデータベースは &quot;phpunit&quot; です。
-   もし自分のアプリケーションで &quot;phpunit&quot; という名前のデータベースを使っている場合は、
-   MongoDB が別のデータディレクトリを指すように設定してからテストを実行してください。
-  </p>
-  <p class="para">
-   Github からダウンロードしたドライバのソースのメインディレクトリにいることを確認し、次のコマンドを実行します。
-  </p>
-  <div class="example-contents">
-<div class="cdata"><pre>
-
-$ phpunit tests/MongoSuite.php
-
-</pre></div>
- </div>
-
  </div>
 
  <div class="section">

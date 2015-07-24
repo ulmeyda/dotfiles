@@ -19,7 +19,7 @@
  <div class="refsect1 description" id="refsect1-pdo.cubrid-schema-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">array</span> <span class="methodname"><strong>PDO::cubrid_schema</strong></span>
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><strong>PDO::cubrid_schema</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$schema_type</code></span>  
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span> 
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$col_name</code></span>  
@@ -27,8 +27,8 @@
 
   <p class="para rdfs-comment">
    指定したスキーマ情報をデータベースから取得します。
-   テーブルの情報を知りたい場合は <em><code class="parameter">table_name</code></em> を指定しなければなりません。また、
-   カラムの情報を知りたければ <em><code class="parameter">col_name</code></em> を指定しなければなりません
+   テーブルの情報を知りたい場合は <code class="parameter">table_name</code> を指定しなければなりません。また、
+   カラムの情報を知りたければ <code class="parameter">col_name</code> を指定しなければなりません
    (PDO::CUBRID_SCH_COL_PRIVILEGE とともにしか使えません)。
   </p>
 
@@ -476,9 +476,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">schema_type</code></dt>
 
-     <span class="term"><em><code class="parameter">schema_type</code></em></span>
      <dd>
 
       <p class="para">
@@ -486,11 +487,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">table_name</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">table_name</code></em></span>
      <dd>
 
       <p class="para">
@@ -498,11 +499,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">col_name</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">col_name</code></em></span>
      <dd>
 
       <p class="para">
@@ -510,8 +511,7 @@
      </p>
     </dd>
 
-   </dt>
-
+   
    </dl>
 
   </p>
@@ -532,8 +532,8 @@
  <div class="refsect1 examples" id="refsect1-pdo.cubrid-schema-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1034">
-    <p><strong>例1  <span class="function"><strong>PDO::cubrid_schema()</strong></span> の例</strong></p>
+   <div class="example" id="example-1022">
+    <p><strong>例1 <span class="function"><strong>PDO::cubrid_schema()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      これは、game テーブルの主キーと外部キーを取得する例です。
     </p></div>

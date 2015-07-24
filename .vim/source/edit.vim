@@ -1,7 +1,7 @@
 NeoBundle 'chrismetcalf/vim-yankring' " yankring
-NeoBundle 'tpope/vim-fugitive' " gitラッパー
-
+NeoBundle 'mrk21/yaml-vim' " yaml
 NeoBundle 'bronson/vim-trailing-whitespace' " FixWhitespaceで空白を削除する
+
 
 " Yanktmp.vim
 NeoBundle 'vim-scripts/yanktmp.vim' " 他のvimのコピーを使える

@@ -30,12 +30,14 @@
   Web サーバーを開始する前に、一般的に OCI8 はいくつかの Oracle 環境変数（下記参照）を
   必要とします。それらはライブラリの場所を指定したり、構成ファイルを指示したり、
   Oracle ライブラリで使用する文字セットのような基本的ないくつかのプロパティを設定します。
-  あらゆる PHP プロセスが開始される <em class="emphasis">前に</em>それらの変数が設定されるべきです。
+  あらゆる PHP プロセスが開始される <em class="emphasis">前に</em>それらの変数を設定しなければいけません。
  </p>
  <p class="para">
-  PHP を構成したのと同じか、またはより最新の Oracle ライブラリのメジャー・バージョンとともに PHP を実行すべきです。
+  PHP を構成したのと同じか、またはより最新の Oracle ライブラリのメジャー・バージョンとともに PHP バイナリをリンクしなければいけません。
   例えば Oracle 11.2 ライブラリで OCI8 をビルドするなら、
   PHP も Oracle 11.2 ライブラリとともにデプロイして実行すべきです。
+  PHP のアプリケーションは、それ以外のバージョンの Oracle データベースにも接続できます。
+  Oracle のクライアントとサーバーの間には、異なるバージョン間での互換性があるからです。
  </p>
 </div>
 <div class="section">
@@ -53,7 +55,8 @@
   <ul class="itemizedlist">
    <li class="listitem">
     <p class="para">
-     Oracle Instant Client を使用している場合、こうします
+     無料の <a href="http://www.oracle.com/technetwork/database/features/instant-client/index-100365.html" class="link external">&raquo;&nbsp;Oracle Instant
+     Client</a> ライブラリを使用している場合、こうします
     </p>
     <p class="para">
      <div class="informalexample">
@@ -66,7 +69,7 @@
     </p>
     <p class="para">
      Instant Client を ZIP ファイルからインストールした場合、例えば
-     <em>ln -s libclntsh.so.11.1 libclntsh.so</em>
+     <em>ln -s libclntsh.so.12.1 libclntsh.so</em>
      のようにライブラリのシンボリックリンクを作成したことを確認してください。
     </p>
     <p class="para">
@@ -83,7 +86,7 @@
      </div>
     </p>
     <p class="para">
-     例えば、 <strong class="option configure">--with-oci8=shared,instantclient,/usr/lib/oracle/11.2/client/lib</strong>
+     例えば、 <strong class="option configure">--with-oci8=shared,instantclient,/usr/lib/oracle/12.1/client/lib</strong>
 .
     </p>
     <p class="para">
@@ -113,7 +116,7 @@
      <em>$ORACLE_HOME</em> ディレクトリ配下のライブラリ、初期化ファイル、
      （使用されていれば） <var class="filename">tnsnames.ora</var> を利用する権利を
      所持していることを確認してください。
-     Oracle 10gR2 では、ディレクトリ利用権を与えるために
+     Oracle 10<em class="emphasis">g</em>R2 では、ディレクトリ利用権を与えるために
      <var class="filename">$ORACLE_HOME/install/changePerm.sh</var>
      ユーティリティを実行する必要があるでしょう。
     </p>
@@ -142,7 +145,7 @@ extension=oci8.so
 <div class="section">
  <h2 class="title">OCI8 を静的にコンパイルされたエクステンションとしてインストール</h2>
  <p class="para">
-  下記の構成オプションの一つを使って OCI8 を構成します
+  PHP の configure 時に、下記の構成オプションの一つを使って OCI8 を含めます
  </p>
  <p class="para">
   <ul class="itemizedlist">
@@ -185,16 +188,8 @@ extension=oci8.so
 <div class="section">
  <h2 class="title">PECL から OCI8 をインストール</h2>
  <p class="para">
-  既存の PHP インストール内容に<a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;http://pecl.php.net/</a>から
-  OCI8 エクステンションを自動または手動で追加できます。
-
-  この PECL 拡張モジュールをインストールする方法は、
-マニュアルの <a href="install.pecl.html" class="link">
-PECL 拡張モジュールのインストール</a> という章にあります。
-新規リリース・ダウンロード・ソースファイル・管理者情報・CHANGELOG
-といった関連する情報については、次の場所にあります。
-  <a href="http://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;http://pecl.php.net/package/oci8</a>.
-
+  既存の PHP インストール内容に、<a href="http://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;PECL</a>
+  を使って OCI8 エクステンションを自動または手動で追加できます。
  </p>
  <p class="para">
   自動インストールでは、これらのステップを続けます。
@@ -240,8 +235,8 @@ pecl install oci8
   </ul>
  </p>
  <p class="para">
-  手動インストールでは、 PECL の OCI8 パッケージをダウンロードします。
-  例えば、 <var class="filename">oci8-1.3.5.tgz</var>。
+  <em>pecl</em> コマンドが使えない場合の手動インストールでは、 PECL の OCI8 パッケージをダウンロードします。
+  例えば、 <var class="filename">oci8-1.4.10.tgz</var>。
  </p>
  <p class="para">
   <ul class="itemizedlist">
@@ -253,8 +248,8 @@ pecl install oci8
      <div class="informalexample">
       <div class="example-contents screen">
 <div class="cdata"><pre>
-tar -zxf oci8-1.3.5.tgz
-cd oci8-1.3.5
+tar -zxf oci8-1.4.10.tgz
+cd oci8-1.4.10
 </pre></div>
       </div>
      </div>
@@ -339,17 +334,23 @@ extension=oci8.so
 <div class="section">
  <h2 class="title">Windows で OCI8 をインストール</h2>
  <p class="para">
-  Windows では、 Oracle 10gR2 クライアント・ライブラリを使用する際は、
+  Windows では、 Oracle 10<em class="emphasis">g</em>R2 クライアント・ライブラリを使用する際は、
   <var class="filename">php.ini</var> の <em>extension=php_oci8.dll</em> 行のコメントをはずします。
-  Oracle 11g クライアント・ライブラリを使用する際は、
-  <em>extension=php_oci8_11g.dll</em> のコメントをはずします。
-  これら 2 つの DLL は同等の機能を含みます。
-  そして一度に一つだけ使用可能でしょう。
+  Oracle 11<em class="emphasis">g</em>R2 以降のクライアント・ライブラリを使用する際は、
+  <em>extension=php_oci8_11g.dll</em>
+  あるいは <em>extension=php_oci8.dll</em> のコメントをはずします。
+  Oracle 12<em class="emphasis">c</em> のクライアントライブラリを使用する際は、
+  <em>extension=php_oci8_12c.dll</em> または
+  <em>extension=php_oci8_11g.dll</em> または
+  <em>extension=php_oci8.dll</em> を使います。
+  一度に有効にできるのは、これらのうちのどれかひとつだけです。
+  新しいバージョンの DLL のほうが、多くの機能を含んでいるでしょう。
+  PHP のバージョンによっては、これらの DLL がすべて含まれているとは限りません。
   <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> を
   PHP エクステンション DLL を含むディレクトリに設定したことを確認してください。
  </p>
  <p class="para">
-  もし Instant Client を使用する場合、システムの <em>PATH</em>
+  もし Instant Client を使用する場合、システムの <span class="envar">PATH</span>
   環境変数を Oracle ライブラリ・ディレクトリに設定します。
  </p>
 </div>
@@ -363,10 +364,10 @@ extension=oci8.so
  </p>
  <blockquote class="note"><p><strong class="note">注意</strong>: 
   <p class="para">
-   PHP スクリプトで  <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> を使って Oracle の環境変数を
+   PHP スクリプトで <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> を使って Oracle の環境変数を
    設定しないでください。それは、スクリプトが実行される前に Oracle のライブラリがロードされて
    初期化されるかもしれないからです。
-    <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> で変数を設定すると、コンフリクト、クラッシュ、
+   <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> で変数を設定すると、コンフリクト、クラッシュ、
    または予測出来ない動作の原因となるかもしれません。
    ある関数は動作し、他の関数は捉えがたいエラーを示すかもしれません。
    Web サーバー開始<em class="emphasis">前</em>に変数を設定するべきです。
@@ -381,13 +382,13 @@ extension=oci8.so
   動作するかもしれませんが、他のシステムでは不適切であることが知られています。
  </p>
  <p class="para">
-  環境変数が正しく設定されたかチェックするには、  <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> を使って
+  環境変数が正しく設定されたかチェックするには、 <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> を使って
   <em class="emphasis">Environment</em> セクション (<em class="emphasis">Apache Environment</em>
   ではありません) に期待される変数が含まれるかどうかチェックしてください。
  </p>
  <p class="para">
   必要かもしれない変数が下記の表に含まれます。
-  変数の全てについての詳細は Oracle ドキュメントを参照してください。
+  どんな変数が使えるのかについての詳細は Oracle ドキュメントを参照してください。
   <table class="doctable table">
    <caption><strong>一般的な Oracle 環境変数</strong></caption>
    
@@ -411,7 +412,7 @@ extension=oci8.so
      <tr>
       <td>ORACLE_SID</td>
       <td>ローカルマシン上の、接続されるデータベース名を含みます。
-      Oracle Instant Client を使用するか、または  <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span>
+      Oracle Instant Client を使用するか、または <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span>
       に常に接続パラメータを渡す場合は、この設定は不要です。
       </td>
      </tr>
@@ -444,7 +445,7 @@ extension=oci8.so
       <td>TNS_ADMIN</td>
       <td><var class="filename">tnsnames.ora</var> や <var class="filename">sqlnet.ora</var>
       のような Oracle ネット・サービス構成ファイルが保持されるディレクトリを含みます。
-      もし  <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> 接続文字列が、
+      もし <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> 接続文字列が、
       <em>localhost/XE</em> のような Easy Connect という名前の構文を使っていれば不要です。
       もしネットワーク構成ファイルが
        <var class="filename">$ORACLE_HOME/network/admin</var> や <var class="filename">/etc</var>
@@ -466,8 +467,8 @@ extension=oci8.so
  <h2 class="title">トラブルシューティング</h2>
  <p class="para">
   OCI8 をインストールする際に最も一般的な問題は、 Oracle 環境が
-  正しく設定されないことです。通常、これは  <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span>
-  や  <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> 使用上の問題として現れます。
+  正しく設定されないことです。通常、これは <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span>
+  や <span class="function"><a href="function.oci-pconnect.html" class="function">oci_pconnect()</a></span> 使用上の問題として現れます。
   このエラーは <em class="emphasis">Call to undefined function oci_connect()</em>
   のような PHP エラーや、 ORA-12705 のような Oracle エラー、さらには
   Apache のクラッシュになるかもしれません。

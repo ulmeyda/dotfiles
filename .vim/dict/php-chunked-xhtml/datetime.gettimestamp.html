@@ -8,13 +8,15 @@
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="datetime.getoffset.html">DateTime::getOffset</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="datetime.gettimezone.html">DateTime::getTimezone</a></div>
- <div class="up"><a href="class.datetime.html">DateTime</a></div>
+ <div class="up"><a href="class.datetimeinterface.html">DateTimeInterface</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="datetime.gettimestamp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DateTime::getTimestamp</h1>
+  <h1 class="refname">DateTimeImmutable::getTimestamp</h1>
+  <h1 class="refname">DateTimeInterface::getTimestamp</h1>
   <h1 class="refname">date_timestamp_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">DateTime::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Unix タイムスタンプを取得する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">DateTime::getTimestamp</span> -- <span class="refname">DateTimeImmutable::getTimestamp</span> -- <span class="refname">DateTimeInterface::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Unix タイムスタンプを取得する</span></p>
 
  </div>
 
@@ -23,6 +25,16 @@
   <p class="para">オブジェクト指向型</p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>DateTime::getTimestamp</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>DateTimeImmutable::getTimestamp</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>DateTimeInterface::getTimestamp</strong></span>
     ( <span class="methodparam">void</span>
    )</div>
 
@@ -54,8 +66,8 @@
 
  <div class="refsect1 examples" id="refsect1-datetime.gettimestamp-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-635">
-   <p><strong>例1  <span class="function"><strong>DateTime::getTimestamp()</strong></span> の例</strong></p>
+  <div class="example" id="example-2466">
+   <p><strong>例1 <span class="function"><strong>DateTime::getTimestamp()</strong></span> の例</strong></p>
    <div class="example-contents"><p>オブジェクト指向型</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -87,7 +99,7 @@
   <h3 class="title">注意</h3>
   <p class="para">
    PHP 5.2 では、
-    <span class="function"><a href="datetime.format.html" class="function">DateTime::format()</a></span> のパラメータに
+   <span class="function"><a href="datetime.format.html" class="function">DateTime::format()</a></span> のパラメータに
    <em>U</em> を使えば同じことができます。
   </p>
  </div>
@@ -96,8 +108,8 @@
  <div class="refsect1 seealso" id="refsect1-datetime.gettimestamp-seealso">
   <h3 class="title">参考</h3>
   <ul class="simplelist">
-   <li class="member"> <span class="function"><a href="datetime.settimestamp.html" class="function" rel="rdfs-seeAlso">DateTime::setTimestamp()</a> - Unix タイムスタンプを用いて日付と時刻を設定する</span></li>
-   <li class="member"> <span class="function"><a href="datetime.format.html" class="function" rel="rdfs-seeAlso">DateTime::format()</a> - 指定した書式でフォーマットした日付を返す</span></li>
+   <li class="member"><span class="function"><a href="datetime.settimestamp.html" class="function" rel="rdfs-seeAlso">DateTime::setTimestamp()</a> - Unix タイムスタンプを用いて日付と時刻を設定する</span></li>
+   <li class="member"><span class="function"><a href="datetime.format.html" class="function" rel="rdfs-seeAlso">DateTime::format()</a> - 指定した書式でフォーマットした日付を返す</span></li>
   </ul>
  </div>
 
@@ -105,6 +117,6 @@
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="datetime.getoffset.html">DateTime::getOffset</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="datetime.gettimezone.html">DateTime::getTimezone</a></div>
- <div class="up"><a href="class.datetime.html">DateTime</a></div>
+ <div class="up"><a href="class.datetimeinterface.html">DateTimeInterface</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

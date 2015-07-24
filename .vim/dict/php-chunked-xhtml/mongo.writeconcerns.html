@@ -21,14 +21,14 @@
   特定のサーバーへの書き込みを確認するまで書き込み完了と見なさないようにもできます。
  </p>
  <p class="para">
-  書き込み操作 ( <span class="methodname"><a href="mongocollection.insert.html" class="methodname">MongoCollection::insert()</a></span> や
-   <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update()</a></span>、
-   <span class="methodname"><a href="mongocollection.remove.html" class="methodname">MongoCollection::remove()</a></span>) で Write Concern オプション
+  書き込み操作 (<span class="methodname"><a href="mongocollection.insert.html" class="methodname">MongoCollection::insert()</a></span> や
+  <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update()</a></span>、
+  <span class="methodname"><a href="mongocollection.remove.html" class="methodname">MongoCollection::remove()</a></span>) で Write Concern オプション
   (<em>&quot;w&quot;</em>) を指定すると、ドライバはクエリを MongoDB
   に送信してから <em>getLastError</em> コマンド
   (<acronym title="getLastError">GLE</acronym>) に Write Concern オプションを付けて実行します。
   これは Write Concern 条件を満たすかタイムアウト
-  (<em>&quot;wtimeout&quot;</em> で指定でき、デフォルトはタイムアウトなし)
+  (<em>&quot;wtimeout&quot;</em> で指定でき、デフォルトは <em>10000</em> ミリ秒)
   に達するまでブロックします。
  </p>
 
@@ -118,7 +118,68 @@
   </table>
 
  </p>
+ 
+ <div class="simplesect">
+  <h3 class="title">書き込み確認の使いかた</h3>
+  <p class="para">
+   書き込みを行うメソッド
+   (<span class="methodname"><a href="mongocollection.insert.html" class="methodname">MongoCollection::insert()</a></span>、
+   <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update()</a></span>、
+   <span class="methodname"><a href="mongocollection.remove.html" class="methodname">MongoCollection::remove()</a></span> そして
+   <span class="methodname"><a href="mongocollection.batchinsert.html" class="methodname">MongoCollection::batchInsert()</a></span>)
+   はどれも、オプションの引数で MongoDB サーバーに送るオプションを設定できます。
+   このオプション配列を使って、次の例のように書き込み確認を指定できます。
+  </p>
+  <div class="example" id="example-1425">
+   <p><strong>例1 書き込み操作での書き込み確認の指定</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;w=0&nbsp;を登録用に設定します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$someDoc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;w=majority&nbsp;を更新用に設定します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update</span><span style="color: #007700">(</span><span style="color: #0000BB">$someDoc</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$someUpdates</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"majority"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;w=5&nbsp;と&nbsp;j=true&nbsp;を削除用に設定します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update</span><span style="color: #007700">(</span><span style="color: #0000BB">$someDoc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"j"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;w="AllDCs"&nbsp;を一括登録用に設定します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$someDoc1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$someDoc2</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"AllDCs"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
 
+  </div>
+  <p class="para">
+   書き込み確認を操作ごとに option 引数で設定するだけでなく、
+   デフォルトの書き込み確認方法を設定することもできます。
+  </p>
+  <p class="para">
+   最初の方法は、<a href="" class="link">接続文字列</a>
+   を使うものです。接続文字列には
+   <em>journal</em> や <em>w</em> そして
+   <em>wTimeoutMS</em> というオプションを指定できます。
+  </p>
+  <div class="example" id="example-1426">
+   <p><strong>例2 接続文字列での書き込み確認の指定</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/?journal=true&amp;w=majority&amp;wTimeoutMS=20000"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   ドライバのバージョン 1.5 以降では、
+   <span class="methodname"><a href="mongodb.setwriteconcern.html" class="methodname">MongoDB::setWriteConcern()</a></span> や
+   <span class="methodname"><a href="mongocollection.setwriteconcern.html" class="methodname">MongoCollection::setWriteConcern()</a></span>
+   を呼んでデフォルトの書き込み確認方法を設定できるようになりました。その
+   <a href="class.mongodb.html" class="classname">MongoDB</a> や <a href="class.mongocollection.html" class="classname">MongoCollection</a>
+   から作るすべての操作のデフォルトを設定できます。
+  </p>
+  <div class="example" id="example-1427">
+   <p><strong>例3 MongoDB::setWriteConcern および MongoCollection::setWriteConcern</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoDb</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoCollection</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;データベースオブジェクトで&nbsp;w=3&nbsp;として、タイムアウトを&nbsp;25000ms&nbsp;にします<br /></span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">25000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;コレクションオブジェクトで&nbsp;w=majority&nbsp;として、タイムアウトは変更しません<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #DD0000">"majority"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
 
  <div class="simplesect">
   <h3 class="title">確認なしの書き込み</h3>
@@ -145,7 +206,7 @@
    何かエラーがあればそれを捕捉できるようになります。
   </p>
   <div class="example" id="mongo.writeconcerns.unacknowledged-example">
-   <p><strong>例1 確認なしの書き込みの後に確認付き書き込みを続ける例</strong></p>
+   <p><strong>例4 確認なしの書き込みの後に確認付き書き込みを続ける例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$someDoc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newObj</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$somethingElse</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$something</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br />}&nbsp;catch(</span><span style="color: #0000BB">MongoCursorException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;例外処理&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;ここでは、find()&nbsp;クエリを使って<br />&nbsp;&nbsp;&nbsp;&nbsp;$somethingElse&nbsp;や&nbsp;$someDoc&nbsp;で生成された&nbsp;ID&nbsp;を調べ、<br />&nbsp;&nbsp;&nbsp;&nbsp;実際にデータベースに書き込まれているかどうかを確認しないといけません。<br />&nbsp;&nbsp;&nbsp;&nbsp;これで、一連の処理でいったい何が起こったのかがわかります。&nbsp;*/<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -171,10 +232,10 @@
    レプリカセットの中で何台のメンバーに書き込み終える (レプリケートされる)
    まで書き込み完了とみなさないかを指定することもできます。
    <div class="example" id="mongo.writeconcerns.acknowledged-example">
-    <p><strong>例2 確認付き書き込み</strong></p>
+    <p><strong>例5 確認付き書き込み</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;プライマリに書き込まれたかどうかだけを確認します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;プライマリの他に、レプリカセットのどれか一つのメンバーに書き込まれたことを確認します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;プライマリの他に、レプリカセットのどれか六つのメンバーに書き込まれたことを確認します<br />//&nbsp;(まさかこんな設定をすることはないでしょう)<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">));</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;プライマリに書き込まれたかどうかだけを確認します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;プライマリの他に、レプリカセットのどれか一つのメンバーに書き込まれたことを確認します<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;プライマリの他に、レプリカセットのどれか六つのメンバーに書き込まれたことを確認します<br />//&nbsp;(まさかこんな設定をすることはないでしょう)<br /></span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -207,7 +268,7 @@
    ありがちなあらゆる障害に対応できるようになります。
   </p>
   <div class="example" id="mongo.writeconcerns.majority.acknowledged-example">
-   <p><strong>例3 過半数の確認付き書き込み</strong></p>
+   <p><strong>例6 過半数の確認付き書き込み</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$someDoc</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"majority"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -230,11 +291,11 @@
    書き込みがディスクに記録されるまで成功とみなさないようにするには、
    <em>j</em> オプションを指定します。
    <div class="example" id="mongo.writeconcerns.journalled">
-    <p><strong>例4 確認付きジャーナル書き込み</strong></p>
+    <p><strong>例7 確認付きジャーナル書き込み</strong></p>
     <div class="example-contents"><p>ジャーナルのフラッシュを強制します。</p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"j"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />);<br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">MongoCursorException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;例外処理&nbsp;*/<br /></span><span style="color: #007700">}</span>
+<span style="color: #0000BB">&lt;?php<br />$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"w"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"j"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />);<br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">MongoCursorException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;例外処理&nbsp;*/<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -19,7 +19,7 @@
  <div class="refsect1 description" id="refsect1-ziparchive.getfromname-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>ZipArchive::getFromName</strong></span>
+   <span class="type">string</span> <span class="methodname"><strong>ZipArchive::getFromName</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
@@ -35,9 +35,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">name</code></dt>
 
-     <span class="term"><em><code class="parameter">name</code></em></span>
      <dd>
 
       <p class="para">
@@ -45,11 +46,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">length</code></em></span>
      <dd>
 
       <p class="para">
@@ -57,11 +58,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">flags</code></em></span>
      <dd>
 
       <p class="para">
@@ -70,20 +71,19 @@
        <ul class="itemizedlist">
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_UNCHANGED</code></strong>
+          <strong><code>ZipArchive::FL_UNCHANGED</code></strong>
          </p>
         </li>
         <li class="listitem">
          <p class="para">
-          <strong><code>ZIPARCHIVE::FL_COMPRESSED</code></strong>
+          <strong><code>ZipArchive::FL_COMPRESSED</code></strong>
          </p>
         </li>
        </ul>
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -98,7 +98,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.getfromname-examples">
   <h3 class="title">例</h3>
-    <div class="example" id="example-865">
+    <div class="example" id="example-833">
      <p><strong>例1 ファイルの内容の取得</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -108,7 +108,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-866">
+    <div class="example" id="example-834">
      <p><strong>例2 zip エントリの画像への変換</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,6 +119,17 @@
 
     </div>
    </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-ziparchive.getfromname-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="ziparchive.getfromindex.html" class="methodname" rel="rdfs-seeAlso">ZipArchive::getFromIndex()</a> - インデックスを使用して、エントリの内容を返す</span></li>
+   </ul>
+  </p>
+ </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.getfromindex.html">ZipArchive::getFromIndex</a></div>

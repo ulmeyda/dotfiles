@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Firebird/Interbase 関数 (PDO_FIREBIRD)</title>
+  <title>Firebird 関数 (PDO_FIREBIRD)</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -11,14 +11,15 @@
  <div class="up"><a href="pdo.drivers.html">PDO ドライバ</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ref.pdo-firebird" class="reference">
-  <h1 class="title">Firebird/Interbase 関数 (PDO_FIREBIRD)</h1>
+  
+  <h1 class="title">Firebird 関数 (PDO_FIREBIRD)</h1>
   
   <div class="partintro">
 
    <div class="section" id="pdo-firebird.intro">
    <h2 class="title">導入</h2>
     <p class="para">
-     PDO_FIREBIRD は、PHP から Firebird および Interbase
+     PDO_FIREBIRD は、PHP から Firebird
      データベースへのアクセスを可能にするための
      PHP Data Objects (PDO) インターフェイス を実装したドライバです。
     </p>
@@ -54,15 +55,16 @@ $ ./configure --with-pdo-firebird
 そのドライバを使用している場合にのみ使用されます。
 あるドライバ固有の属性を別のドライバで使うと、予期せぬ結果を引き起こします。
 もし複数のドライバを使用しているコードを実行している場合、
- <span class="function"><a href="pdo.getattribute.html" class="function">PDO::getAttribute()</a></span> で <strong><code>PDO_ATTR_DRIVER_NAME</code></strong>
+<span class="function"><a href="pdo.getattribute.html" class="function">PDO::getAttribute()</a></span> で <strong><code>PDO_ATTR_DRIVER_NAME</code></strong>
 属性を使用することで、使用中のドライバ名を調べることが可能です。</p>
  <dl>
 
-  <dt id="pdo.constants.fb-attr-date-format">
-   <span class="term">
+  
+   <dt id="pdo.constants.fb-attr-date-format">
     <strong><code>PDO::FB_ATTR_DATE_FORMAT</code></strong>
      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -73,13 +75,13 @@ $ ./configure --with-pdo-firebird
     </p>
    </dd>
 
-  </dt>
-
-  <dt id="pdo.constants.fb-attr-time-format">
-   <span class="term">
+  
+  
+   <dt id="pdo.constants.fb-attr-time-format">
     <strong><code>PDO::FB_ATTR_TIME_FORMAT</code></strong>
      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -90,13 +92,13 @@ $ ./configure --with-pdo-firebird
     </p>
    </dd>
 
-  </dt>
-
-  <dt id="pdo.constants.fb-attr-timestamp-format">
-   <span class="term">
+  
+  
+   <dt id="pdo.constants.fb-attr-timestamp-format">
     <strong><code>PDO::FB_ATTR_TIMESTAMP_FORMAT</code></strong>
      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -107,8 +109,7 @@ $ ./configure --with-pdo-firebird
     </p>
    </dd>
 
-  </dt>
-
+  
  </dl>
 
 </div>
@@ -119,7 +120,7 @@ $ ./configure --with-pdo-firebird
 
   
 
- <h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="ref.pdo-firebird.connection.html">PDO_FIREBIRD DSN</a> — Firebird および Interbase データベースに接続する</li></ul>
+ <h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="ref.pdo-firebird.connection.html">PDO_FIREBIRD DSN</a> — Firebird データベースに接続する</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-dblib.connection.html">PDO_DBLIB DSN</a></div>

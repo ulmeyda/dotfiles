@@ -14,7 +14,7 @@
  <h1 class="title">PharFileInfo クラス</h1>
  
  
- <div class="partintro"><p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p>
+ <div class="partintro"><p class="verinfo">(PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)</p>
  
 
   <div class="section" id="pharfileinfo.intro">
@@ -48,79 +48,77 @@
      {</div>
 
  
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* プロパティ */</div>
- 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-   <span class="type">void</span> <span class="methodname"><a href="pharfileinfo.chmod.html" class="methodname">chmod</a></span>
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="pharfileinfo.chmod.html" class="methodname">chmod</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$permissions</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.compress.html" class="methodname">compress</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.compress.html" class="methodname">compress</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-    <span class="methodname"><a href="pharfileinfo.construct.html" class="methodname">__construct</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="pharfileinfo.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$entry</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.decompress.html" class="methodname">decompress</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.decompress.html" class="methodname">decompress</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.delmetadata.html" class="methodname">delMetadata</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.delmetadata.html" class="methodname">delMetadata</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getcrc32.html" class="methodname">getCRC32</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getcrc32.html" class="methodname">getCRC32</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getcompressedsize.html" class="methodname">getCompressedSize</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getcompressedsize.html" class="methodname">getCompressedSize</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="pharfileinfo.getmetadata.html" class="methodname">getMetadata</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="pharfileinfo.getmetadata.html" class="methodname">getMetadata</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getpharflags.html" class="methodname">getPharFlags</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="pharfileinfo.getpharflags.html" class="methodname">getPharFlags</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.hasmetadata.html" class="methodname">hasMetadata</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.hasmetadata.html" class="methodname">hasMetadata</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscrcchecked.html" class="methodname">isCRCChecked</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscrcchecked.html" class="methodname">isCRCChecked</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressed.html" class="methodname">isCompressed</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressed.html" class="methodname">isCompressed</a></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$compression_type</code><span class="initializer"> = 9021976</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressedbzip2.html" class="methodname">isCompressedBZIP2</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressedbzip2.html" class="methodname">isCompressedBZIP2</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressedgz.html" class="methodname">isCompressedGZ</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.iscompressedgz.html" class="methodname">isCompressedGZ</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setcompressedbzip2.html" class="methodname">setCompressedBZIP2</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setcompressedbzip2.html" class="methodname">setCompressedBZIP2</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setcompressedgz.html" class="methodname">setCompressedGZ</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setcompressedgz.html" class="methodname">setCompressedGZ</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">void</span> <span class="methodname"><a href="pharfileinfo.setmetadata.html" class="methodname">setMetadata</a></span>
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="pharfileinfo.setmetadata.html" class="methodname">setMetadata</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$metadata</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setuncompressed.html" class="methodname">setUncompressed</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="pharfileinfo.setuncompressed.html" class="methodname">setUncompressed</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 

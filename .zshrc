@@ -139,4 +139,4 @@ setopt share_history        # share command history data
 # grep
 #-----------------------------------------------------------
 alias grep='jvgrep'
-alias tree='tree -NC'
+#alias tree='tree -NC'

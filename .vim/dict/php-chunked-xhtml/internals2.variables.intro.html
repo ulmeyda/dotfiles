@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Introducing the zval</title>
+  <title>Introduction to Variables</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -11,16 +11,27 @@
  <div class="up"><a href="internals2.variables.html">変数の作成</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="internals2.variables.intro" class="section">
-  <h2 class="title">Introducing the zval</h2>
+  <h2 class="title">Introduction to Variables</h2>
+  <p class="para">
+   A good understanding of how variables are stored and manipulated is essential to becoming a <code class="code">Hacker</code>.
+   The engine attempts to cover up the complexity of the concept of a variable that can be any type by 
+   providing a uniform and intuitive set of macros for accessing the structures various fields. As the <code class="code">Hacker</code> works
+   through this chapter, they should become comfortable with the terminology and concepts involved with Variables in PHP.
+  </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">PHP is a dyanamic, weakly typed language, that uses copy on write and reference counting.</p>
+   <p class="para">PHP is a dynamic, loosely typed language, that uses copy-on-write and reference counting.</p>
   </p></blockquote>
+  <p class="para">
+   To clarify what exactly is meant by the statement above: PHP is a high level language, weak typing is implicit of the engines preference to
+   convert, or coerce variables into the required type at execution type. Reference counting is the means by which the engine can deduce when a
+   variable no longer has any references in the users code, and so is able to free the structures associated with the variable.
+  </p>
   <p class="para">
    All variables in PHP are represented by one structure, the <code class="code">zval</code>:
   </p>
   <div class="example-contents screen">
 <div class="cdata"><pre>
-   typedef struct _zval_struct {
+typedef struct _zval_struct {
     zvalue_value value;        /* variable value */
     zend_uint refcount__gc;    /* reference counter */
     zend_uchar type;           /* value type */
@@ -28,7 +39,7 @@
 } zval;</pre></div>
   </div>
   <p class="para">
-   The zval_value is a union which can represent all types a variable may hold:
+   The <code class="code">zval_value</code> is a union which can represent all types a variable may hold:
   </p>
   <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -37,7 +48,7 @@ typedef union _zvalue_value {
     double dval;               /* double value */
     struct {                   
         char *val;
-        int len;
+        int len;               /* this will always be set for strings */
     } str;                     /* string (always has length) */
     HashTable *ht;             /* an array */
     zend_object_value obj;     /* stores an object store handle, and handlers */
@@ -45,7 +56,7 @@ typedef union _zvalue_value {
 </pre></div>
   </div>
   <p class="para">
-   The rest of this chapter provides a crash course and cheat sheat for working with the zval in all forms. All of these constants, macros and functions can be looked up in the source code for a full understanding.
+   It should be clear from the structures above that a variable can be of one type, the variable data is represented by the appropriate field in the <code class="code">zval_value</code> union. The <code class="code">zval</code> itself holds the type, reference count and a flag to indicate if a variable is a reference.
   </p>
   <table id="internals2.variables.types.api" class="doctable table">
    <caption><strong>Native Type Constants</strong></caption>
@@ -117,7 +128,7 @@ typedef union _zvalue_value {
   </p></blockquote>
   
   <p class="para">
-   The following table defines the macros exposed by the engine for working with zval values:
+   The following table defines the macros exposed by the engine for working with <code class="code">zval</code> values:
   </p>
   
   <table id="internals2.variables.zvals.api" class="doctable table">
@@ -162,7 +173,7 @@ typedef union _zvalue_value {
 
      
      <tr>
-      <td><code class="code">zend_bool Z_RESVAL(zval zv)</code></td>
+      <td><code class="code">long Z_RESVAL(zval zv)</code></td>
       <td>value.lval</td>
       <td>returns the resource list identifier for <code class="code">value</code></td>
      </tr>
@@ -243,7 +254,8 @@ typedef union _zvalue_value {
   </table>
 
   
-  <p class="para">Please check the <a href="features.gc.refcounting-basics.html" class="xref">参照カウント法の原理</a> chapter for details how reference counting and references work.</p>
+  
+  <p class="para">Please check the <a href="features.gc.refcounting-basics.html" class="xref">参照カウント法の原理</a> chapter for details how reference counting and references work in detail.</p>
   
   <table id="internals2.variables.refcounts.api" class="doctable table">
    <caption><strong>Reference Count Manipulation</strong></caption>
@@ -389,8 +401,14 @@ typedef union _zvalue_value {
 
      
      <tr>
+      <td><code class="code">void zval_copy_ctor(zval** pzval)</code></td>
+      <td>performs maintenance of reference counts, used widely throughout the engine</td>
+     </tr>
+
+     
+     <tr>
       <td><code class="code">void zval_ptr_dtor(zval* pzval)</code></td>
-      <td>calls zval destructor routine on <code class="code">pzval</code>, for basic types, this reduces the refcount by one, for arrays this destroys the array, for objects it reduces the refcount</td>
+      <td>decrements the refcount for the variable, if no refcounts remain the variable is destroyed</td>
      </tr>
 
      
@@ -404,6 +422,12 @@ typedef union _zvalue_value {
    
   </table>
 
+  
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">Objects and Resources have a reference count as part of their respective structures, when zval_ptr_dtor is called on either, their appropriate del_ref method is executed. See Working with Objects and Working with Resources for more information.</p>
+  </p></blockquote>
+  
+  <p class="para">If the <code class="code">Hacker</code> only has room to remember two more functions, they should be <code class="code">zval_copy_ctor</code> and <code class="code">zval_ptr_dtor</code>, these are at the basis of the engines reference counting mechanisms and it is important to note that <code class="code">zval_copy_ctor</code> does not actually result in any copying occuring under normal circumstances, it simply increases the reference count. By the same token, <code class="code">zval_ptr_dtor</code> only really destroys a variable when there are no references remaining to it and the refcount is at 0.</p>
   
   <p class="para">PHP is weakly typed, as such the engine provides API functions for converting variables from one type to another.</p>
   
@@ -458,7 +482,7 @@ typedef union _zvalue_value {
       <td><code class="code">void convert_object_to_type(zval* pzval, convert_func_t converter)</code></td>
      </tr>
 
-    
+     
     </tbody>
    
   </table>

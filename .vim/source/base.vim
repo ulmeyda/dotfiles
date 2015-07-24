@@ -22,10 +22,10 @@ syntax on
 "===================================================================
 
 " タブの画面上での幅
-set tabstop=4
+set tabstop=2
 
 " cindentやautoindent時に挿入されるタブの幅（tabstop と揃えておくと良い）
-set shiftwidth=4
+set shiftwidth=2
 set smarttab
 
 " タブをスペースに展開

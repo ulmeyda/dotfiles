@@ -21,7 +21,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>zip_entry_read</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$zip_entry</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 1024</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -34,25 +34,26 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">zip_entry</code></dt>
 
-     <span class="term"><em><code class="parameter">zip_entry</code></em></span>
      <dd>
 
       <p class="para">
-        <span class="function"><a href="function.zip-read.html" class="function">zip_read()</a></span>により返されたディレクトリエントリ
+       <span class="function"><a href="function.zip-read.html" class="function">zip_read()</a></span>により返されたディレクトリエントリ
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">length</code></em></span>
      <dd>
 
       <p class="para">
-       返すバイト数。指定されない場合、この関数は1024バイトを読み込みます。
+       返すバイト数。
       </p>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
@@ -61,8 +62,7 @@
       </p></blockquote>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -71,9 +71,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.zip-entry-read-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   読み込んだデータ、または、ファイルの終端に達した時に 
+   読み込んだデータを返します。ファイルの終端に達した場合は空文字列、エラー時には
    <strong><code>FALSE</code></strong> を返します。
-   reached.
   </p>
  </div>
 
@@ -81,9 +80,9 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="function.zip-entry-open.html" class="function" rel="rdfs-seeAlso">zip_entry_open()</a> - 読込み用にディレクトリエントリをオープンする</span></li>
-    <li class="member"> <span class="function"><a href="function.zip-entry-close.html" class="function" rel="rdfs-seeAlso">zip_entry_close()</a> - ディレクトリエントリを閉じる</span></li>
-    <li class="member"> <span class="function"><a href="function.zip-entry-filesize.html" class="function" rel="rdfs-seeAlso">zip_entry_filesize()</a> - ディレクトリエントリの実際のファイルサイズを取得する</span></li>
+    <li class="member"><span class="function"><a href="function.zip-entry-open.html" class="function" rel="rdfs-seeAlso">zip_entry_open()</a> - 読込み用にディレクトリエントリをオープンする</span></li>
+    <li class="member"><span class="function"><a href="function.zip-entry-close.html" class="function" rel="rdfs-seeAlso">zip_entry_close()</a> - ディレクトリエントリを閉じる</span></li>
+    <li class="member"><span class="function"><a href="function.zip-entry-filesize.html" class="function" rel="rdfs-seeAlso">zip_entry_filesize()</a> - ディレクトリエントリの実際のファイルサイズを取得する</span></li>
    </ul>
   </p>
  </div>

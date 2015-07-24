@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="imagick.haspreviousimage.html">Imagick::hasPreviousImage</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="imagick.identifyformat.html">Imagick::identifyFormat</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="imagick.implodeimage.html">Imagick::implodeImage</a></div>
  <div class="up"><a href="class.imagick.html">Imagick</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -35,17 +35,17 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">appendRawOutput</code></dt>
 
-     <span class="term"><em><code class="parameter">appendRawOutput</code></em></span>
      <dd>
 
       <p class="para">
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -60,6 +60,41 @@
  </div>
 
 
+ <div class="refsect1 examples" id="refsect1-imagick.identifyimage-examples">
+  <p class="para">
+   <div class="example" id="example-3554">
+   <p><strong>例1 結果の書式の例</strong></p>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">Array
+(
+    [imageName] =&gt; /some/path/image.jpg
+    [format] =&gt; JPEG (Joint Photographic Experts Group JFIF format)
+    [geometry] =&gt; Array
+        (
+            [width] =&gt; 90
+            [height] =&gt; 90
+        )
+
+    [type] =&gt; TrueColor
+    [colorSpace] =&gt; RGB
+    [resolution] =&gt; Array
+        (
+            [x] =&gt; 300
+            [y] =&gt; 300
+        )
+
+    [units] =&gt; PixelsPerInch
+    [fileSize] =&gt; 1.88672kb
+    [compression] =&gt; JPEG
+    [signature] =&gt; 9a6dc8f604f97d0d691c0286176ddf992e188f0bebba98494b2146ee2d7118da
+)</pre>
+</div>
+   </div>
+   </div>
+   </p>
+ </div>
+
+
  <div class="refsect1 errors" id="refsect1-imagick.identifyimage-errors">
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
@@ -69,7 +104,7 @@
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="imagick.haspreviousimage.html">Imagick::hasPreviousImage</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="imagick.identifyformat.html">Imagick::identifyFormat</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="imagick.implodeimage.html">Imagick::implodeImage</a></div>
  <div class="up"><a href="class.imagick.html">Imagick</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

@@ -23,7 +23,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><strong>SimpleXMLElement::getDocNamespaces</strong></span>
     ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = false</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$from_root</code><span class="initializer"> = true</span></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    ドキュメントで宣言されている名前空間を返します。
@@ -36,9 +37,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">recursive</code></dt>
 
-     <span class="term"><em><code class="parameter">recursive</code></em></span>
      <dd>
 
       <p class="para">
@@ -47,8 +49,19 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">from_root</code></dt>
 
+     <dd>
+
+      <p class="para">
+       XML 文書のルートノードからでなく、子ノードの配下の名前空間を再帰的にチェックできるようにします。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -67,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-simplexmlelement.getdocnamespaces-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5364">
+   <div class="example" id="example-5937">
     <p><strong>例1 ドキュメントの名前空間の取得</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -88,7 +101,7 @@ array(1) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5365">
+   <div class="example" id="example-5938">
     <p><strong>例2 複数の名前空間での動作</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -115,12 +128,41 @@ array(3) {
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-simplexmlelement.getdocnamespaces-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        <code class="parameter">from_root</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
  <div class="refsect1 seealso" id="refsect1-simplexmlelement.getdocnamespaces-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="methodname"><a href="simplexmlelement.getnamespaces.html" class="methodname" rel="rdfs-seeAlso">SimpleXMLElement::getNamespaces()</a> - ドキュメントで使用している名前空間を返す</span></li>
-    <li class="member"> <span class="methodname"><a href="simplexmlelement.registerxpathnamespace.html" class="methodname" rel="rdfs-seeAlso">SimpleXMLElement::registerXPathNamespace()</a> - 次の XPath クエリ用の prefix/ns コンテキストを作成する</span></li>
+    <li class="member"><span class="methodname"><a href="simplexmlelement.getnamespaces.html" class="methodname" rel="rdfs-seeAlso">SimpleXMLElement::getNamespaces()</a> - ドキュメントで使用している名前空間を返す</span></li>
+    <li class="member"><span class="methodname"><a href="simplexmlelement.registerxpathnamespace.html" class="methodname" rel="rdfs-seeAlso">SimpleXMLElement::registerXPathNamespace()</a> - 次の XPath クエリ用の prefix/ns コンテキストを作成する</span></li>
    </ul>
   </p>
  </div>

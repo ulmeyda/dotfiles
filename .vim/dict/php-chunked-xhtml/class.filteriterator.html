@@ -22,7 +22,7 @@
    <p class="para">
     この抽象イテレータは、望まざる値をフィルタリングします。
     独自のイテレータフィルタを実装するには、このクラスを継承しなければなりません。
-    また、サブクラスでは  <span class="methodname"><a href="filteriterator.accept.html" class="methodname">FilterIterator::accept()</a></span>
+    また、サブクラスでは <span class="methodname"><a href="filteriterator.accept.html" class="methodname">FilterIterator::accept()</a></span>
     を実装する必要があります。
    </p>
   </div>
@@ -51,14 +51,6 @@
       <span class="interfacename"><a href="class.outeriterator.html" class="interfacename">OuterIterator</a></span>
      </span>
 
-     <span class="oointerface">, 
-      <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>
-     </span>
-
-     <span class="oointerface">, 
-      <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span>
-     </span>
-
      {</div>
 
 
@@ -66,36 +58,38 @@
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
    <span class="modifier">abstract</span>
    <span class="type">bool</span> <span class="methodname"><a href="filteriterator.accept.html" class="methodname">accept</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-    <span class="methodname"><a href="filteriterator.construct.html" class="methodname">__construct</a></span>
+   <span class="modifier">public</span>
+   <span class="methodname"><a href="filteriterator.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.iterator.html" class="type Iterator">Iterator</a></span> <code class="parameter">$iterator</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="filteriterator.current.html" class="methodname">current</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="filteriterator.current.html" class="methodname">current</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">Iterator</span> <span class="methodname"><a href="filteriterator.getinneriterator.html" class="methodname">getInnerIterator</a></span>
+   <span class="modifier">public</span> <span class="type">Iterator</span> <span class="methodname"><a href="filteriterator.getinneriterator.html" class="methodname">getInnerIterator</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">mixed</span> <span class="methodname"><a href="filteriterator.key.html" class="methodname">key</a></span>
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="filteriterator.key.html" class="methodname">key</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">void</span> <span class="methodname"><a href="filteriterator.next.html" class="methodname">next</a></span>
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="filteriterator.next.html" class="methodname">next</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">void</span> <span class="methodname"><a href="filteriterator.rewind.html" class="methodname">rewind</a></span>
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="filteriterator.rewind.html" class="methodname">rewind</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="filteriterator.valid.html" class="methodname">valid</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="filteriterator.valid.html" class="methodname">valid</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 

@@ -31,63 +31,63 @@
 
     <tbody class="tbody">
      <tr>
-      <td>odbc.default_db *</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.default-db" class="link">odbc.default_db</a> *</td>
       <td>NULL</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.default_user *</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.default-user" class="link">odbc.default_user</a> *</td>
       <td>NULL</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.default_pw *</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.default-pw" class="link">odbc.default_pw</a> *</td>
       <td>NULL</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.allow_persistent</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.allow-persistent" class="link">odbc.allow_persistent</a></td>
       <td>&quot;1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.check_persistent</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.check-persistent" class="link">odbc.check_persistent</a></td>
       <td>&quot;1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.max_persistent</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.max-persistent" class="link">odbc.max_persistent</a></td>
       <td>&quot;-1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.max_links</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.max-links" class="link">odbc.max_links</a></td>
       <td>&quot;-1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.defaultlrl</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.defaultlrl" class="link">odbc.defaultlrl</a></td>
       <td>&quot;4096&quot;</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
-      <td>odbc.defaultbinmode</td>
+      <td><a href="odbc.configuration.html#ini.uodbc.defaultbinmode" class="link">odbc.defaultbinmode</a></td>
       <td>&quot;1&quot;</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
@@ -119,62 +119,63 @@
  <p class="para">
   <dl>
 
-   <dt id="ini.uodbc.default-db">
-    <span class="term">
-     <em><code class="parameter">odbc.default_db</code></em>
+   
+    <dt id="ini.uodbc.default-db">
+     <code class="parameter">odbc.default_db</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
-       <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
-       <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span>でODBCデータソースが
+      <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
+      <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span>でODBCデータソースが
       指定されない場合に使用される ODBC データソース。
      </p>
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.default-user">
-    <span class="term">
-     <em><code class="parameter">odbc.default_user</code></em>
+   
+   
+    <dt id="ini.uodbc.default-user">
+     <code class="parameter">odbc.default_user</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
-       <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
-       <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span> で名前が指定されない場合
+      <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
+      <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span> で名前が指定されない場合
       に使用される名前。
      </p>
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.default-pw">
-    <span class="term">
-     <em><code class="parameter">odbc.default_pw</code></em>
+   
+   
+    <dt id="ini.uodbc.default-pw">
+     <code class="parameter">odbc.default_pw</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
-       <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
-       <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span> でパスワードが指定されない場合
+      <span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span> または
+      <span class="function"><a href="function.odbc-pconnect.html" class="function">odbc_pconnect()</a></span> でパスワードが指定されない場合
       に使用されるパスワード。
      </p>
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.allow-persistent">
-    <span class="term">
-     <em><code class="parameter">odbc.allow_persistent</code></em>
+   
+   
+    <dt id="ini.uodbc.allow-persistent">
+     <code class="parameter">odbc.allow_persistent</code>
      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -182,14 +183,14 @@
      </p>
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.check-persistent">
-    <span class="term">
-    <em><code class="parameter">odbc.check_persistent</code></em>
+   
+   
+    <dt id="ini.uodbc.check-persistent">
+    <code class="parameter">odbc.check_persistent</code>
      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -197,14 +198,14 @@
      </p>
    </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.max-persistent">
-    <span class="term">
-     <em><code class="parameter">odbc.max_persistent</code></em>
+   
+   
+    <dt id="ini.uodbc.max-persistent">
+     <code class="parameter">odbc.max_persistent</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -212,14 +213,14 @@
      </p>
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.max-links">
-    <span class="term">
-     <em><code class="parameter">odbc.max_links</code></em>
+   
+   
+    <dt id="ini.uodbc.max-links">
+     <code class="parameter">odbc.max_links</code>
     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -227,13 +228,13 @@
      </p>
     </dd>
 
-   </dt>
-
-   <dt id="ini.uodbc.defaultlrl">
-    <span class="term">
-     <em><code class="parameter">odbc.defaultlrl</code></em>
+   
+   
+    <dt id="ini.uodbc.defaultlrl">
+     <code class="parameter">odbc.defaultlrl</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -247,14 +248,14 @@
 
     </dd>
 
-   </dt>
-
    
-   <dt id="ini.uodbc.defaultbinmode">
-    <span class="term">
-     <em><code class="parameter">odbc.defaultbinmode</code></em>
+   
+   
+    <dt id="ini.uodbc.defaultbinmode">
+     <code class="parameter">odbc.defaultbinmode</code>
      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-    </span>
+    </dt>
+
     <dd>
 
      <p class="para">
@@ -262,14 +263,14 @@
     </p>
    </dd>
 
-  </dt>
+  
 
-
-  <dt id="ini.uodbc.defaultcursortype">
-   <span class="term">
-    <em><code class="parameter">odbc.default_cursortype</code></em>
+  
+   <dt id="ini.uodbc.defaultcursortype">
+    <code class="parameter">odbc.default_cursortype</code>
     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
-   </span>
+   </dt>
+
    <dd>
 
     <p class="para">
@@ -281,8 +282,7 @@
      </p>
     </dd>
 
-   </dt>
-
+   
   
   </dl>
 

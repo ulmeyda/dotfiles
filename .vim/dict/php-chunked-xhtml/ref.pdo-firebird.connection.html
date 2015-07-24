@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Firebird および Interbase データベースに接続する</title>
+  <title>Firebird データベースに接続する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-firebird.html">Firebird/Interbase (PDO)</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-firebird.html">Firebird (PDO)</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-ibm.html">IBM (PDO)</a></div>
- <div class="up"><a href="ref.pdo-firebird.html">Firebird/Interbase (PDO)</a></div>
+ <div class="up"><a href="ref.pdo-firebird.html">Firebird (PDO)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ref.pdo-firebird.connection" class="refentry">
    <div class="refnamediv">
     <h1 class="refname">PDO_FIREBIRD DSN</h1>
-    <p class="verinfo">(PECL PDO_FIREBIRD &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO_FIREBIRD DSN</span> &mdash; <span class="dc-title">Firebird および Interbase データベースに接続する</span></p>
+    <p class="verinfo">(PECL PDO_FIREBIRD &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO_FIREBIRD DSN</span> &mdash; <span class="dc-title">Firebird データベースに接続する</span></p>
 
    </div>
 
@@ -23,9 +23,10 @@
      PDO_FIREBIRD データソース名 (DSN) は以下の要素で構成されます。
      <dl>
 
-      <dt>
+      
+       <dt>
+DSN 接頭辞</dt>
 
-       <span class="term">DSN 接頭辞</span>
        <dd>
 
         <p class="para">
@@ -33,11 +34,11 @@
         </p>
        </dd>
 
-      </dt>
+      
+      
+       <dt>
+<em>dbname</em></dt>
 
-      <dt>
-
-       <span class="term"><em>dbname</em></span>
        <dd>
 
         <p class="para">
@@ -45,11 +46,11 @@
         </p>
        </dd>
 
-      </dt>
+      
+      
+       <dt>
+<em>charset</em></dt>
 
-      <dt>
-
-       <span class="term"><em>charset</em></span>
        <dd>
 
         <p class="para">
@@ -57,11 +58,11 @@
         </p>
        </dd>
 
-      </dt>
+      
+      
+       <dt>
+<em>role</em></dt>
 
-      <dt>
-
-       <span class="term"><em>role</em></span>
        <dd>
 
         <p class="para">
@@ -69,8 +70,7 @@
         </p>
        </dd>
 
-      </dt>
-
+      
      </dl>
 
     </p>
@@ -79,13 +79,37 @@
    <div class="refsect1 examples" id="refsect1-ref.pdo-firebird.connection-examples">
     <h3 class="title">例</h3>
     <p class="para">
-     <div class="example" id="example-1036">
-      <p><strong>例1 PDO_FIREBIRD DSN の例</strong></p>
+     <div class="example" id="example-1024">
+      <p><strong>例1 PDO_FIREBIRD DSN でのパス指定の例</strong></p>
       <div class="example-contents"><p>
-       以下の例は、Firebird および Interbase データベースに接続するための
+       以下の例は、Firebird データベースに接続するための
        PDO_FIREBIRD DSN を表します。
        <div class="example-contents"><div class="cdata"><pre>
-firebird:dbname=DATABASE.GDE
+firebird:dbname=/path/to/DATABASE.FDB
+</pre></div>
+       </div>
+
+      </p></div>
+     </div>
+     <div class="example" id="example-1025">
+      <p><strong>例2 PDO_FIREBIRD DSN でのポートとパス指定の例</strong></p>
+      <div class="example-contents"><p>
+       以下の例は、ポートとパスを指定して Firebird データベースに接続するための
+       PDO_FIREBIRD DSN を表します。
+       <div class="example-contents"><div class="cdata"><pre>
+firebird:dbname=hostname/port:/path/to/DATABASE.FDB
+</pre></div>
+       </div>
+
+      </p></div>
+     </div>
+     <div class="example" id="example-1026">
+      <p><strong>例3 PDO_FIREBIRD DSN で Debian システムのローカルホストと employee.fdb へのパスを使う例</strong></p>
+      <div class="example-contents"><p>
+       以下の例は、ローカルホストの Firebird データベース employee.fdb に接続するための
+       PDO_FIREBIRD DSN を表します。
+       <div class="example-contents"><div class="cdata"><pre>
+firebird:dbname=localhost:/var/lib/firebird/2.5/data/employee.fdb
 </pre></div>
        </div>
 
@@ -95,8 +119,8 @@ firebird:dbname=DATABASE.GDE
    </div>
 
   </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-firebird.html">Firebird/Interbase (PDO)</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-firebird.html">Firebird (PDO)</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-ibm.html">IBM (PDO)</a></div>
- <div class="up"><a href="ref.pdo-firebird.html">Firebird/Interbase (PDO)</a></div>
+ <div class="up"><a href="ref.pdo-firebird.html">Firebird (PDO)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

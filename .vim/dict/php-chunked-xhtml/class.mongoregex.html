@@ -26,55 +26,52 @@
     それ以外に、正規表現をデータベースに格納したりデータベースから取得したりすることもできます。
    </p>
    <p class="para">
+    正規表現は、四つの部分で構成されています。最初は区切り文字の <em>/</em>、
+    そしてその後にパターンが続き、さらにもう一度区切り文字の <em>/</em>、
+    そして最後がフラグを表す文字です。
+   </p>
+   <p class="para">
+    <div class="example" id="example-1581">
+     <p><strong>例1 正規表現のパターン</strong></p>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+/pattern/flags
+</pre></div>
+      </div>
+    </div>
+   </p>
+   <p class="para">
     Mongo は 6 つの正規表現フラグに対応しています。
    </p>
    <ul class="itemizedlist">
     <li class="listitem">
      <p class="para">
-      <em>i</em>
-     </p>
-     <p class="para">
-      大文字小文字を区別しない
+      <em>i</em>: 大文字小文字を区別しない
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <em>m</em>
-     </p>
-     <p class="para">
-      複数行
+      <em>m</em>: 複数行
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <em>x</em>
-     </p>
-     <p class="para">
-      コメントを含めることができる
+      <em>x</em>: コメントを含めることができる
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <em>l</em>
-     </p>
-     <p class="para">
-      ロケール
+      <em>l</em>: ロケール
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <em>s</em>
-     </p>
-     <p class="para">
-      &quot;.&quot; が、改行を含むすべてにマッチする
+      <em>s</em>: &quot;.&quot; が、改行を含むすべてにマッチする
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <em>u</em>
-     </p>
-     <p class="para">
-      unicode にマッチする
+      <em>u</em>: unicode にマッチする
      </p>
     </li>
    </ul>
@@ -112,7 +109,7 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="mongoregex.construct.html" class="methodname">__construct</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="mongoregex.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$regex</code></span>
    )</div>
 <div class="methodsynopsis dc-description">

@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Check if the instance was recently created</title>
+  <title>直近に作られたインスタンスかどうかを調べる</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="memcached.ispristine" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Memcached::isPristine</h1>
-  <p class="verinfo">(PECL memcached &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Memcached::isPristine</span> &mdash; <span class="dc-title">Check if the instance was recently created</span></p>
+  <p class="verinfo">(PECL memcached &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Memcached::isPristine</span> &mdash; <span class="dc-title">直近に作られたインスタンスかどうかを調べる</span></p>
 
  </div>
 
@@ -25,8 +25,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-    <span class="function"><strong>Memcached::isPristine()</strong></span> checks if the Memcache instance
-   was recently created.
+   <span class="function"><strong>Memcached::isPristine()</strong></span> は、その Memcache インスタンスが直近に作られたものかどうかを調べます。
   </p>
  </div>
 
@@ -40,7 +39,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.ispristine-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns the true if instance is recently created, false otherwise.
+   直近に作られたインスタンスである場合に <strong><code>TRUE</code></strong>、それ以外の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -49,7 +48,7 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="methodname"><a href="memcached.ispersistent.html" class="methodname" rel="rdfs-seeAlso">Memcached::isPersistent()</a> - Check if a persitent connection to memcache is being used</span></li>
+    <li class="member"><span class="methodname"><a href="memcached.ispersistent.html" class="methodname" rel="rdfs-seeAlso">Memcached::isPersistent()</a> - memcache への接続で持続的接続を使っているかどうかを調べる</span></li>
    </ul>
   </p>
  </div>

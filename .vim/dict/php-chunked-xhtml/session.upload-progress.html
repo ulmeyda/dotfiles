@@ -60,7 +60,7 @@
   これらを適切に設定すれば、進捗状況の取得によるオーバーヘッドはほぼ無視できる程度になります。
  </p>
  <p class="para">
-  <div class="example" id="example-4639">
+  <div class="example" id="example-5221">
    <p><strong>例1 情報の例</strong></p>
    <div class="example-contents"><p>
     アップロード進捗状況の配列の構造を示す例です。
@@ -87,6 +87,13 @@
 
   </div>
  </p>
+ <div class="warning"><strong class="warning">警告</strong>
+  <p class="para">
+   ウェブサーバーのリクエストバッファリングを無効にしておかないと、うまく動作しません。
+   リクエストバッファリングが有効になっていると、PHP 側ではアップロードが完全に終わるまでアップロードされたことがわかりません。
+   たとえば Nginx などのサーバーは、大きなリクエストをバッファリングするようになっています。
+  </p>
+ </div>
 
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">

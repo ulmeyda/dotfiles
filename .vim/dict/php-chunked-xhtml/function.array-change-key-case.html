@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>配列のすべてのキーを変更する</title>
+  <title>配列のすべてのキーの大文字小文字を変更する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-change-key-case" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_change_key_case</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">array_change_key_case</span> &mdash; <span class="dc-title">配列のすべてのキーを変更する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">array_change_key_case</span> &mdash; <span class="dc-title">配列のすべてのキーの大文字小文字を変更する</span></p>
 
  </div>
  
@@ -21,12 +21,12 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>array_change_key_case</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$input</code></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$case</code><span class="initializer"> = CASE_LOWER</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
-   <em><code class="parameter">input</code></em> のすべてのキーを小文字あるいは大文字にした配列を返します。
+   <code class="parameter">array</code> のすべてのキーを小文字あるいは大文字にした配列を返します。
    数値添字はそのままとなります。
   </p>
  </div>
@@ -38,9 +38,10 @@
    <dl>
 
 
-    <dt>
+    
+     <dt>
+<code class="parameter">array</code></dt>
 
-     <span class="term"><em><code class="parameter">input</code></em></span>
      <dd>
 
       <p class="para">
@@ -48,12 +49,12 @@
       </p>
      </dd>
 
-    </dt>
+    
 
+    
+     <dt>
+<code class="parameter">case</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">case</code></em></span>
      <dd>
 
       <p class="para">
@@ -62,8 +63,7 @@
       </p>
      </dd>
 
-    </dt>
-
+    
 
    </dl>
 
@@ -75,7 +75,7 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    すべてのキーを小文字あるいは大文字にした配列を返します。
-   <em><code class="parameter">input</code></em> が配列でない場合は <strong><code>FALSE</code></strong> を返します。
+   <code class="parameter">array</code> が配列でない場合は <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -83,7 +83,7 @@
  <div class="refsect1 errors" id="refsect1-function.array-change-key-case-errors">
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
-   <em><code class="parameter">input</code></em>
+   <code class="parameter">array</code>
    が配列でない場合は <strong><code>E_WARNING</code></strong> が発生します。
   </p>
  </div>
@@ -93,7 +93,7 @@
   <h3 class="title">例</h3>
   <p class="para">
    <div class="example" id="function.array-change-key-case.example-1">
-    <p><strong>例1  <span class="function"><strong>array_change_key_case()</strong></span> の例</strong></p>
+    <p><strong>例1 <span class="function"><strong>array_change_key_case()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$input_array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"FirSt"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SecOnd"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_change_key_case</span><span style="color: #007700">(</span><span style="color: #0000BB">$input_array</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CASE_UPPER</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>

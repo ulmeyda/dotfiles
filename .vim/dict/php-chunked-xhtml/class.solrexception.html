@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="solrquery.settimeallowed.html">SolrQuery::setTimeAllowed</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="solrdismaxquery.useedismaxqueryparser.html">SolrDisMaxQuery::useEDisMaxQueryParser</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="solrexception.getinternalinfo.html">SolrException::getInternalInfo</a></div>
  <div class="up"><a href="book.solr.html">Solr</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -15,7 +15,7 @@
  <h1 class="title">SolrException クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p>
+ <div class="partintro"><p class="verinfo">(PECL solr &gt;= 0.9.2)</p>
 
 
   <div class="section" id="solrexception.intro">
@@ -64,6 +64,28 @@
       <var class="varname"><a href="class.solrexception.html#solrexception.props.zif-name">$<var class="varname">zif_name</var></a></var>
     ;</div>
 
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 継承したプロパティ */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.message">$<var class="varname">message</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.code">$<var class="varname">code</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.file">$<var class="varname">file</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.line">$<var class="varname">line</var></a></var>
+    ;</div>
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
@@ -123,69 +145,33 @@
    <h2 class="title">プロパティ</h2>
    <dl>
 
-    <dt id="solrexception.props.message">
-     <span class="term"><var class="varname"><var class="varname">message</var></var></span>
-     <dd>
+    
+     <dt id="solrexception.props.sourceline"><var class="varname"><var class="varname">sourceline</var></var></dt>
 
-      <p class="para">エラーメッセージ</p>
-     </dd>
-
-    </dt>
-
-    <dt id="solrexception.props.code">
-     <span class="term"><var class="varname"><var class="varname">code</var></var></span>
-     <dd>
-
-      <p class="para">エラーコード</p>
-     </dd>
-
-    </dt>
-
-    <dt id="solrexception.props.file">
-     <span class="term"><var class="varname"><var class="varname">file</var></var></span>
-     <dd>
-
-      <p class="para">例外が生成された、ユーザー空間の PHP ソースファイル</p>
-     </dd>
-
-    </dt>
-
-    <dt id="solrexception.props.line">
-     <span class="term"><var class="varname"><var class="varname">line</var></var></span>
-     <dd>
-
-      <p class="para">例外が生成された、ユーザー空間の PHP ソースファイルの行</p>
-     </dd>
-
-    </dt>
-
-    <dt id="solrexception.props.sourceline">
-     <span class="term"><var class="varname"><var class="varname">sourceline</var></var></span>
      <dd>
 
       <p class="para">例外が生成された、カーネル空間の PHP ソースファイルの行</p>
      </dd>
 
-    </dt>
+    
+    
+     <dt id="solrexception.props.sourcefile"><var class="varname"><var class="varname">sourcefile</var></var></dt>
 
-    <dt id="solrexception.props.sourcefile">
-     <span class="term"><var class="varname"><var class="varname">sourcefile</var></var></span>
      <dd>
 
       <p class="para">例外が生成された、カーネル空間の PHP ソースファイル</p>
      </dd>
 
-    </dt>
+    
+    
+     <dt id="solrexception.props.zif-name"><var class="varname"><var class="varname">zif_name</var></var></dt>
 
-    <dt id="solrexception.props.zif-name">
-     <span class="term"><var class="varname"><var class="varname">zif_name</var></var></span>
      <dd>
 
       <p class="para">例外が生成された、カーネル空間の関数</p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </div>
@@ -206,7 +192,7 @@
 <h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="solrexception.getinternalinfo.html">SolrException::getInternalInfo</a> — 例外がスローされた際の内部情報を返す</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="solrquery.settimeallowed.html">SolrQuery::setTimeAllowed</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="solrdismaxquery.useedismaxqueryparser.html">SolrDisMaxQuery::useEDisMaxQueryParser</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="solrexception.getinternalinfo.html">SolrException::getInternalInfo</a></div>
  <div class="up"><a href="book.solr.html">Solr</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

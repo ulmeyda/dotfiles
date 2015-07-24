@@ -15,7 +15,7 @@
  <h1 class="title">OAuthException クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p>
+ <div class="partintro"><p class="verinfo">(PECL OAuth &gt;= 0.99.1)</p>
 
 
   <div class="section" id="oauthexception.intro">
@@ -55,6 +55,29 @@
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
       <var class="varname"><a href="class.oauthexception.html#oauthexception.props.debuginfo">$<var class="varname">debugInfo</var></a></var>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 継承したプロパティ */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.message">$<var class="varname">message</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.code">$<var class="varname">code</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.file">$<var class="varname">file</var></a></var>
+    ;</div>
+<div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.line">$<var class="varname">line</var></a></var>
     ;</div>
 
 
@@ -108,60 +131,24 @@
    <h2 class="title">プロパティ</h2>
    <dl>
 
-    <dt id="oauthexception.props.message">
-     <span class="term"><var class="varname"><var class="varname">message</var></var></span>
-     <dd>
+    
+     <dt id="oauthexception.props.lastresponse"><var class="varname"><var class="varname">lastResponse</var></var></dt>
 
-      <p class="para">問題点についての人間が読める形式のメッセージ。</p>
-     </dd>
-
-    </dt>
-
-    <dt id="oauthexception.props.code">
-     <span class="term"><var class="varname"><var class="varname">code</var></var></span>
-     <dd>
-
-      <p class="para">例外コード。</p>
-     </dd>
-
-    </dt>
-
-    <dt id="oauthexception.props.file">
-     <span class="term"><var class="varname"><var class="varname">file</var></var></span>
-     <dd>
-
-      <p class="para">例外がスローされたファイル。</p>
-     </dd>
-
-    </dt>
-
-    <dt id="oauthexception.props.line">
-     <span class="term"><var class="varname"><var class="varname">line</var></var></span>
-     <dd>
-
-      <p class="para">例外がスローされたファイル。</p>
-     </dd>
-
-    </dt>
-
-    <dt id="oauthexception.props.lastresponse">
-     <span class="term"><var class="varname"><var class="varname">lastResponse</var></var></span>
      <dd>
 
       <p class="para">発生した例外のレスポンス (存在する場合)。</p>
      </dd>
 
-    </dt>
+    
+    
+     <dt id="oauthexception.props.debuginfo"><var class="varname"><var class="varname">debugInfo</var></var></dt>
 
-    <dt id="oauthexception.props.debuginfo">
-     <span class="term"><var class="varname"><var class="varname">debugInfo</var></var></span>
      <dd>
 
       <p class="para"/>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </div>

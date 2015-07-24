@@ -18,30 +18,30 @@
      </p>
      <dl>
 
-      <dt>
+      
+       <dt>
+<em class="emphasis">\p{xx}</em></dt>
 
-       <span class="term"><em class="emphasis">\p{xx}</em></span>
        <dd>
 <span class="simpara">xx プロパティを持つ文字</span></dd>
 
-      </dt>
+      
+      
+       <dt>
+<em class="emphasis">\P{xx}</em></dt>
 
-      <dt>
-
-       <span class="term"><em class="emphasis">\P{xx}</em></span>
        <dd>
 <span class="simpara">xx プロパティを持たない文字</span></dd>
 
-      </dt>
+      
+      
+       <dt>
+<em class="emphasis">\X</em></dt>
 
-      <dt>
-
-       <span class="term"><em class="emphasis">\X</em></span>
        <dd>
 <span class="simpara">拡張 Unicode シーケンス</span></dd>
 
-      </dt>
-
+      
      </dl>
 
      <p class="para">
@@ -513,17 +513,20 @@
    
   </table>
 
-     <p class="para">
-      <em>\X</em> は、拡張 Unicode シーケンスを構成する Unicode 文字群に
-      マッチします。<em>\X</em> は、<em>(?&gt;\PM\pM*)</em>
-      と等価です。
-     </p>
-     <p class="para">
-      つまり、記号 (mark) プロパティの付いていない文字と、その後に続く 0 以上の
-      記号プロパティ付きの文字にマッチし、その並びをアトミック (atomic) な
-      まとまりとして取り扱います。記号プロパティ付きの文字とは、アクセント記号などの
-      直前の文字に対して影響するようなもののことです。
-     </p>
+  <p class="para">
+   <em>\X</em> は、Unicode 拡張書記素クラスタにマッチします。
+   拡張書記素クラスタとは、ひとつあるいは複数の Unicode 文字の組み合わせで単一のグリフを構成するものです。
+   事実上、これは Unicode 版の <em>.</em> だと考えてかまいません。
+   その文字をレンダリングするために実際に何文字が使われているかは考えずに、ひとつの合成文字に対応します。
+  </p>
+  <p class="para">
+   8.32 より古いバージョンの PCRE (これは、組み込みの PCRE ライブラリを使っている場合には PHP 5.4.14 より前のバージョンにあたります) では、
+   <em>\X</em> は <em>(?&gt;\PM\pM*)</em> と等価です。
+   つまり、記号 (mark) プロパティの付いていない文字と、その後に続く 0 以上の
+   記号プロパティ付きの文字にマッチし、その並びをアトミック (atomic) な
+   まとまりとして取り扱います。記号プロパティ付きの文字とは、アクセント記号などの
+   直前の文字に対して影響するようなもののことです。
+  </p>
      <p class="para">
       Unicode プロパティを使った文字列マッチングは速くありません。PCRE は
       15,000 以上のデータからなるストラクチャを検索する必要が有るためです。

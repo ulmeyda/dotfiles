@@ -47,7 +47,6 @@
         <td>&quot;1&quot;</td>
         <td>PHP_INI_SYSTEM</td>
         <td>PHP &lt;= 4.3.4 で PHP_INI_ALL。</td>
-       
        </tr>
 
       <tr>
@@ -408,13 +407,6 @@
       </tr>
 
       <tr>
-       <td>birdstep.max_links</td>
-       <td>&quot;-1&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.2.0 以降で利用可能。</td>
-      </tr>
-
-      <tr>
        <td>blenc.key_file</td>
        <td>&quot;/usr/local/etc/blenckeys&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -618,13 +610,6 @@
       </tr>
 
       <tr>
-       <td>crack.default_dictionary</td>
-       <td>NULL</td>
-       <td>PHP_INI_PERDIR</td>
-       <td>crack &lt;= 0.2 で PHP_INI_SYSTEM。PHP 4.0.5 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="curl.configuration.html#ini.curl.cainfo" class="link">curl.cainfo</a></td>
        <td>NULL</td>
        <td>PHP_INI_SYSTEM</td>
@@ -717,9 +702,9 @@
 
       <tr>
        <td><a href="ini.core.html#ini.default-charset" class="link">default_charset</a></td>
-       <td>&quot;&quot;</td>
+       <td>&quot;UTF-8&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
+       <td>PHP 5.6.0 以降でデフォルトが &quot;UTF-8&quot; になりました。それより前のバージョンでは、デフォルトは空文字列でした。</td>
       </tr>
 
       <tr>
@@ -744,10 +729,10 @@
       </tr>
 
       <tr>
-       <td><a href="ini.core.html#ini.detect-unicode" class="link">detect_unicode</a></td>
+       <td>detect_unicode</td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td>PHP 5.1.0 以降で利用可能。PHP 5.4.0 で削除。</td>
+       <td>PHP 5.1.0 以降で利用可能。PHP 5.4.0 では名前を <a href="ini.core.html#ini.zend.detect-unicode" class="link">zend.detect_unicode</a> に変更。</td>
       </tr>
 
       <tr>
@@ -803,7 +788,15 @@
        <td><a href="info.configuration.html#ini.enable-dl" class="link">enable_dl</a></td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
-       <td>PHP 5.4.0 で削除。</td>
+       <td>この非推奨の機能は、<em class="emphasis">きっと</em> 
+将来 <em class="emphasis">削除</em> されるでしょう。</td>
+      </tr>
+
+      <tr>
+       <td><a href="ini.core.html#ini.enable-post-data-reading" class="link">enable_post_data_reading</a></td>
+       <td>On</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能</td>
       </tr>
 
       <tr>
@@ -837,20 +830,6 @@
       <tr>
        <td><a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a></td>
        <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>etpan.default.charset</td>
-       <td>&quot;utf-8&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>etpan.default.protocol</td>
-       <td>&quot;imap&quot;</td>
        <td>PHP_INI_ALL</td>
        <td class="empty">&nbsp;</td>
       </tr>
@@ -1129,13 +1108,6 @@
       </tr>
 
       <tr>
-       <td><a href="ini.core.html#ini.gpc-order" class="link">gpc_order</a></td>
-       <td>&quot;GPC&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>hidef.ini_path</td>
        <td>(char*)default_ini_path</td>
        <td>PHP_INI_SYSTEM</td>
@@ -1192,28 +1164,28 @@
       </tr>
 
       <tr>
-       <td>htscanner.config_file</td>
+       <td><a href="htscanner.configuration.html#ini.htscanner.config-file" class="link">htscanner.config_file</a></td>
        <td>&quot;.htaccess&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td class="empty">&nbsp;</td>
       </tr>
 
       <tr>
-       <td>htscanner.default_docroot</td>
+       <td><a href="htscanner.configuration.html#ini.htscanner.default-docroot" class="link">htscanner.default_docroot</a></td>
        <td>&quot;/&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td class="empty">&nbsp;</td>
       </tr>
 
       <tr>
-       <td>htscanner.default_ttl</td>
+       <td><a href="htscanner.configuration.html#ini.htscanner.default-ttl" class="link">htscanner.default_ttl</a></td>
        <td>&quot;300&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td>htscanner 0.6.0 以降で利用可能。</td>
       </tr>
 
       <tr>
-       <td>htscanner.stop_on_error</td>
+       <td><a href="htscanner.configuration.html#ini.htscanner.stop-on-error" class="link">htscanner.stop_on_error</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td>htscanner 0.7.0 以降で利用可能。</td>
@@ -1434,27 +1406,6 @@
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>pecl_http 1.0.0 以降で利用可能。</td>
-      </tr>
-
-      <tr>
-       <td>hyerwave.allow_persistent</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.3.2 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>hyperwave.allow_persistent</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.3.2 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>hyperwave.default_port</td>
-       <td>&quot;418&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 で削除。</td>
       </tr>
 
       <tr>
@@ -1712,6 +1663,27 @@
       </tr>
 
       <tr>
+       <td><a href="intl.configuration.html#ini.intl.default-locale" class="link">intl.default_locale</a></td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>intl.error_level</td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>intl.use_exceptions</td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
      <td><a href="ingres.configuration.html#ini.ingres.allow-persistent" class="link">ingres.allow_persistent</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_SYSTEM</td>
@@ -1815,41 +1787,6 @@
     </tr>
 
       <tr>
-       <td>ircg.control_user</td>
-       <td>&quot;nobody&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。PHP 5.1.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>ircg.keep_alive_interval</td>
-       <td>&quot;60&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。PHP 5.1.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>ircg.max_format_message_sets</td>
-       <td>&quot;12&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。PHP 5.1.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>ircg.shared_mem_size</td>
-       <td>&quot;6000000&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。PHP 5.1.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>ircg.work_dir</td>
-       <td>&quot;/tmp/ircg&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。PHP 5.1.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="apache.configuration.html#ini.last-modified" class="link">last_modified</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -1864,7 +1801,7 @@
       </tr>
 
       <tr>
-       <td>ldap.max_links</td>
+       <td><a href="ldap.configuration.html#ini.ldap.max_links" class="link">ldap.max_links</a></td>
        <td>&quot;-1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td class="empty">&nbsp;</td>
@@ -1929,8 +1866,8 @@
       <tr>
        <td><a href="mail.configuration.html#ini.mail.log" class="link">mail.log</a></td>
        <td>&quot;&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.3.0 以降で利用可能。</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.3.0 以降で利用可能 (PHP_INI_SYSTEM|PHP_INI_PERDIR)。</td>
       </tr>
 
       <tr>
@@ -2058,7 +1995,14 @@
        <td>mbstring.script_encoding</td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
-       <td>PHP 4.3.0 以降で利用可能。</td>
+       <td>PHP 4.3.0 以降で利用可能。PHP 5.4.0 で削除。代わりに <a href="ini.core.html#ini.zend.script-encoding" class="link">zend.script_encoding</a> を使うこと。</td>
+      </tr>
+
+      <tr>
+       <td>mbstring.http_output_conv_mimetypes</td>
+       <td>&quot;^(text/|application/xhtml\+xml)&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
       </tr>
 
       <tr>
@@ -2202,9 +2146,9 @@
      </tr>
 <tr>
       <td><a href="mongo.configuration.html#ini.mongo.native-long" class="link">mongo.native_long</a></td>
-      <td>0<a href="mongo.configuration.html#ini.mongo.native-long" class="link">*</a></td>
+      <td>1</td>
       <td>PHP_INI_ALL</td>
-      <td class="empty">&nbsp;</td>
+      <td>1.5.0 までのデフォルト値は 0</td>
      </tr>
 <tr>
       <td><a href="mongo.configuration.html#ini.mongo.ping-interval" class="link">mongo.ping_interval</a></td>
@@ -2480,6 +2424,76 @@
      </tr>
 
       <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-memory-statistics" class="link">mysqlnd.collect_memory_statistics</a></td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-statistics" class="link">mysqlnd.collect_statistics</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.debug" class="link">mysqlnd.debug</a></td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>mysqlnd.log_mask</td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>mysqlnd.mempool_default_size</td>
+       <td>&quot;16000&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a></td>
+       <td>&quot;4096&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-buffer-size" class="link">mysqlnd.net_read_buffer_size</a></td>
+       <td>&quot;32768&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-timeout" class="link">mysqlnd.net_read_timeout</a></td>
+       <td>&quot;31536000&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="mysqlnd.config.html#ini.mysqlnd.sha256-server-public-key" class="link">mysqlnd.sha256_server_public_key</a></td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>mysqlnd.trace_alloc</td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
       <td><a href="mysqlnd-memcache.configuration.html#ini.mysqlnd-memcache.enable" class="link">mysqlnd_memcache.enable</a></td>
       <td>1</td>
       <td><strong><code>PHP_INI_SYSTEM</code></strong></td>
@@ -2511,19 +2525,19 @@
       <td></td>
      </tr>
 <tr>
-      <td>mysqlnd_ms.collect_statistics</td>
+      <td><a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.collect-statistics" class="link">mysqlnd_ms.collect_statistics</a></td>
       <td>0</td>
       <td>PHP_INI_SYSTEM</td>
       <td></td>
      </tr>
 <tr>
-      <td>mysqlnd_ms.multi_master</td>
+      <td><a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.multi-master" class="link">mysqlnd_ms.multi_master</a></td>
       <td>0</td>
       <td>PHP_INI_SYSTEM</td>
       <td></td>
      </tr>
 <tr>
-      <td>mysqlnd_ms.disable_rw_split</td>
+      <td><a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.disable-rw-split" class="link">mysqlnd_ms.disable_rw_split</a></td>
       <td>0</td>
       <td>PHP_INI_SYSTEM</td>
       <td></td>
@@ -2789,6 +2803,13 @@
       </tr>
 
       <tr>
+       <td>odbc.default_cursortype</td>
+       <td>&quot;3&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.3.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
        <td><a href="odbc.configuration.html#ini.uodbc.default-pw" class="link">odbc.default_pw</a></td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
@@ -3048,6 +3069,13 @@
       </tr>
 
       <tr>
+       <td><a href="phar.configuration.html#ini.phar.cache-list" class="link">phar.cache_list</a></td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
        <td><a href="phar.configuration.html#ini.phar.extract-list" class="link">phar.extract_list</a></td>
        <td>&quot;&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3066,13 +3094,6 @@
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td><a href="ini.core.html#ini.enable-post-data-reading" class="link">enable_post_data_reading</a></td>
-       <td>On</td>
-       <td>PHP_INI_PERDIR</td>
-       <td>PHP 5.4.0 以降で利用可能。</td>
       </tr>
 
       <tr>
@@ -3248,8 +3269,8 @@
       <tr>
        <td><a href="session.configuration.html#ini.session.auto-start" class="link">session.auto_start</a></td>
        <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP &lt;= 5.4.19 および PHP &lt;= 5.5.1 では PHP_INI_ALL。</td>
       </tr>
 
       <tr>
@@ -3407,6 +3428,55 @@
       </tr>
 
       <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.cleanup" class="link">session.upload_progress.cleanup</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.enabled" class="link">session.upload_progress.enabled</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.freq" class="link">session.upload_progress.freq</a></td>
+       <td>&quot;1%&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.min-freq" class="link">session.upload_progress.min_freq</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.name" class="link">session.upload_progress.name</a></td>
+       <td>&quot;PHP_SESSION_UPLOAD_PROGRESS&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a></td>
+       <td>&quot;upload_progress_&quot;</td>
+       <td>PHP_INI_PERDIR</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+        <td><a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a></td>
+        <td>&quot;0&quot;</td>
+        <td>PHP_INI_ALL</td>
+        <td>PHP 5.5.2 以降で利用可能。</td>
+      </tr>
+
+      <tr>
        <td><a href="session.configuration.html#ini.session.use-cookies" class="link">session.use_cookies</a></td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3512,55 +3582,6 @@
       </tr>
 
       <tr>
-       <td>simple_cvs.authMethod</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.compressionLevel</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.cvsRoot</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.host</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.moduleName</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.userName</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>simple_cvs.workingDir</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
        <td><a href="mail.configuration.html#ini.smtp" class="link">SMTP</a></td>
        <td>&quot;localhost&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3623,7 +3644,13 @@
        <td>PHP 5.0.0 以降で利用可能。</td>
       </tr>
 
-      
+      <tr>
+       <td><a href="sqlite3.configuration.html#ini.sqlite3.extension-dir" class="link">sqlite3.extension_dir</a></td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.3.11 以降で利用可能。</td>
+      </tr>
+
       <tr>
        <td><a href="sybase.configuration.html#ini.sybase.allow-persistent" class="link">sybase.allow_persistent</a></td>
        <td>&quot;1&quot;</td>
@@ -3705,7 +3732,7 @@
        <td><a href="sybase.configuration.html#ini.sybct.allow-persistent" class="link">sybct.allow_persistent</a></td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
+       <td>PHP = 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
       </tr>
 
       <tr>
@@ -3733,14 +3760,14 @@
        <td><a href="sybase.configuration.html#ini.sybct.max-links" class="link">sybct.max_links</a></td>
        <td>&quot;-1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
+       <td>PHP = 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
       </tr>
 
       <tr>
        <td><a href="sybase.configuration.html#ini.sybct.max-persistent" class="link">sybct.max_persistent</a></td>
        <td>&quot;-1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
+       <td>PHP = 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
       </tr>
 
       <tr>
@@ -3772,6 +3799,13 @@
       </tr>
 
       <tr>
+       <td>sys_temp_dir</td>
+       <td>&quot;&quot;</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
        <td><a href="sem.configuration.html#ini.sysvshm.init-mem" class="link">sysvshm.init_mem</a></td>
        <td>&quot;10000&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3799,14 +3833,6 @@
        <td class="empty">&nbsp;</td>
       </tr>
 
-      <tr>
-       <td><a href="ini.core.html#ini.track-vars" class="link">track_vars</a></td>
-       <td>&quot;1&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.3 で削除。</td>
-      </tr>
-
-      
       <tr>
        <td>unserialize_callback_func</td>
        <td>NULL</td>
@@ -3899,13 +3925,6 @@
       </tr>
 
       <tr>
-       <td>velocis.max_links</td>
-       <td>&quot;-1&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.2.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>vld.active</td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_SYSTEM</td>
@@ -3931,6 +3950,13 @@
        <td>&quot;0&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td>vld 0.8.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td>windows.show_crt_warning</td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
       </tr>
 
       <tr>
@@ -4305,6 +4331,13 @@
       </tr>
 
       <tr>
+       <td>xsl.security_prefs</td>
+       <td>&quot;44&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.5.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
        <td><a href="ini.core.html#ini.y2k-compliance" class="link">y2k_compliance</a></td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -4326,13 +4359,6 @@
       </tr>
 
       <tr>
-       <td>yaz.log_file</td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.3.0 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>yaz.log_mask</td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
@@ -4344,6 +4370,13 @@
        <td>&quot;100&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 4.3.0 以降で利用可能。PHP 5.0.0 で削除。</td>
+      </tr>
+
+      <tr>
+       <td><a href="ini.core.html#ini.zend.detect-unicode" class="link">zend.detect_unicode</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 5.4.0 以降で利用可能。</td>
       </tr>
 
       <tr>

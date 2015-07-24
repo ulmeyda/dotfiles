@@ -74,11 +74,15 @@
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* プロパティ */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionobject.html#reflectionobject.props.name">$<var class="varname">name</var></a></var>
+    ;</div>
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="reflectionobject.construct.html" class="methodname">__construct</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="reflectionobject.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$argument</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -90,7 +94,7 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* 継承したメソッド */</div>
     <div class="methodsynopsis dc-description">
-    <span class="methodname"><a href="reflectionclass.construct.html" class="methodname">ReflectionClass::__construct</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="reflectionclass.construct.html" class="methodname">ReflectionClass::__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$argument</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -148,7 +152,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getmethods.html" class="methodname">ReflectionClass::getMethods</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filter</code></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="reflectionclass.getmodifiers.html" class="methodname">ReflectionClass::getModifiers</a></span>
@@ -189,7 +193,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="reflectionclass.getstaticpropertyvalue.html" class="methodname">ReflectionClass::getStaticPropertyValue</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$def_value</code></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.gettraitaliases.html" class="methodname">ReflectionClass::getTraitAliases</a></span>
     ( <span class="methodparam">void</span>
@@ -301,8 +306,9 @@
    <h2 class="title">プロパティ</h2>
    <dl>
 
-    <dt id="reflectionobject.props.name">
-     <span class="term"><var class="varname"><var class="varname">name</var></var></span>
+    
+     <dt id="reflectionobject.props.name"><var class="varname"><var class="varname">name</var></var></dt>
+
      <dd>
 
       <p class="para">
@@ -311,8 +317,7 @@
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </div>

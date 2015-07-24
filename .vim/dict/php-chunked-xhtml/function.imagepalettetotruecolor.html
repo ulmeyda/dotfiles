@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Converts a palette based image to true color</title>
+  <title>パレット形式の画像を true color に変換する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagepalettetotruecolor" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagepalettetotruecolor</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0)</p><p class="refpurpose"><span class="refname">imagepalettetotruecolor</span> &mdash; <span class="dc-title">Converts a palette based image to true color</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">imagepalettetotruecolor</span> &mdash; <span class="dc-title">パレット形式の画像を true color に変換する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagepalettetotruecolor-description">
@@ -24,9 +24,8 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Converts a palette based image, created by functions like 
-    <span class="function"><a href="function.imagecreate.html" class="function">imagecreate()</a></span> to a true color image, like 
-    <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.
+   <span class="function"><a href="function.imagecreate.html" class="function">imagecreate()</a></span> のような関数で作ったパレット形式の画像を、
+   <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span> で作るような true color 形式に変換します。
   </p>
  </div>
 
@@ -37,11 +36,11 @@
    <dl>
 
     <dt>
-<span class="term"><em><code class="parameter">
-image</code></em></span><dd>
-<p class="para"> <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para"><span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>
 のような画像作成関数が返す画像リソース。</p></dd>
-</dt>
 
    </dl>
 
@@ -52,8 +51,8 @@ image</code></em></span><dd>
  <div class="refsect1 returnvalues" id="refsect1-function.imagepalettetotruecolor-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the convertion was complete, or if the source image already 
-   is a true color image, otherwise <strong><code>FALSE</code></strong> is returned.
+   変換に成功した場合や、元画像が既に true color だった場合に <strong><code>TRUE</code></strong> を返します。
+   それ以外の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -61,13 +60,13 @@ image</code></em></span><dd>
  <div class="refsect1 examples" id="refsect1-function.imagepalettetotruecolor-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3174">
+   <div class="example" id="example-3452">
     <p><strong>例1 
-     Converts any image resource to true color
+     画像リソースの true color への変換
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Backwards&nbsp;compatiblity<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'imagepalettetotruecolor'</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">imagepalettetotruecolor</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$src</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">imageistruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dst&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagecopy</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$src</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$src&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dst</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Helper&nbsp;closure<br /></span><span style="color: #0000BB">$typeof&nbsp;</span><span style="color: #007700">=&nbsp;function()&nbsp;use(</span><span style="color: #0000BB">$im</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'typeof($im)&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">imageistruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'true&nbsp;color'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'palette'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />};<br /><br /></span><span style="color: #FF8000">//&nbsp;Create&nbsp;a&nbsp;palette&nbsp;based&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$typeof</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Convert&nbsp;it&nbsp;to&nbsp;true&nbsp;color<br /></span><span style="color: #0000BB">imagepalettetotruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$typeof</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Free&nbsp;the&nbsp;memory<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;過去との互換性のための処理<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'imagepalettetotruecolor'</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">imagepalettetotruecolor</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$src</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">imageistruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dst&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagecopy</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$src</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$src&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dst</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;ヘルパークロージャ<br /></span><span style="color: #0000BB">$typeof&nbsp;</span><span style="color: #007700">=&nbsp;function()&nbsp;use(</span><span style="color: #0000BB">$im</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'typeof($im)&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">imageistruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'true&nbsp;color'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'palette'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />};<br /><br /></span><span style="color: #FF8000">//&nbsp;パレット形式の画像を作ります<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$typeof</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;true&nbsp;color&nbsp;に変換します<br /></span><span style="color: #0000BB">imagepalettetotruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$typeof</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;メモリを解放します<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -88,8 +87,8 @@ typeof($im) = true color
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="function.imagecreatetruecolor.html" class="function" rel="rdfs-seeAlso">imagecreatetruecolor()</a> - TrueColor イメージを新規に作成する</span></li>
-    <li class="member"> <span class="function"><a href="function.imageistruecolor.html" class="function" rel="rdfs-seeAlso">imageistruecolor()</a> - 画像が truecolor かどうか調べる</span></li>
+    <li class="member"><span class="function"><a href="function.imagecreatetruecolor.html" class="function" rel="rdfs-seeAlso">imagecreatetruecolor()</a> - TrueColor イメージを新規に作成する</span></li>
+    <li class="member"><span class="function"><a href="function.imageistruecolor.html" class="function" rel="rdfs-seeAlso">imageistruecolor()</a> - 画像が truecolor かどうか調べる</span></li>
    </ul>
   </p>
  </div>

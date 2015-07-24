@@ -2,8 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>アクティブなハッシュコンテキストに、ファイルから
-   データを投入する</title>
+  <title>アクティブなハッシュコンテキストに、ファイルからデータを投入する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -15,8 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">hash_update_file</h1>
   <p class="verinfo">(PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)</p><p class="refpurpose"><span class="refname">hash_update_file</span> &mdash; <span class="dc-title">
-   アクティブなハッシュコンテキストに、ファイルから
-   データを投入する
+   アクティブなハッシュコンテキストに、ファイルからデータを投入する
   </span></p>
 
  </div>
@@ -24,9 +22,9 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>hash_update_file</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$hcontext</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$scontext</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
   ] )</div>
 
 
@@ -37,21 +35,22 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">hcontext</code></dt>
 
-     <span class="term"><em><code class="parameter">context</code></em></span>
      <dd>
 
       <p class="para">
-        <span class="function"><a href="function.hash-init.html" class="function">hash_init()</a></span> が返すハッシュコンテキスト。
+       <span class="function"><a href="function.hash-init.html" class="function">hash_init()</a></span> が返すハッシュコンテキスト。
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">filename</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">filename</code></em></span>
      <dd>
 
       <p class="para">
@@ -60,21 +59,20 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">scontext</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">context</code></em></span>
      <dd>
 
       <p class="para">
-        <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span> が返す
+       <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span> が返す
        ストリームコンテキスト。
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -93,13 +91,13 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="function.hash-init.html" class="function" rel="rdfs-seeAlso">hash_init()</a> - 段階的なハッシュコンテキストを初期化する</span></li>
-    <li class="member"> <span class="function"><a href="function.hash-update.html" class="function" rel="rdfs-seeAlso">hash_update()</a> - アクティブなハッシュコンテキストにデータを投入する</span></li>
-    <li class="member"> <span class="function"><a href="function.hash-update-stream.html" class="function" rel="rdfs-seeAlso">hash_update_stream()</a> - アクティブなハッシュコンテキストに、オープンしているストリームから
+    <li class="member"><span class="function"><a href="function.hash-init.html" class="function" rel="rdfs-seeAlso">hash_init()</a> - 段階的なハッシュコンテキストを初期化する</span></li>
+    <li class="member"><span class="function"><a href="function.hash-update.html" class="function" rel="rdfs-seeAlso">hash_update()</a> - アクティブなハッシュコンテキストにデータを投入する</span></li>
+    <li class="member"><span class="function"><a href="function.hash-update-stream.html" class="function" rel="rdfs-seeAlso">hash_update_stream()</a> - アクティブなハッシュコンテキストに、オープンしているストリームから
    データを投入する</span></li>
-    <li class="member"> <span class="function"><a href="function.hash-final.html" class="function" rel="rdfs-seeAlso">hash_final()</a> - 段階的なハッシュ処理を終了し、出来上がったダイジェストを返す</span></li>
-    <li class="member"> <span class="function"><a href="function.hash.html" class="function" rel="rdfs-seeAlso">hash()</a> - ハッシュ値 (メッセージダイジェスト) を生成する</span></li>
-    <li class="member"> <span class="function"><a href="function.hash-file.html" class="function" rel="rdfs-seeAlso">hash_file()</a> - ファイルの内容から、ハッシュ値を生成する</span></li>
+    <li class="member"><span class="function"><a href="function.hash-final.html" class="function" rel="rdfs-seeAlso">hash_final()</a> - 段階的なハッシュ処理を終了し、出来上がったダイジェストを返す</span></li>
+    <li class="member"><span class="function"><a href="function.hash.html" class="function" rel="rdfs-seeAlso">hash()</a> - ハッシュ値 (メッセージダイジェスト) を生成する</span></li>
+    <li class="member"><span class="function"><a href="function.hash-file.html" class="function" rel="rdfs-seeAlso">hash_file()</a> - ファイルの内容から、ハッシュ値を生成する</span></li>
    </ul>
   </p>
  </div>

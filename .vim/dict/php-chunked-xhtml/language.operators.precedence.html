@@ -24,12 +24,27 @@
    <p class="para">
     演算子の優先順位が等しい場合は、その結合性によって評価順
     (右から評価するのか、あるいは左から評価するのか) が決まります。
-    以下の例を参照ください。
+    たとえば &quot;-&quot; は左結合なので、
+    <em>1 - 2 - 3</em> は <em>(1 - 2) - 3</em> とグループ分けされて、
+    評価結果は <em>-4</em> になります。
+    一方、&quot;=&quot; は右結合です。つまり <em>$a = $b = $c</em> のグループ分けは
+    <em>$a = ($b = $c)</em> となります。
+   </p>
+   <p class="para">
+    優先順位が同じで結合しない演算子を並べることはできません。つまり、たとえば
+    <em>1 &lt; 2 &gt; 1</em> は PHP では無効になります。
+    一方 <em>1 &lt;= 1 == 1</em> は問題ありません。
+    <em>==</em> 演算子の優先順位が
+    <em>&lt;=</em> 演算子より低いからです。
+   </p>
+   <p class="para">
+    厳密には不要な場所であっても、括弧をつけておけばコードの可読性があがります。
+    明示的にグループ分けをしておくことで、演算子の優先順位や結合性による暗黙のグループ分けに頼らずに済むからです。
    </p>
    <p class="para">
     次の表では、優先順位が高い順に演算子を挙げています。
     同じ行にある演算子は優先順位が等しくなります。そのような場合は、
-    結合時の評価にしたがって評価順が決まります。
+    結合時の評価にしたがってグループ分けが決まります。
     <table class="doctable table">
      <caption><strong>演算子の優先順位</strong></caption>
      
@@ -45,19 +60,39 @@
       <tbody class="tbody">
        <tr>
         <td>結合しない</td>
-        <td>clone new</td>
+        <td>
+         <em>clone</em>
+         <em>new</em>
+        </td>
         <td><a href="language.oop5.cloning.html" class="link">clone</a> および <a href="language.oop5.basic.html#language.oop5.basic.new" class="link">new</a></td>
        </tr>
 
        <tr>
         <td>left</td>
-        <td>[</td>
-        <td> <span class="function"><a href="function.array.html" class="function">array()</a></span></td>
+        <td><em>[</em></td>
+        <td><span class="function"><a href="function.array.html" class="function">array()</a></span></td>
        </tr>
 
        <tr>
         <td>right</td>
-        <td>++ -- ~ (int) (float) (string) (array) (object) (bool) @</td>
+        <td><em>**</em></td>
+        <td><a href="language.operators.arithmetic.html" class="link">代数演算子</a></td>
+       </tr>
+
+       <tr>
+        <td>right</td>
+        <td>
+         <em>++</em> 
+         <em>--</em> 
+         <em>~</em> 
+         <em>(int)</em> 
+         <em>(float)</em> 
+         <em>(string)</em> 
+         <em>(array)</em>
+         <em>(object)</em> 
+         <em>(bool)</em> 
+         <em>@</em>
+        </td>
         <td>
          <a href="language.types.html" class="link">型</a> および <a href="language.operators.increment.html" class="link">加算子/減算子</a>
         </td>
@@ -65,7 +100,7 @@
 
        <tr>
         <td>結合しない</td>
-        <td>instanceof</td>
+        <td><em>instanceof</em></td>
         <td>
          <a href="language.types.html" class="link">型</a>
         </td>
@@ -73,7 +108,7 @@
 
        <tr>
         <td>right</td>
-        <td>!</td>
+        <td><em>!</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -81,7 +116,11 @@
 
        <tr>
         <td>left</td>
-        <td>* / %</td>
+        <td>
+         <em>*</em>
+         <em>/</em>
+         <em>%</em>
+        </td>
         <td>
          <a href="language.operators.arithmetic.html" class="link">代数演算子</a>
         </td>
@@ -89,7 +128,11 @@
 
        <tr>
         <td>left</td>
-        <td>+ - .</td>
+        <td>
+         <em>+</em> 
+         <em>-</em> 
+         <em>.</em>
+        </td>
         <td>
          <a href="language.operators.arithmetic.html" class="link">代数演算子</a> そして 
          <a href="language.operators.string.html" class="link">文字列演算子</a></td>
@@ -97,7 +140,10 @@
 
        <tr>
         <td>left</td>
-        <td>&lt;&lt; &gt;&gt;</td>
+        <td>
+         <em>&lt;&lt;</em> 
+         <em>&gt;&gt;</em>
+        </td>
         <td>
          <a href="language.operators.bitwise.html" class="link">ビット演算子</a>
         </td>
@@ -105,7 +151,12 @@
 
        <tr>
         <td>結合しない</td>
-        <td>&lt; &lt;= &gt; &gt;=</td>
+        <td>
+         <em>&lt;</em> 
+         <em>&lt;=</em> 
+         <em>&gt;</em> 
+         <em>&gt;=</em>
+        </td>
         <td>
          <a href="language.operators.comparison.html" class="link">比較演算子</a>
         </td>
@@ -113,7 +164,13 @@
 
        <tr>
         <td>結合しない</td>
-        <td>== != === !== &lt;&gt;</td>
+        <td>
+         <em>==</em>
+         <em>!=</em> 
+         <em>===</em> 
+         <em>!==</em> 
+         <em>&lt;&gt;</em>
+        </td>
         <td>
          <a href="language.operators.comparison.html" class="link">比較演算子</a>
         </td>
@@ -121,7 +178,7 @@
 
        <tr>
         <td>left</td>
-        <td>&amp;</td>
+        <td><em>&amp;</em></td>
         <td>
          <a href="language.operators.bitwise.html" class="link">ビット演算子</a> そして 
          <a href="language.references.html" class="link">リファレンス</a></td>
@@ -129,7 +186,7 @@
 
        <tr>
         <td>left</td>
-        <td>^</td>
+        <td><em>^</em></td>
         <td>
          <a href="language.operators.bitwise.html" class="link">ビット演算子</a>
         </td>
@@ -137,7 +194,7 @@
 
        <tr>
         <td>left</td>
-        <td>|</td>
+        <td><em>|</em></td>
         <td>
          <a href="language.operators.bitwise.html" class="link">ビット演算子</a>
         </td>
@@ -145,7 +202,7 @@
 
        <tr>
         <td>left</td>
-        <td>&amp;&amp;</td>
+        <td><em>&amp;&amp;</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -153,7 +210,7 @@
 
        <tr>
         <td>left</td>
-        <td>||</td>
+        <td><em>||</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -161,7 +218,7 @@
 
        <tr>
         <td>left</td>
-        <td>? :</td>
+        <td><em>? :</em></td>
         <td>
          <a href="language.operators.comparison.html#language.operators.comparison.ternary" class="link">三項演算子</a>
         </td>
@@ -170,7 +227,20 @@
        <tr>
         <td>right</td>
         <td>
-         = += -= *= /= .= %= &amp;= |= ^= &lt;&lt;= &gt;&gt;= =&gt;
+         <em>=</em> 
+         <em>+=</em> 
+         <em>-=</em> 
+         <em>*=</em> 
+         <em>**=</em> 
+         <em>/=</em> 
+         <em>.=</em> 
+         <em>%=</em> 
+         <em>&amp;=</em> 
+         <em>|=</em> 
+         <em>^=</em> 
+         <em>&lt;&lt;=</em> 
+         <em>&gt;&gt;=</em>
+         <em>=&gt;</em>
         </td>
         <td>
          <a href="language.operators.assignment.html" class="link">代入演算子</a>
@@ -179,7 +249,7 @@
 
        <tr>
         <td>left</td>
-        <td>and</td>
+        <td><em>and</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -187,7 +257,7 @@
 
        <tr>
         <td>left</td>
-        <td>xor</td>
+        <td><em>xor</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -195,7 +265,7 @@
 
        <tr>
         <td>left</td>
-        <td>or</td>
+        <td><em>or</em></td>
         <td>
          <a href="language.operators.logical.html" class="link">論理演算子</a>
         </td>
@@ -203,7 +273,7 @@
 
        <tr>
         <td>left</td>
-        <td>,</td>
+        <td><em>,</em></td>
         <td>さまざまな利用法</td>
        </tr>
 
@@ -213,26 +283,32 @@
 
    </p>
    <p class="para">
-    演算子の優先順位が同じ場合、
-    結合時の評価が left の場合は式が左から右に評価され、一方 right の場合は
-    その逆となります。
-    優先順位が同じ演算子で結合しないものが並んだ場合、自分自身で結合することはありません。
-    つまり、たとえば
-    <em>1 &lt; 2 &gt; 1</em> のような文は PHP では無効になります。
-    一方 <em>1 &lt;= 1 == 1</em> は無効ではありません。というのも、
-    <strong><code>T_IS_EQUAL</code></strong> 演算子の優先順位が
-    <strong><code>T_IS_SMALLER_OR_EQUAL</code></strong> 演算子より低いからです。
-    <div class="example" id="example-114">
+    <div class="example" id="example-129">
      <p><strong>例1 結合時の評価</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(3&nbsp;*&nbsp;3)&nbsp;%&nbsp;5&nbsp;=&nbsp;4<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(true&nbsp;?&nbsp;0&nbsp;:&nbsp;true)&nbsp;?&nbsp;1&nbsp;:&nbsp;2&nbsp;=&nbsp;2<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$a&nbsp;=&nbsp;($b&nbsp;+=&nbsp;3)&nbsp;-&gt;&nbsp;$a&nbsp;=&nbsp;5,&nbsp;$b&nbsp;=&nbsp;5<br /><br />//&nbsp;++&nbsp;と&nbsp;+&nbsp;を同時に使ったときの挙動は未定義です<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />echo&nbsp;++</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">++;&nbsp;</span><span style="color: #FF8000">//&nbsp;4&nbsp;になるかもしれないし、5&nbsp;になるかもしれません<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(3&nbsp;*&nbsp;3)&nbsp;%&nbsp;5&nbsp;=&nbsp;4<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(true&nbsp;?&nbsp;0&nbsp;:&nbsp;true)&nbsp;?&nbsp;1&nbsp;:&nbsp;2&nbsp;=&nbsp;2<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$a&nbsp;=&nbsp;($b&nbsp;+=&nbsp;3)&nbsp;-&gt;&nbsp;$a&nbsp;=&nbsp;5,&nbsp;$b&nbsp;=&nbsp;5<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
 
     </div>
-    厳密には不要な場所であっても、括弧をつけておけばコードの可読性があがります。
+   </p>
+   <p class="para">
+    演算子の優先順位や結合性は、あくまでも式のグループ分けだけを決めるものであり、評価順を決めるものではありません。
+    PHP では一般に、式をどの順番で評価するかは決めていませｎ。
+    そのため、特定の順序で式が評価されることを前提としたコードを書いてはいけません。
+    PHP のバージョンが変わったり前後のコードが変わったりしたときに、評価順が変わる可能性があるからです。
+    <div class="example" id="example-130">
+     <p><strong>例2 評価順序は未定義</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">++;&nbsp;</span><span style="color: #FF8000">//&nbsp;1&nbsp;になるかもしれないし、2&nbsp;になるかもしれません<br /><br /></span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++;&nbsp;</span><span style="color: #FF8000">//&nbsp;インデックス&nbsp;1&nbsp;をセットするかもしれないし、インデックス&nbsp;2&nbsp;をセットするかもしれません<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
    </p>
    <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">

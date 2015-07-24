@@ -13,7 +13,7 @@
 </div><hr /><div id="class.eventutil" class="reference">
  <h1 class="title">The EventUtil class</h1>
  
- <div class="partintro"><p class="verinfo">(バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)</p>
+ <div class="partintro"><p class="verinfo">(PECL event &gt;= 1.5.0)</p>
 
   <div class="section" id="eventutil.intro">
    <h2 class="title">導入</h2>
@@ -212,14 +212,14 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">abstract</span>
    <span class="modifier">public</span>
-    <span class="methodname"><a href="eventutil.construct.html" class="methodname">__construct</a></span>
+   <span class="methodname"><a href="eventutil.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
-   <span class="type">int</span>
-    <span class="methodname"><a href="eventutil.getlastsocketerrno.html" class="methodname">getLastSocketErrno</a></span>
+   <span class="type">int</span> 
+   <span class="methodname"><a href="eventutil.getlastsocketerrno.html" class="methodname">getLastSocketErrno</a></span>
     ([ <span class="methodparam">
     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
@@ -229,8 +229,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
-   <span class="type">string</span>
-    <span class="methodname"><a href="eventutil.getlastsocketerror.html" class="methodname">getLastSocketError</a></span>
+   <span class="type">string</span> 
+   <span class="methodname"><a href="eventutil.getlastsocketerror.html" class="methodname">getLastSocketError</a></span>
     ([ <span class="methodparam">
     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
@@ -239,8 +239,18 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
-   <span class="type">bool</span>
-    <span class="methodname"><a href="eventutil.getsocketname.html" class="methodname">getSocketName</a></span>
+   <span class="type">int</span> 
+   <span class="methodname"><a href="eventutil.getsocketfd.html" class="methodname">getSocketFd</a></span>
+    ( <span class="methodparam">
+    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+     <code class="parameter">$socket</code>
+   </span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="modifier">static</span>
+   <span class="type">bool</span> 
+   <span class="methodname"><a href="eventutil.getsocketname.html" class="methodname">getSocketName</a></span>
     ( <span class="methodparam">
     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
@@ -257,8 +267,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
-   <span class="type">bool</span>
-    <span class="methodname"><a href="eventutil.setsocketoption.html" class="methodname">setSocketOption</a></span>
+   <span class="type">bool</span> 
+   <span class="methodname"><a href="eventutil.setsocketoption.html" class="methodname">setSocketOption</a></span>
     ( <span class="methodparam">
     <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
@@ -279,8 +289,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
-   <span class="type">void</span>
-    <span class="methodname"><a href="eventutil.sslrandpoll.html" class="methodname">sslRandPoll</a></span>
+   <span class="type">void</span> 
+   <span class="methodname"><a href="eventutil.sslrandpoll.html" class="methodname">sslRandPoll</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 
@@ -292,10 +302,11 @@
    <h2 class="title">定義済み定数</h2>
    <dl>
 
-    <dt id="eventutil.constants.af-inet">
-     <span class="term">
+    
+     <dt id="eventutil.constants.af-inet">
       <strong><code>EventUtil::AF_INET</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -303,12 +314,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.af-inet6">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.af-inet6">
       <strong><code>EventUtil::AF_INET6</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -316,12 +327,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.af-unspec">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.af-unspec">
       <strong><code>EventUtil::AF_UNSPEC</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -329,12 +340,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-debug">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-debug">
       <strong><code>EventUtil::SO_DEBUG</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -347,12 +358,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-reuseaddr">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-reuseaddr">
       <strong><code>EventUtil::SO_REUSEADDR</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -365,12 +376,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-keepalive">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-keepalive">
       <strong><code>EventUtil::SO_KEEPALIVE</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -381,12 +392,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-dontroute">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-dontroute">
       <strong><code>EventUtil::SO_DONTROUTE</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -396,12 +407,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-linger">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-linger">
       <strong><code>EventUtil::SO_LINGER</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -418,12 +429,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-broadcast">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-broadcast">
       <strong><code>EventUtil::SO_BROADCAST</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -434,12 +445,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-oobinline">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-oobinline">
       <strong><code>EventUtil::SO_OOBINLINE</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -449,12 +460,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-sndbuf">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-sndbuf">
       <strong><code>EventUtil::SO_SNDBUF</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -464,12 +475,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-rcvbuf">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-rcvbuf">
       <strong><code>EventUtil::SO_RCVBUF</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -479,12 +490,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-sndlowat">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-sndlowat">
       <strong><code>EventUtil::SO_SNDLOWAT</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -494,12 +505,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-rcvlowat">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-rcvlowat">
       <strong><code>EventUtil::SO_RCVLOWAT</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -509,12 +520,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-sndtimeo">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-sndtimeo">
       <strong><code>EventUtil::SO_SNDTIMEO</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -524,12 +535,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-rcvtimeo">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-rcvtimeo">
       <strong><code>EventUtil::SO_RCVTIMEO</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -539,12 +550,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-type">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-type">
       <strong><code>EventUtil::SO_TYPE</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -554,12 +565,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.so-error">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.so-error">
       <strong><code>EventUtil::SO_ERROR</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -569,12 +580,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.sol-socket">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.sol-socket">
       <strong><code>EventUtil::SOL_SOCKET</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -584,12 +595,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.sol-tcp">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.sol-tcp">
       <strong><code>EventUtil::SOL_TCP</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -599,12 +610,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.sol-udp">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.sol-udp">
       <strong><code>EventUtil::SOL_UDP</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -614,12 +625,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.ipproto-ip">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.ipproto-ip">
       <strong><code>EventUtil::IPPROTO_IP</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -629,12 +640,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.ipproto-ipv6">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.ipproto-ipv6">
       <strong><code>EventUtil::IPPROTO_IPV6</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -644,12 +655,12 @@
       </p>
      </dd>
 
-    </dt>
-
-    <dt id="eventutil.constants.libevent-version-number">
-     <span class="term">
+    
+    
+     <dt id="eventutil.constants.libevent-version-number">
       <strong><code>EventUtil::LIBEVENT_VERSION_NUMBER</code></strong>
-     </span>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -658,8 +669,7 @@
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </div>
@@ -698,7 +708,12 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventutil.construct.html">EventUtil::__construct</a> — The abstract constructor</li><li><a href="eventutil.getlastsocketerrno.html">EventUtil::getLastSocketErrno</a> — Returns the most recent socket error number</li><li><a href="eventutil.getlastsocketerror.html">EventUtil::getLastSocketError</a> — Returns the most recent socket error</li><li><a href="eventutil.getsocketname.html">EventUtil::getSocketName</a> — Retreives the current address to which the
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventutil.construct.html">EventUtil::__construct</a> — The abstract constructor</li><li><a href="eventutil.getlastsocketerrno.html">EventUtil::getLastSocketErrno</a> — Returns the most recent socket error number</li><li><a href="eventutil.getlastsocketerror.html">EventUtil::getLastSocketError</a> — Returns the most recent socket error</li><li><a href="eventutil.getsocketfd.html">EventUtil::getSocketFd</a> — Returns numeric file descriptor of a socket, or stream</li><li><a href="eventutil.getsocketname.html">EventUtil::getSocketName</a> — Retreives the current address to which the
   socket is bound.</li><li><a href="eventutil.setsocketoption.html">EventUtil::setSocketOption</a> — Sets socket options</li><li><a href="eventutil.sslrandpoll.html">EventUtil::sslRandPoll</a> — Generates entropy by means of OpenSSL's RAND_poll()</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">

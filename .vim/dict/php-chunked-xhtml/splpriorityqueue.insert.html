@@ -20,14 +20,14 @@
  <div class="refsect1 description" id="refsect1-splpriorityqueue.insert-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SplPriorityQueue::insert</strong></span>
+   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SplPriorityQueue::insert</strong></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority</code></span>
    )</div>
 
 
   <p class="para rdfs-comment">
-   <em><code class="parameter">value</code></em> を優先順位 <em><code class="parameter">priority</code></em> でキューに挿入します。
+   <code class="parameter">value</code> を優先順位 <code class="parameter">priority</code> でキューに挿入します。
   </p>
  </div>
 
@@ -37,9 +37,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">value</code></dt>
 
-     <span class="term"><em><code class="parameter">value</code></em></span>
      <dd>
 
       <p class="para">
@@ -47,11 +48,11 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">priority</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">priority</code></em></span>
      <dd>
 
       <p class="para">
@@ -59,8 +60,7 @@
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>

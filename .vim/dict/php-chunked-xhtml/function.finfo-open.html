@@ -29,7 +29,7 @@
 
   <p class="para rdfs-comment">オブジェクト指向型 (コンストラクタ)</p>
   <div class="constructorsynopsis dc-description">
-    <span class="methodname"><strong>finfo::__construct()</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="finfo.construct.html" class="methodname">finfo::__construct</a></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = FILEINFO_NONE</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$magic_file</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
   ]] )</div>
@@ -45,9 +45,10 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
+<code class="parameter">options</code></dt>
 
-     <span class="term"><em><code class="parameter">options</code></em></span>
      <dd>
 
       <p class="para">
@@ -56,29 +57,26 @@
       </p>
      </dd>
 
-    </dt>
+    
+    
+     <dt>
+<code class="parameter">magic_file</code></dt>
 
-    <dt>
-
-     <span class="term"><em><code class="parameter">magic_file</code></em></span>
      <dd>
 
       <p class="para">
        magic データベースファイルの名前。通常は
        <var class="filename">/path/to/magic.mime</var> のようになります。
        指定されなかった場合は、環境変数 <em>MAGIC</em>
-       の値が使用されます。この環境変数も設定されていない場合、
-       <var class="filename">/usr/share/misc/magic</var> をデフォルトで使用します。
-       必要に応じて、<em>.mime</em> や <em>.mgc</em>
-       が追加されます。
+       の値が使用されます。この環境変数も設定されていない場合は、
+       PHP の組み込みの magic データベースを使います。
       </p>
       <p class="para">
-       NULL あるいは空文字列は、デフォルト値と同じ意味となります。
+       <strong><code>NULL</code></strong> あるいは空文字列は、デフォルト値と同じ意味となります。
       </p>
      </dd>
 
-    </dt>
-
+    
    </dl>
 
   </p>
@@ -93,24 +91,33 @@
  </div>
 
 
-  <div class="refsect1 notes" id="refsect1-function.finfo-open-notes">
+ <div class="refsect1 notes" id="refsect1-function.finfo-open-notes">
   <h3 class="title">注意</h3>
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-    PHP &gt;= 5.3.11 および &gt;= 5.4.1 で、magic データベースのフォーマットが変わりました。
+    PHP 5.3.11 および 5.4.1 で、magic データベースのフォーマットが変わりました。
     そのため、内部的な mime データベースも更新されました。
     この影響が特に及ぶのは、外部の magic を読み込んでいる場合です。
     旧フォーマットの magic ファイルを読み込んでも動作しません。
+
     また、mime タイプのテキスト表現が変わったものもあります。たとえば PHP の場合の返り値は
     &quot;PHP script text&quot; ではなく &quot;PHP script, ASCII text&quot; となります。
    </p>
   </div>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    一般的には、独自の magic データベースを使う必要がある場合を除いて、
+    組み込みの magic データベースを使うのが一番いい方法です
+    (<code class="parameter">magic_file</code> を省略し、環境変数 <em>MAGIC</em>
+    も設定しないようにします)。
+   </p>
+  </p></blockquote>
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.finfo-open-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-2297">
+  <div class="example" id="example-2535">
    <p><strong>例1 オブジェクト指向型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,7 +127,7 @@
   </div>
 
   </div>
-  <div class="example" id="example-2298">
+  <div class="example" id="example-2536">
    <p><strong>例2 手続き型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -143,7 +150,7 @@ text/plain; charset=us-ascii
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"> <span class="function"><a href="function.finfo-close.html" class="function" rel="rdfs-seeAlso">finfo_close()</a> - fileinfo リソースを閉じる</span></li>
+    <li class="member"><span class="function"><a href="function.finfo-close.html" class="function" rel="rdfs-seeAlso">finfo_close()</a> - fileinfo リソースを閉じる</span></li>
    </ul>
   </p>
  </div>

@@ -25,7 +25,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   一定の時間何もしない状態が続けば、デフォルトではカーソルは &quot;死にます&quot;。
+   サーバー上で一定の時間何もしない状態が続けば、デフォルトではカーソルは &quot;死にます&quot;。
    一般的に、これは期待通りの挙動です。
    すべての結果をクライアントに送信し終えると、データベースはカーソルの後始末をします。
    しかし、もしクライアントが結果をすべて要求しなければ、
@@ -37,9 +37,9 @@
    何らかの理由でカーソルを長時間そのままで置いておきたい場合は、
    このメソッドを使ってタイムアウトしないように設定します。
    しかし、もしカーソルを死なないようにするのなら、結果をすべて
-   (あるいは、少なくとも  <span class="methodname"><a href="mongocursor.dead.html" class="methodname">MongoCursor::dead()</a></span> が <strong><code>TRUE</code></strong> を返すようになるまで)
+   (あるいは、少なくとも <span class="methodname"><a href="mongocursor.dead.html" class="methodname">MongoCursor::dead()</a></span> が <strong><code>TRUE</code></strong> を返すようになるまで)
    反復処理しなければなりません。
-   そうしないとカーソルがいつまでもデータベース上に残り続け、リソースを浪費してしまいます。
+   そうしないとカーソルが<em class="emphasis">いつまでも</em>データベース上に残り続け、リソースを浪費してしまいます。
   </p>
  </div>
 
@@ -49,11 +49,12 @@
   <p class="para">
    <dl>
 
-    <dt>
+    
+     <dt>
 
-     <span class="term">
-      <em><code class="parameter">liveForever</code></em>
-     </span>
+      <code class="parameter">liveForever</code>
+     </dt>
+
      <dd>
 
       <p class="para">
@@ -61,8 +62,7 @@
       </p>
      </dd>
 
-    </dt>
-   
+       
    </dl>
 
   </p>

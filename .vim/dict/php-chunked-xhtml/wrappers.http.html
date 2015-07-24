@@ -45,7 +45,7 @@
 
 
  <div class="refsect1 usage" id="refsect1-wrappers.http-usage"> 
-  <h3 class="title">オプション</h3>
+  <h3 class="title">利用法</h3>
   <ul class="itemizedlist">
    <li class="listitem"><span class="simpara"><var class="filename">http://example.com</var></span></li>
    <li class="listitem"><span class="simpara"><var class="filename">http://example.com/file.php?var1=val1&amp;var2=val2</var></span></li>
@@ -98,27 +98,27 @@
       </tr>
 
       <tr>
-       <td> <span class="function"><a href="function.stat.html" class="function">stat()</a></span> をサポート</td>
+       <td><span class="function"><a href="function.stat.html" class="function">stat()</a></span> をサポート</td>
        <td>No</td>
       </tr>
 
       <tr>
-       <td> <span class="function"><a href="function.unlink.html" class="function">unlink()</a></span> をサポート</td>
+       <td><span class="function"><a href="function.unlink.html" class="function">unlink()</a></span> をサポート</td>
        <td>No</td>
       </tr>
 
       <tr>
-       <td> <span class="function"><a href="function.rename.html" class="function">rename()</a></span> をサポート</td>
+       <td><span class="function"><a href="function.rename.html" class="function">rename()</a></span> をサポート</td>
        <td>No</td>
       </tr>
 
       <tr>
-       <td> <span class="function"><a href="function.mkdir.html" class="function">mkdir()</a></span> をサポート</td>
+       <td><span class="function"><a href="function.mkdir.html" class="function">mkdir()</a></span> をサポート</td>
        <td>No</td>
       </tr>
 
       <tr>
-       <td> <span class="function"><a href="function.rmdir.html" class="function">rmdir()</a></span> をサポート</td>
+       <td><span class="function"><a href="function.rmdir.html" class="function">rmdir()</a></span> をサポート</td>
        <td>No</td>
       </tr>
 
@@ -185,37 +185,6 @@
    </div>
 
   </div>
-
-  <div class="example" id="wrappers.http.example.custom.headers"> 
-   <p><strong>例2 HTTP リクエストで独自のヘッダを送信する</strong></p>
-   <div class="example-contents"><p>
-    カスタムヘッダを送信するには <a href="context.http.html" class="link">コンテキストオプション</a>
-    を使います。それ以外にも、こんなハックも使えます。
-    これは INI 設定項目 <em>user_agent</em>
-    を処理する際の副作用によるものです。
-    <em>user_agent</em> に何らかの正常な文字列
-    (たとえばデフォルト設定の <em>PHP/version</em> など)
-    を指定し、さらに続けて
-    キャリッジリターン(\r) / ラインフィード(\n)
-    を置いた後に任意のヘッダを記述します。
-   </p></div>
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'user_agent'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"PHP\r\nX-MyCustomHeader:&nbsp;Foo"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://www.example.com/index.php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
-
-   <div class="example-contents"><p>送信されるリクエストは次のようになります。</p></div>
-   <div class="example-contents screen">
-<div class="cdata"><pre>
-GET /index.php HTTP/1.0
-Host: www.example.com
-User-Agent: PHP
-X-MyCustomHeader: Foo
-</pre></div>
-   </div>
-  </div>
  </div>
 
 
@@ -243,7 +212,7 @@ X-MyCustomHeader: Foo
   <ul class="simplelist">
    <li class="member"><a href="context.http.html" class="xref">HTTP コンテキストオプション</a></li>
    <li class="member"><var class="varname"><var class="varname"><a href="reserved.variables.httpresponseheader.html" class="classname">$http_response_header</a></var></var></li>
-   <li class="member"> <span class="function"><a href="function.stream-get-meta-data.html" class="function" rel="rdfs-seeAlso">stream_get_meta_data()</a> - ヘッダーあるいはメタデータをストリームまたはファイルポインタから取得する</span></li>
+   <li class="member"><span class="function"><a href="function.stream-get-meta-data.html" class="function" rel="rdfs-seeAlso">stream_get_meta_data()</a> - ヘッダーあるいはメタデータをストリームまたはファイルポインタから取得する</span></li>
   </ul>
  </div>
 
