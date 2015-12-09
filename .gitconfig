@@ -2,9 +2,9 @@
 	co = checkout
 	st = status
 	br = branch
-    tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
 [core]
-    excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
 	quotepath = false
@@ -19,6 +19,6 @@
 [mergetool]
 	prompt = false
 [http]
-    sslVerify = false
+  sslVerify = false
 [color]
 	ui = auto

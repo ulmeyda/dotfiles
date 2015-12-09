@@ -1,0 +1,3 @@
+#!/bin/sh
+#/usr/bin/ctags -f ~/tags -R `pwd`
+#echo "*** Update tags by git hook script."

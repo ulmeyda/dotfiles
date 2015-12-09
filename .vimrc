@@ -1,13 +1,13 @@
 " Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+if 0 | endif
 
 if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
-    endif
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -17,25 +17,16 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-source ~/dotfiles/.vim/source/base.vim
-source ~/dotfiles/.vim/source/search.vim
-source ~/dotfiles/.vim/source/css.vim
-source ~/dotfiles/.vim/source/color.vim
-source ~/dotfiles/.vim/source/edit.vim
-source ~/dotfiles/.vim/source/ref.vim
-source ~/dotfiles/.vim/source/move.vim
-source ~/dotfiles/.vim/source/statusline.vim
-source ~/dotfiles/.vim/source/complete.vim
-source ~/dotfiles/.vim/source/php.vim
-source ~/dotfiles/.vim/source/javascript.vim
-source ~/dotfiles/.vim/source/diff.vim
-source ~/dotfiles/.vim/source/syntastic.vim
-source ~/dotfiles/.vim/source/encoding.vim
+source ~/dotfiles/.vim/includes/base.vim
+source ~/dotfiles/.vim/includes/color.vim
+source ~/dotfiles/.vim/includes/search.vim
+source ~/dotfiles/.vim/includes/neocomplete.vim
+source ~/dotfiles/.vim/includes/coding.vim
+source ~/dotfiles/.vim/includes/encoding.vim
 
 call neobundle#end()
 

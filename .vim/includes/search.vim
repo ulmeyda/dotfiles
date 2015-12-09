@@ -1,3 +1,6 @@
+NeoBundle 'ctrlp.vim'
+NeoBundle 'nixprime/cpsm'
+
 " 検索時に大文字小文字を無視 (noignorecase:無視しない)
 set ignorecase
 
@@ -24,6 +27,11 @@ autocmd FileType *
     \   if &l:omnifunc == ''
     \ |   setlocal omnifunc=syntaxcomplete#Complete
     \ | endif
+
+" ctags
+set tags+=~/tags
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
 
 
 " jvgrep
