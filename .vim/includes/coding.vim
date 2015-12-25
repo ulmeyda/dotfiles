@@ -30,7 +30,6 @@ let g:quickrun_config = {}
 let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 
 
-
 "==================================================================================
 " yank
 "==================================================================================
@@ -129,7 +128,7 @@ let unified_diff#iwhite_arguments = [
 " HTML, CSS
 "==================================================================================
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
+"NeoBundle 'taichouchou2/html5.vim'
 
 
 "==================================================================================
@@ -146,6 +145,11 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 "==================================================================================
 " PHP
 "==================================================================================
+let g:php_baselib       = 1
+let g:php_htmlInStrings = 1
+let g:php_noShortTags   = 1
+let g:php_sql_query     = 1
+
 NeoBundle 'akiyan/vim-textobj-php' " phpタグ選択 vaP or viP
 
 " PDV
@@ -179,14 +183,24 @@ nnoremap <Space>cl :Clog
 "==================================================================================
 " git
 "==================================================================================
+
+" 実行コマンド
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "airblade/vim-gitgutter"
 let g:gitgutter_max_signs = 5000
 
+" ログ確認用
+NeoBundle "cohama/agit.vim"
+
+" branch確認用
+NeoBundle "idanarye/vim-merginal.git"
+
+
 "==================================================================================
-" SQL
+" DB, SQL
 "==================================================================================
 NeoBundle "stardiviner/AutoSQLUpperCase.vim"
+let g:sql_type_default = 'mysql'
 
 
 "==================================================================================

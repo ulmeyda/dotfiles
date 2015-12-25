@@ -23,9 +23,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 source ~/dotfiles/.vim/includes/base.vim
 source ~/dotfiles/.vim/includes/color.vim
-source ~/dotfiles/.vim/includes/search.vim
 source ~/dotfiles/.vim/includes/neocomplete.vim
 source ~/dotfiles/.vim/includes/coding.vim
+source ~/dotfiles/.vim/includes/search.vim
+source ~/dotfiles/.vim/includes/statusline.vim
 source ~/dotfiles/.vim/includes/encoding.vim
 
 call neobundle#end()
