@@ -65,7 +65,7 @@ nnoremap <c-g><c-g> :Grep<Space><c-r><c-w><Enter>
 " ctags
 " ==============================================================
 if has('path_extra')
-	set tags+=/vagrant/*/tags
+	set tags+=tags;
 endif
 
 " tagsジャンプの時に複数ある時は一覧表示

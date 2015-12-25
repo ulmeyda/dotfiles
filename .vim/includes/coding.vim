@@ -33,10 +33,19 @@ let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 "==================================================================================
 " yank
 "==================================================================================
-NeoBundle 'chrismetcalf/vim-yankring' " yankring
+NeoBundle 'LeafCage/yankround.vim'
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+" nmap ,p <Plug>(yankround-prev)
+"  nmap ,n <Plug>(yankround-next)
+
+let g:yankround_use_region_hl = 1
+
 
 " Yanktmp.vim
-NeoBundle 'vim-scripts/yanktmp.vim' " 他のvimのコピーを使える
+NeoBundle 'vim-scripts/yanktmp.vim'
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
@@ -59,7 +68,7 @@ nnoremap <silent> <Space>b :Unite buffer<CR>
 " nnoremap <silent> <Space>f :Unite file<CR>
 nnoremap <silent> <Space>f :UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> <Space>o :Unite outline<CR>
-nnoremap <silent> <Space>r :Unite -buffer-name=register register<CR>
+nnoremap <silent> <Space>y :Unite yankround<CR>
 
 " 検索結果をwin
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwin
@@ -149,6 +158,8 @@ let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 let g:php_noShortTags   = 1
 let g:php_sql_query     = 1
+let php_parent_error_close = 1
+let php_parent_error_open = 1
 
 NeoBundle 'akiyan/vim-textobj-php' " phpタグ選択 vaP or viP
 
