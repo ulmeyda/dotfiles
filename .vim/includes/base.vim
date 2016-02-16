@@ -130,9 +130,20 @@ set autochdir
 
 
 "==================================================================
+" vim-rooter
+"==================================================================
+NeoBundle "airblade/vim-rooter"
+
+" The public function FindRootDirectory() returns the absolute path to the
+" root directory as a string, if a root directory is found, or an empty string
+" otherwise.
+let g:rooter_patterns = ['.git/']
+let g:rooter_manual_only = 1
+let g:rooter_disable_map = 1
+
+"==================================================================
 " vimshell
 "==================================================================
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 nnoremap <Leader>v  :<C-u>VimShell<CR>
-
