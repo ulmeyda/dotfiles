@@ -127,7 +127,7 @@ set virtualedit+=block
 
 "directory変更
 set autochdir
-
+autocmd BufEnter * silent! :lcd%:p:h
 
 "==================================================================
 " vim-rooter

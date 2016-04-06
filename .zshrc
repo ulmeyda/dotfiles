@@ -91,3 +91,6 @@ autoload history-search-end
 bindkey "^P" history-substring-search-down
 bindkey "^N" history-substring-search-up
 
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

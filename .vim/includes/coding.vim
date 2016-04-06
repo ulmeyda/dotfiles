@@ -32,7 +32,6 @@ let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 " cake php test用
 nnoremap <leader>ct :exe "!clear; ".FindRootDirectory()."/app/Console/cake test %:p"<CR>
 
-
 "==================================================================================
 " yank
 "==================================================================================
@@ -202,6 +201,8 @@ nnoremap <Space>cl :Clog
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "airblade/vim-gitgutter"
 let g:gitgutter_max_signs = 5000
+autocmd QuickFixCmdPost *grep* cwindow
+
 
 " ログ確認用
 NeoBundle "cohama/agit.vim"

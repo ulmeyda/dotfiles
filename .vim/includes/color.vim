@@ -26,3 +26,9 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " xhtml
 au BufNewFile,BufRead *.ctp,*.xhtml,*.xht setf xhtml
 
+
+"==================================================================================
+" log
+"==================================================================================
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+
