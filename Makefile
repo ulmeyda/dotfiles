@@ -26,7 +26,7 @@ peco:
 	rm -rf ./peco_linux_amd64
 
 peco-mac:
-	wget https://github.com/peco/peco/releases/download/v0.3.5/peco_darwin_amd64.zip
+	wget https://github.com/peco/peco/releases/download/v0.3.6/peco_darwin_amd64.zip
 	tar xvzf /tmp/peco_linux_amd64.tar.gz
 	sudo mv ./peco_linux_amd64/peco /usr/local/bin/peco
 	rm -rf ./peco_linux_amd64

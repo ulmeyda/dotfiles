@@ -1,15 +1,23 @@
 [alias]
 	co = checkout
+	cm = checkout master
+	pu = push
 	st = status
 	br = branch
   tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+	diff = diff --line-number --show-function --color --heading --break
+	im = issue mine
+	ls = ls-files
+	sh = show
+	l = log --decorate
+	lp = log --decorate --stat --patch
 [core]
   excludesfile = ~/.gitignore
 	editor = vim
 	autoCRLF = false
 	quotepath = false
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [diff]
 	tool = vimdiff
 [difftool]

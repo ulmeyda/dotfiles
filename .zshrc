@@ -91,6 +91,47 @@ autoload history-search-end
 bindkey "^P" history-substring-search-down
 bindkey "^N" history-substring-search-up
 
-
+#-----------------------------------------------------------
+# anyenv
+#-----------------------------------------------------------
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
+#-----------------------------------------------------------
+# peco git-issue
+#-----------------------------------------------------------
+function peco-issue () {
+ for num in `git issue mine | peco | awk '{ print $1 }' | cut -c 2-`
+ do
+  git issue $num
+ done
+}
+zle -N peco-issue
+bindkey "^K" peco-issue
+
+
+function peco-issue-number () {
+	 git issue mine \
+	 | anyframe-selector-auto \
+   | awk '{ print "refs "$1 }' \
+	 | anyframe-action-insert
+}
+zle -N peco-issue-number
+bindkey "^O" peco-issue-number
+
+#-----------------------------------------------------------
+# peco git-tree
+#-----------------------------------------------------------
+function peco-tree () {
+ git log --graph --pretty=format:'%d %an: %s %ar %h' | peco | awk -F ' ' '{ print $NF }'
+}
+zle -N peco-tree
+bindkey "^U" peco-tree
+
+
+##-----------------------------------------------------------
+## cakephp
+##-----------------------------------------------------------
+export CAKE_ENV=localhost
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

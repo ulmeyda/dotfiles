@@ -1,4 +1,6 @@
 NeoBundle 'ctrlp.vim'
+let g:ctrlp_extensions = ['buffertag']
+
 NeoBundle 'nixprime/cpsm'
 
 " 検索時に大文字小文字を無視 (noignorecase:無視しない)

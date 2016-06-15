@@ -2,6 +2,7 @@
 " Coding
 "==================================================================================
 NeoBundle 'kana/vim-textobj-user' " textobj
+NeoBundle 'surround.vim'
 
 " コメント
 NeoBundle "scrooloose/nerdcommenter"

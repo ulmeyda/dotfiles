@@ -1,0 +1,30 @@
+snippet test
+  public function test_${1:function}_${2:question}の場合_${3:answer}が返る()
+  {
+      // setup
+      $expected = '';
+
+      // exercise
+      $actual = '';
+
+      // verify
+      $this->assertSame($expected, $actual);
+  }
+
+snippet testc
+  public function test_${1:function}_${2:question}の場合_${3:answer}が返る()
+  {
+      Closure::bind(function () {
+          // setup
+          $expected = '';
+
+          // exercise
+          $actual = '';
+
+          // verify
+          $this->assertSame($expected, $actual);
+      }, $this, '${4:class}')->__invoke();
+  }
+
+snippet test_skip
+  $this->markTestIncomplete('${1:message}');
