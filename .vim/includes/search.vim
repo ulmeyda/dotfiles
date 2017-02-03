@@ -1,7 +1,7 @@
-NeoBundle 'ctrlp.vim'
+call dein#add('ctrlp.vim')
 let g:ctrlp_extensions = ['buffertag']
 
-NeoBundle 'nixprime/cpsm'
+call dein#add('nixprime/cpsm')
 
 " 検索時に大文字小文字を無視 (noignorecase:無視しない)
 set ignorecase
@@ -30,7 +30,7 @@ vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 " ==============================================================
 " 検索結果数表示
 " ==============================================================
-NeoBundle "osyo-manga/vim-anzu.git"
+call dein#add("osyo-manga/vim-anzu.git")
 
 " キーマップ設定
 nmap n nzz<Plug>(anzu-update-search-status)
@@ -49,7 +49,7 @@ let g:anzu_status_format = "(%i/%l)"
 " jvgrep
 set grepprg=jvgrep
 
-NeoBundle 'grep.vim'
+call dein#add('grep.vim')
 let MyGrep_ShellEncoding = 'utf-8'
 
 " :Gb <args> でGrepBufferする

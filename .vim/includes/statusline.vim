@@ -4,7 +4,7 @@
 " 常にステータス行を表示 (詳細は:he laststatus)
 set laststatus=2
 
-NeoBundle "itchyny/lightline.vim"
+call dein#add("itchyny/lightline.vim")
 let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {

@@ -1,7 +1,7 @@
 "==================================================================================
 " colorscheme
 "==================================================================================
-NeoBundle 'morhetz/gruvbox'
+call dein#add('morhetz/gruvbox')
 
 set t_Co=256
 colorscheme gruvbox
@@ -18,7 +18,7 @@ endif
 "==================================================================================
 
 " javascript
-NeoBundle 'jelera/vim-javascript-syntax'
+call dein#add('jelera/vim-javascript-syntax')
 
 " jquery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
@@ -30,5 +30,17 @@ au BufNewFile,BufRead *.ctp,*.xhtml,*.xht setf xhtml
 "==================================================================================
 " log
 "==================================================================================
-NeoBundle 'vim-scripts/AnsiEsc.vim'
+call dein#add('vim-scripts/AnsiEsc.vim')
 
+
+"==================================================================================
+" unite
+"==================================================================================
+call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
+
+"==================================================================================
+" neovim
+"==================================================================================
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif

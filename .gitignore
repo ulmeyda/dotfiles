@@ -3,3 +3,4 @@
 !.vim/bundle/neobundle.vim
 .vim/neocomplete.vim/
 .zsh/*
+.vim/dein

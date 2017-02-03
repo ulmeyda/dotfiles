@@ -35,6 +35,16 @@ export LANG=ja_JP.UTF-8
 export PATH=$HOME/bin:/usr/local/bin:/sbin:$PATH
 
 #-----------------------------------------------------------
+# neovim
+#-----------------------------------------------------------
+export XDG_CONFIG_HOME=$HOME/.config
+
+#-----------------------------------------------------------
+# direnv
+#-----------------------------------------------------------
+eval "$(direnv hook zsh)"
+
+#-----------------------------------------------------------
 # keyborad
 #-----------------------------------------------------------
 #vi mode
@@ -52,7 +62,7 @@ zstyle ':completion:*:default' menu select=1
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-eval `dircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`
 
 #-----------------------------------------------------------
 # HISTROY
@@ -67,6 +77,9 @@ setopt share_history        # share command history data
 ## alias
 ##-----------------------------------------------------------
 alias tree='tree -NC'
+#alias vim='nvim'
+alias d='docker'
+
 
 #-----------------------------------------------------------
 # enhancd jump移動
@@ -96,6 +109,17 @@ bindkey "^N" history-substring-search-up
 #-----------------------------------------------------------
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
+#anyenv
+if [ -d ${HOME}/.anyenv ] ; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+  for D in `ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+fi
+
 
 #-----------------------------------------------------------
 # peco git-issue
@@ -128,6 +152,15 @@ function peco-tree () {
 zle -N peco-tree
 bindkey "^U" peco-tree
 
+
+#-----------------------------------------------------------
+# peco git-finder
+#-----------------------------------------------------------
+function peco-finder () {
+ find . -name "*${1}*" | grep -v "/\." | peco | awk '{ print $1 }' | anyframe-action-insert
+}
+zle -N peco-finder
+bindkey "^f" peco-finder
 
 ##-----------------------------------------------------------
 ## cakephp

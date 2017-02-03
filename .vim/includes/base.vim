@@ -1,4 +1,4 @@
-NeoBundle 'editorconfig/editorconfig-vim'
+call dein#add('editorconfig/editorconfig-vim')
 
 " シェル
 set shell=/bin/zsh
@@ -76,6 +76,15 @@ set wildmenu
 set wildmode=longest,list,full
 set formatoptions+=mM
 
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
+
 
 "==================================================================
 " 入力
@@ -132,7 +141,7 @@ autocmd BufEnter * silent! :lcd%:p:h
 "==================================================================
 " vim-rooter
 "==================================================================
-NeoBundle "airblade/vim-rooter"
+call dein#add('airblade/vim-rooter')
 
 " The public function FindRootDirectory() returns the absolute path to the
 " root directory as a string, if a root directory is found, or an empty string
@@ -144,6 +153,6 @@ let g:rooter_disable_map = 1
 "==================================================================
 " vimshell
 "==================================================================
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
+call dein#add('Shougo/vimproc')
+call dein#add('Shougo/vimshell')
 nnoremap <Leader>v  :<C-u>VimShell<CR>
