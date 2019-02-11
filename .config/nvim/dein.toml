@@ -1,0 +1,358 @@
+[[plugins]] #denite
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+call denite#custom#option('default', 'prompt', '>')
+call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
+call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
+
+nnoremap <silent> <Space>m :Denite file_mru<CR>
+nnoremap <silent> <Space>b :Denite buffer<CR>
+nnoremap <silent> <Space>g :Denite grep<CR>
+nnoremap <silent> <Space>y :Denite neoyank<CR>
+nnoremap <silent> <Space>c :Denite command_history<CR>
+nnoremap <silent> <Space>f :Rooter<CR>:Denite file_rec<CR>
+
+autocmd FileType php nnoremap <silent> <Space>o :Denite outline<CR>
+" autocmd FileType go nnoremap <silent> <Space>o :Denite decls<CR>
+
+call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg'])
+
+call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', ['.git/', 'build/', 'images/', 'img/'])
+'''
+
+[[plugins]] #mru
+repo = 'Shougo/neomru.vim'
+
+[[plugins]] #yank
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]] # proc
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]] # 実行
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+
+augroup QuickRunPHPUnit
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
+augroup END
+let g:quickrun_config = {}
+let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
+
+" cake php test用
+nnoremap <leader>ct :exe "!clear; export CAKE_ENV=test;".FindRootDirectory()."/app/Console/cake test %:p"<CR>
+" 検索結果をwin
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwin
+'''
+
+[[plugins]] # colorscheme
+repo = 'morhetz/gruvbox'
+
+[[plugins]] # go
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_add = '''
+" LSPに任せる機能をOFFにする
+" let g:go_def_mapping_enabled = 0
+" let g:go_doc_keywordprg_enabled = 0
+
+let g:go_template_autocreate = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_metalinter_autosave = 1
+let g:go_term_mode = 'split'
+" let g:go_metalinter_autosave_enabled = ['vet']
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+map <C-n> :cnext<CR>
+map <C-p> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>B :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <leader>i :GoImplements<CR>
+au FileType go nmap <leader>a :GoAlternate<CR>
+"au FileType go nmap <leader>d :GoDoc<CR>
+au FileType go nmap <leader>o :GoDecls<CR>
+
+au FileType go nmap <leader>s <Plug>(go-def-split) " 単語検索 横split
+au FileType go nmap <leader>v <Plug>(go-def-vertical) " 単語検索 縦split
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+'''
+
+[[plugins]] #ctrlp vim-go godecls用
+repo = 'ctrlpvim/ctrlp.vim'
+on_ft = ['go','php']
+
+[[plugins]] #go test
+repo = 'buoto/gotests-vim'
+on_ft = ['go']
+
+
+[[plugins]] # スニペット
+repo = 'honza/vim-snippets'
+
+[[plugins]] # スニペット
+repo = 'SirVer/ultisnips'
+#on_ft = ['go','php','js']
+on_ft = ['php','js']
+hook_add = '''
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+'''
+
+[[plugins]] # 検索置換
+repo = 'thinca/vim-qfreplace'
+hook_add = '''
+set grepprg=rg
+'''
+
+[[plugins]] # .gitをroot認識
+repo = 'airblade/vim-rooter'
+hook_add = '''
+let g:rooter_patterns = ['.git/']
+let g:rooter_manual_only = 1
+let g:rooter_disable_map = 1
+'''
+
+
+[[plugins]] # ファイラ
+repo = 'justinmk/vim-dirvish'
+
+
+[[plugins]] # 単語囲み文字挿入
+repo = 'machakann/vim-sandwich'
+
+[[plugins]] # comment
+repo = 'scrooloose/nerdcommenter'
+hook_add = '''
+let g:NERDSpaceDelims=1
+'''
+
+[[plugins]] # 閉じタグチェック
+repo = 'gregsexton/MatchTag'
+
+[[plugins]] # scriptタグの閉じタグを%で飛べるようにする
+repo = 'tmhedberg/matchit'
+
+[[plugins]] # cakephp
+repo = 'violetyk/cake.vim'
+on_ft = ['php','ctp']
+
+[[plugins]] # 別のterminalにもyank paste
+repo = 'vim-scripts/yanktmp.vim'
+hook_add = '''
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>
+'''
+
+[[plugins]] # 辞書
+repo = 'thinca/vim-ref'
+
+[[plugins]] # diffをgitと似たように
+repo = 'lambdalisue/vim-unified-diff'
+
+[[plugins]] # gitを使いやすく
+repo = 'tpope/vim-fugitive'
+
+[[plugins]] # 変更行を左端に表示
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]] # JSインデント
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = ['js','jsx','html','ctp']
+hook_add = '''
+let g:SimpleJsIndenter_BriefMode = 1
+let g:SimpleJsIndenter_CaseIndentLevel = -1
+'''
+
+[[plugins]] # 検索数と一致数表示
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+" キーマップ設定
+nmap n nzz<Plug>(anzu-update-search-status)
+nmap N Nzz<Plug>(anzu-update-search-status)
+"ESC2回押しで検索ハイライトを消去
+nmap <silent> gh :<C-u>nohlsearch<CR><Plug>(anzu-clear-search-status)
+" format = (該当数/全体数)
+let g:anzu_status_format = "(%i/%l)"
+let MyGrep_ShellEncoding = 'utf-8'
+'''
+
+[[plugins]] # sublime text のマルチ入力
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]] # lint syntasticよりいい
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '◯ ok']
+'''
+
+[[plugins]] # 高速移動
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]] # Japanese doc
+repo = 'vim-jp/vimdoc-ja'
+on_ft = 'help'
+hook_add = '''
+    set helplang=ja,en
+'''
+
+[[plugins]] #dispatch
+repo = 'tpope/vim-dispatch'
+
+[[plugins]] # test
+repo = 'janko-m/vim-test'
+hook_add = '''
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+let test#strategy = {
+  \ 'nearest': 'neovim',
+  \ 'file':    'dispatch',
+  \ 'suite':   'basic',
+\}
+'''
+
+[[plugins]] # align
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+vmap <Enter> <Plug>(EasyAlign)
+'''
+
+[[plugins]] # .editorconfig
+repo = 'editorconfig/editorconfig-vim'
+
+#-----------------------------------------------------
+# syntax
+#-----------------------------------------------------
+
+[[plugins]] #toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # javascript syntax
+repo = 'pangloss/vim-javascript'
+on_ft = ['js','html','ctp']
+
+[[plugins]] # jsx syntax
+repo = 'mxw/vim-jsx'
+on_ft = 'jsx'
+
+[[plugins]] # ES6のハイライト
+repo = 'othree/yajs.vim'
+on_ft = ['js']
+
+[[plugins]] # markdown syntax
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]] # yaml syntax
+repo = 'mrk21/yaml-vim'
+on_ft = ['yaml','yml']
+
+[[plugins]] # css3 syntax
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['html','css','scss']
+
+[[plugins]] # html5 syntax
+repo = 'othree/html5.vim'
+on_ft = ['html','ctp']
+
+[[plugins]] # lineデザイン
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'filename', 'fugitive', 'anzu', 'ale' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'LightLineModified',
+      \   'readonly': 'LightLineReadonly',
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \   'anzu': 'anzu#search_status',
+      \   'ale': 'ALEStatus',
+      \ },
+      \ }
+
+function! LightLineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '[RO]' : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '('._.')' : ''
+  endif
+  return ''
+endfunction
+
+function! ALEStatus()
+  return exists('*ALEGetStatusLine') ? ALEGetStatusLine() : ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+'''

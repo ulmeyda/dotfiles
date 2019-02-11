@@ -33,12 +33,7 @@ setopt multios  #multios
 
 export LANG=ja_JP.UTF-8
 export PATH=$HOME/bin:/usr/local/bin:/sbin:$PATH
-
-#-----------------------------------------------------------
-# keyborad
-#-----------------------------------------------------------
-#vi mode
-bindkey -v
+export EDITOR=nvim
 
 #----------------------------------------------------------
 # zsh-completions
@@ -52,7 +47,7 @@ zstyle ':completion:*:default' menu select=1
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-eval `dircolors ~/.dircolors`
+export CLICOLOR=1
 
 #-----------------------------------------------------------
 # HISTROY
@@ -63,10 +58,14 @@ SAVEHIST=20000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
-##-----------------------------------------------------------
-## alias
-##-----------------------------------------------------------
-alias tree='tree -NC'
+#-----------------------------------------------------------
+# docker
+#-----------------------------------------------------------
+alias di='docker images'
+alias dr='docker rm'
+alias dri='docker rmi'
+alias dps='docker ps -a'
+alias dco='docker-compose'
 
 #-----------------------------------------------------------
 # enhancd jump移動
@@ -82,7 +81,7 @@ zstyle ":anyframe:selector:" use peco
 bindkey '^B' anyframe-widget-checkout-git-branch
 bindkey '^G' anyframe-widget-insert-git-branch
 bindkey '^R' anyframe-widget-execute-history
-bindkey '^F' anyframe-widget-insert-filename
+#bindkey '^F' anyframe-widget-insert-filename
 
 #-----------------------------------------------------------
 # history-substring-seach
@@ -92,32 +91,14 @@ bindkey "^P" history-substring-search-down
 bindkey "^N" history-substring-search-up
 
 #-----------------------------------------------------------
-# anyenv
-#-----------------------------------------------------------
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
-#-----------------------------------------------------------
 # peco git-issue
 #-----------------------------------------------------------
-function peco-issue () {
- for num in `git issue mine | peco | awk '{ print $1 }' | cut -c 2-`
- do
-  git issue $num
- done
+function peco-dir-open-app () {
+    rg -l . | peco | xargs sh -c 'nvim "$0" < /dev/tty'
+    zle clear-screen
 }
-zle -N peco-issue
-bindkey "^K" peco-issue
-
-
-function peco-issue-number () {
-	 git issue mine \
-	 | anyframe-selector-auto \
-   | awk '{ print "refs "$1 }' \
-	 | anyframe-action-insert
-}
-zle -N peco-issue-number
-bindkey "^O" peco-issue-number
+zle -N peco-dir-open-app
+bindkey '^F' peco-dir-open-app     # C-x t
 
 #-----------------------------------------------------------
 # peco git-tree
@@ -128,10 +109,50 @@ function peco-tree () {
 zle -N peco-tree
 bindkey "^U" peco-tree
 
+#-----------------------------------------------------------
+# peco jira-issue
+#-----------------------------------------------------------
+function peco-jira-issue () {
+  node ~/jira/jira.js | peco | awk '{ print $1 }' | anyframe-action-insert
+}
+zle -N peco-jira-issue
+bindkey "^T" peco-jira-issue
 
-##-----------------------------------------------------------
-## cakephp
-##-----------------------------------------------------------
-export CAKE_ENV=localhost
+#-----------------------------------------------------------
+# peco ghq
+#-----------------------------------------------------------
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
 
+#-----------------------------------------------------------
+# shell integration
+# https://www.iterm2.com/documentation-shell-integration.html
+#-----------------------------------------------------------
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+#-----------------------------------------------------------
+# golang
+#-----------------------------------------------------------
+export GOPATH=$HOME/code
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
+#-----------------------------------------------------------
+# git
+#-----------------------------------------------------------
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
+#-----------------------------------------------------------
+# anyenv
+#-----------------------------------------------------------
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+eval "$(direnv hook zsh)"

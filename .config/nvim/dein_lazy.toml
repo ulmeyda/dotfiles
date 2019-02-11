@@ -1,0 +1,54 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_ft = ['php', 'go', 'javascript']
+on_event = 'InsertEnter'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
+'''
+on_i = 1
+
+#lspをつかったvim-goの高速化 https://qiita.com/gorilla0513/items/783836797ff84a3a4753
+#[[plugins]]
+#repo = 'prabirshrestha/async.vim'
+#
+#[[plugins]]
+#repo = 'prabirshrestha/vim-lsp'
+#hook_add = '''
+#if executable('go-langserver')
+#    au User lsp_setup call lsp#register_server({
+#        \ 'name': 'go-langserver',
+#        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+#        \ 'whitelist': ['go'],
+#        \ })
+#endif
+#
+#au FileType go nmap <leader>d :LspDefinition<CR>
+#"nmap <silent> <Leader>p :LspHover<CR>
+#"nmap <silent> <Leader>r :LspReferences<CR>
+#"nmap <silent> <Leader>i :LspImplementation<CR>
+#"nmap <silent> <Leader>s :split \| :LspDefinition <CR>
+#"nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
+#'''
+
+[[plugins]] # deoplete go
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
+hook_add = '''
+let g:deoplete#sources#go#align_class = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#package_dot = 1
+'''
+
+[[plugins]] # Codic
+repo = 'koron/codic-vim'
+on_ft = ['php', 'go', 'javascript']
+on_cmd = 'Codic'

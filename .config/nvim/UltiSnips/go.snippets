@@ -1,0 +1,20 @@
+snippet testify
+package $1
+
+import(
+    "testing"
+    "github.com/stretchr/testify/assert"
+)
+
+func Test$2(t *testing.T) {
+    // setup
+    expected := "";
+
+    // exercise
+    actual := ;
+
+    // verify
+    assert.Equal(t, actual, expected)
+}
+$0
+endsnippet
