@@ -3,7 +3,7 @@ DOTFILES_TARGET   := $(wildcard .??*)
 DOTFILES_DIR      := $(PWD)
 DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-all: tool install
+all: tool setting install
 
 install:
 	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
@@ -15,3 +15,5 @@ tool:
 	brew install ghq
 	brew install starship
 
+setting:
+	git config --global ghq.root ~/projects
