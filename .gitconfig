@@ -30,5 +30,3 @@
   sslVerify = false
 [color]
 	ui = auto
-[ghq]
-	root = /Users/sato.shinya/projects
