@@ -1,18 +1,18 @@
-# Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-zplugin light "zsh-users/zsh-completions" #コマンド補完
-zplugin ice wait"!0" atload"_zsh_autosuggest_start"
-zplugin light "zsh-users/zsh-autosuggestions"
-zplugin light "mafredri/zsh-async" #非同期コマンド test用？
-#zplugin light "sindresorhus/pure"
-zplugin ice wait'!0'; zplugin light zsh-users/zsh-history-substring-search #history search
-zplugin ice wait'!0'; zplugin light "mollifier/anyframe" #peco
-zplugin ice wait'!0'; zplugin light "b4b4r07/enhancd" #jump
-zplugin ice wait"!0" atinit"zpcompinit; zpcdreplay"
-zplugin light zsh-users/zsh-syntax-highlighting #highlight
+# Added by zinit's installer
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of zinit's installer chunk
+zinit light "zsh-users/zsh-completions" #コマンド補完
+zinit ice wait"!0" atload"_zsh_autosuggest_start"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "mafredri/zsh-async" #非同期コマンド test用？
+#zinit light "sindresorhus/pure"
+zinit ice wait'!0'; zinit light zsh-users/zsh-history-substring-search #history search
+zinit ice wait'!0'; zinit light "mollifier/anyframe" #peco
+zinit ice wait'!0'; zinit light "b4b4r07/enhancd" #jump
+zinit ice wait"!0" atinit"zpcompinit; zpcdreplay"
+zinit light zsh-users/zsh-syntax-highlighting #highlight
 
 #-----------------------------------------------------------
 # 環境
@@ -230,3 +230,4 @@ export PATH="$HOME/.config/nvim/nvim-osx64/bin:$PATH"
 # startship theme
 eval "$(starship init zsh)"
 
+### End of Zinit's installer chunk
