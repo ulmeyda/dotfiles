@@ -13,20 +13,49 @@
 	lp = log --decorate --stat --patch
 [core]
   excludesfile = ~/.gitignore
-	editor = vim
+	editor = nvim
 	autoCRLF = false
 	quotepath = false
+	#pager = git-split-diffs --color | less -RFX
 [include]
   path = ~/.gitconfig.local
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 [difftool]
 	prompt = false
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 [mergetool]
 	prompt = false
+[difftool "nvimdiff"]
+  cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+  cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [http]
   sslVerify = false
 [color]
 	ui = auto
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+;    syntax-theme = Monokai Extended
+    line-numbers = true
+;    side-by-side = true
+    features = decorations
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+[interactive]
+    diffFilter = delta --color-only
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+[pull]
+	rebase = true
+[branch]
+	autosetuprebase = always

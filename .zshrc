@@ -1,18 +1,42 @@
-# Added by zinit's installer
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-### End of zinit's installer chunk
-zinit light "zsh-users/zsh-completions" #コマンド補完
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-as-monitor \
+    zdharma-continuum/z-a-bin-gem-node
+### End of Zinit's installer chunk
+
+source $HOME/.zinit/bin/zinit.zsh
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit light zsh-users/zsh-autosuggestions #サジェスト
+zinit light zdharma-continuum/fast-syntax-highlighting  #ハイライト
+zinit light zsh-users/zsh-history-substring-search
+zinit light olets/zsh-abbr
+zinit load zdharma-continuum/history-search-multi-word #search
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
 zinit ice wait"!0" atload"_zsh_autosuggest_start"
-zinit light "zsh-users/zsh-autosuggestions"
-zinit light "mafredri/zsh-async" #非同期コマンド test用？
-#zinit light "sindresorhus/pure"
-zinit ice wait'!0'; zinit light zsh-users/zsh-history-substring-search #history search
-zinit ice wait'!0'; zinit light "mollifier/anyframe" #peco
-zinit ice wait'!0'; zinit light "b4b4r07/enhancd" #jump
-zinit ice wait"!0" atinit"zpcompinit; zpcdreplay"
-zinit light zsh-users/zsh-syntax-highlighting #highlight
+zinit light mafredri/zsh-async #非同期コマンド test用？
+zinit ice wait'!0'; zinit light b4b4r07/enhancd #jump
+zinit ice wait'!0'; zinit light mollifier/anyframe
+zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
+
 
 #-----------------------------------------------------------
 # 環境
@@ -59,13 +83,18 @@ setopt share_history        # share command history data
 #-----------------------------------------------------------
 # enhancd jump移動
 #-----------------------------------------------------------
-export ENHANCD_FILTER="/usr/local/bin/peco:fzf:non-existing-filter"
+export ENHANCD_FILTER="fzf:non-existing-filter"
 
 #-----------------------------------------------------------
 # anyframe fzf
 #-----------------------------------------------------------
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS="--reverse --inline-info"
+export FZF_DEFAULT_OPTS='--reverse --inline-info'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color="fg:#d0d0d0,bg:#000000,hl:#40b2e0,gutter:#000000"
+--color="fg+:#ffffff,bg+:#8909b3,hl+:#ffffff"
+--color="info:#afaf87,prompt:#00b9d6,pointer:#ff5c5c"
+--color="marker:#87ff00,spinner:#ff5c5c,header:#87afaf"'
 
 zstyle ":anyframe:selector:" use fzf
 
@@ -84,11 +113,28 @@ bindkey "^N" history-substring-search-up
 # fzf file access
 #-----------------------------------------------------------
 function fzf-dir-open-app () {
-    rg -l . | fzf | xargs sh -c 'nvim "$0" < /dev/tty'
+    rg -l --glob "!.git/*" . | fzf | xargs sh -c 'nvim "$0" < /dev/tty'
     zle clear-screen
 }
 zle -N fzf-dir-open-app
 bindkey '^F' fzf-dir-open-app
+
+#-----------------------------------------------------------
+# fzf grep access
+#-----------------------------------------------------------
+alias rgg="_rgAndNVim"
+function _rgAndNVim() {
+    if [ -z "$1" ]; then
+        echo 'Usage: rgg PATTERN'
+        return 0
+    fi
+    result=`rg -n $1 | fzf`
+    line=`echo "$result" | awk -F ':' '{print $2}'`
+    file=`echo "$result" | awk -F ':' '{print $1}'`
+    if [ -n "$file" ]; then
+        nvim $file +$line
+    fi
+}
 
 #-----------------------------------------------------------
 # fzf ghq
@@ -104,39 +150,15 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^]' fzf-src
 
-
 ##-----------------------------------------------------------
 ## shell integration
 ## https://www.iterm2.com/documentation-shell-integration.html
 ##-----------------------------------------------------------
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-#-----------------------------------------------------------
-# anyenv
-#-----------------------------------------------------------
-export ANYENV_ROOT="$HOME/.anyenv"
-export PYENV_ROOT="$ANYENV_ROOT/envs/pyenv"
-
-if [ -d $ANYENV_ROOT ]; then
-  export PATH="$ANYENV_ROOT/bin:$PATH"
-  for D in `command ls $ANYENV_ROOT/envs`
-  do
-    export PATH="$ANYENV_ROOT/envs/$D/shims:$PATH"
-  done
-fi
-
-function anyenv_init() {
-  eval "$(anyenv init - --no-rehash)"
-}
-function anyenv_unset() {
-  unset -f goenv
-}
-function goenv() {
-  anyenv_unset
-  anyenv_init
-  goenv "$@"
-}
-
+##-----------------------------------------------------------
+## direnv
+##-----------------------------------------------------------
 eval "$(direnv hook zsh)"
 
 ##-----------------------------------------------------------
@@ -144,90 +166,34 @@ eval "$(direnv hook zsh)"
 ##-----------------------------------------------------------
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+export PATH=$GOBIN:$PATH
 
+function go_upgrade() {
+  /usr/local/bin/go install golang.org/dl/go$1@latest
+  go$1 download
+  go$1 version
+  ln -fns ~/go/bin/go$1 /usr/local/bin/go
+}
 
-#-----------------------------------------------------------
-# ls
-#-----------------------------------------------------------
-alias ls='ls -G'
-alias la='ls -al'
-alias ll='ls -lh'
-
-#-----------------------------------------------------------
-# cd
-#-----------------------------------------------------------
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-#-----------------------------------------------------------
-# global alias
-#-----------------------------------------------------------
-alias -g A='| awk'
-alias -g C='| pbcopy' # copy
-alias -g C='| wc -l' # count
-alias -g G='| grep --color=auto' # 鉄板
-alias -g H='| head' # 当然tailもね
-alias -g L='| less -R'
-alias -g X='| xargs'
-
-#-----------------------------------------------------------
-# rg
-#-----------------------------------------------------------
-alias rg='rg --hidden'
-
-#-----------------------------------------------------------
-# dotfiles
-#-----------------------------------------------------------
-alias zshrc='vim ~/.zshrc'
-alias nviminit='nvim ~/.config/nvim/init.vim'
-
-
-#-----------------------------------------------------------
-# git
-#-----------------------------------------------------------
+##-----------------------------------------------------------
+## git
+##-----------------------------------------------------------
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
-alias g='git'
-alias ga='git add'
-alias gd='git diff'
-alias gs='git status'
-alias gp='git push origin'
-alias gph='git push origin HEAD'
-alias gb='git branch'
-alias gst='git status'
-alias gco='git checkout'
-alias gca='git checkout --amend'
-alias gcm='git checkout origin/master'
-alias gf='git fetch'
-alias gc='git commit -v'
-alias gt="git log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
-alias gl="git log --decorate"
-alias glo="git log --decorate --stat --patch"
-alias gls="git ls-files"
-
-#-----------------------------------------------------------
-# docker
-#-----------------------------------------------------------
-alias di='docker images'
-alias dr='docker rm'
-alias dri='docker rmi'
-alias dps='docker ps -a'
-alias dco='docker-compose'
 
 #-----------------------------------------------------------
 # plantuml
 #-----------------------------------------------------------
 export PLANTUML_LIMIT_SIZE=81920 # 最大サイズを4kbから8kbへ
 
-
-# yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#-----------------------------------------------------------
 # NVIM nightly PATH
+#-----------------------------------------------------------
 export PATH="$HOME/.config/nvim/nvim-osx64/bin:$PATH"
 
+#-----------------------------------------------------------
 # startship theme
+#-----------------------------------------------------------
 eval "$(starship init zsh)"
 
-### End of Zinit's installer chunk
+# local用
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
