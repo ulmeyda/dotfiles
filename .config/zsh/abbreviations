@@ -1,0 +1,54 @@
+# vim
+abbr vimdiff='nvim -d'
+
+# ls(exa)
+abbr ls='exa --icons'
+abbr la='exa --time-style=long-iso -al --icons'
+abbr ll='exa --time-style=long-iso -lh --icons'
+abbr lt='exa -T --icons'
+abbr l1='exa -1 --icons'
+
+# rg
+abbr rg='rg --hidden'
+
+# less(bat)
+abbr less='bat'
+abbr cat='bat'
+
+# find(fd)
+abbr find='fd'
+
+# dotfiles
+abbr zshrc='nvim ~/.zshrc'
+abbr nviminit='nvim ~/.config/nvim/init.vim'
+abbr tigc='nvim ~/.tigrc'
+abbr abbrf="nvim $ABBR_USER_ABBREVIATIONS_FILE"
+
+# git
+abbr g='git'
+abbr ga='git add'
+abbr gd='git diff'
+abbr gs='git status -sb'
+abbr gp='git push origin'
+abbr gph='git push origin HEAD'
+abbr gphf='git push origin HEAD --force-with-lease'
+abbr gb='git branch'
+abbr gsw='git switch'
+abbr gsm='git switch origin/main'
+abbr gr='git restore'
+abbr gf='git fetch'
+abbr gc='git commit -v'
+abbr gt="git log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
+abbr gl="git log --decorate"
+abbr glo="git log --decorate --stat --patch"
+abbr gls="git ls-files"
+abbr grba="git rebase --abort"
+abbr grbc="git rebase --continue"
+abbr wip="git commit -am 'wip'"
+
+# docker
+abbr di='docker images'
+abbr dr='docker rm'
+abbr dri='docker rmi'
+abbr dps='docker ps -a'
+abbr dco='docker compose'
