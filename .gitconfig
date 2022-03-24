@@ -3,7 +3,6 @@
 	editor = nvim
 	autoCRLF = false
 	quotepath = false
-	#pager = git-split-diffs --color | less -RFX
 [include]
   path = ~/.gitconfig.local
 [diff]
@@ -46,3 +45,5 @@
 	rebase = true
 [branch]
 	autosetuprebase = always
+[rerere]
+  enabled = true
