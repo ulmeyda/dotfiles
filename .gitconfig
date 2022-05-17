@@ -1,18 +1,18 @@
 [core]
   excludesfile = ~/.gitignore
-	editor = nvim
-	autoCRLF = false
-	quotepath = false
+  editor = nvim
+  autoCRLF = false
+  quotepath = false
 [include]
   path = ~/.gitconfig.local
 [diff]
-	tool = nvimdiff
+  tool = nvimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [merge]
-	tool = nvimdiff
+  tool = nvimdiff
 [mergetool]
-	prompt = false
+  prompt = false
 [difftool "nvimdiff"]
   cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
 [mergetool "nvimdiff"]
@@ -20,30 +20,30 @@
 [http]
   sslVerify = false
 [color]
-	ui = auto
+  ui = auto
 [delta]
-    plus-color = "#012800"
-    minus-color = "#340001"
-;    syntax-theme = Monokai Extended
-    line-numbers = true
-;    side-by-side = true
-    features = decorations
-    line-numbers-left-format = ""
-    line-numbers-right-format = "│ "
+  plus-color = "#012800"
+  minus-color = "#340001"
+;  syntax-theme = Monokai Extended
+  line-numbers = true
+;  side-by-side = true
+  features = decorations
+  line-numbers-left-format = ""
+  line-numbers-right-format = "│ "
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
 [delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
 [pull]
-	rebase = true
+  rebase = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [rerere]
   enabled = true

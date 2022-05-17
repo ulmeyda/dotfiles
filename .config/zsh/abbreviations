@@ -20,14 +20,14 @@ abbr find='fd'
 
 # dotfiles
 abbr zshrc='nvim ~/.zshrc'
-abbr nviminit='nvim ~/.config/nvim/init.vim'
+abbr nviminit='nvim ~/.config/nvim/init.lua'
 abbr tigc='nvim ~/.tigrc'
 abbr abbrf="nvim $ABBR_USER_ABBREVIATIONS_FILE"
 
 # git
 abbr g='git'
 abbr ga='git add'
-abbr gd='git diff --line-number --show-function --color --heading --break'
+abbr gd='git diff'
 abbr gdo='git diff origin'
 abbr gs='git status -sb'
 abbr gp='git push origin'
@@ -35,7 +35,7 @@ abbr gph='git push origin HEAD'
 abbr gphf='git push origin HEAD --force-with-lease --force-if-includes'
 abbr gb='git branch'
 abbr gsw='git switch'
-abbr gsm='git switch origin/main'
+abbr gcm='git checkout origin/main -b'
 abbr gr='git restore'
 abbr gf='git fetch'
 abbr gc='git commit -v'
