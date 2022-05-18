@@ -9,7 +9,7 @@ install:
 	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 tool:
-	$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)
+	$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)
 	brew install neovim
 	brew install fzf
 	brew install ghq
