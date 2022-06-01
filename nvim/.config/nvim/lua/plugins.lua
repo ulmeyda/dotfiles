@@ -1,29 +1,18 @@
+-- local fn = vim.fn
+-- local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+-- if fn.empty(fn.glob(install_path)) > 0 then
+--   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+-- end
+
 vim.cmd[[packadd packer.nvim]]
 
--- packer.nvimを自動でインストール
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap = nil
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-end
-
--- 設定を保存したときにcompileも走るように
-vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
-
 -- plugins保存によるオードコマンド実行
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
 
 -- pcallの初期化
 local status_ok, packer = pcall(require, "packer")
@@ -53,10 +42,13 @@ use {'kyazdani42/nvim-web-devicons'}
 use {"rcarriga/nvim-notify", event = "VimEnter"}
 
 -- colorscheme
-use {
-  "Shatur/neovim-ayu",
-  require('ayu').colorscheme()
-}
+use({
+  "bluz71/vim-nightfly-guicolors",
+  opt = true,
+  setup = function()
+    vim.cmd [[colorscheme nightfly]]
+  end,
+})
 
 -- treesitter
 use({
@@ -66,12 +58,6 @@ use({
     require("config.treesitter")
   end,
 })
-
--- color
-use {
-  'norcalli/nvim-colorizer.lua',
-  require('colorizer').setup()
-}
 
 -- lsp
 use({
@@ -108,12 +94,20 @@ use {
   end,
 }
 
+-- color
+use {
+  'norcalli/nvim-colorizer.lua',
+  config = function()
+    require('colorizer').setup()
+  end,
+}
+
+-- test
 use {
   "klen/nvim-test",
-  after = { "nvim-treesitter" },
-  config = function()
-    require("config.test")
-  end
+   config = function()
+     require("config.nvim-test")
+   end,
 }
 
 -- quickfix

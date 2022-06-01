@@ -66,8 +66,9 @@ bind generic W :!git reflog
 # color
 #----------------------------------------------------------------------------
 # general
-color   default                 15      0
-color   cursor                  15      241
+#color default white black
+#color   default                 15      0
+color   cursor                  black     230
 #color   title-focus             242     221
 #color   title-blur              242     221
 #color   delimiter               213     default
