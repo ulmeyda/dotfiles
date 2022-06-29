@@ -45,3 +45,5 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+
+vim.g.nightflyCursorColor = 1

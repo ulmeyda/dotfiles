@@ -1,5 +1,9 @@
 vim.opt.completeopt = "menu,menuone,noselect"
 
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
+
 local cmp = require"cmp"
 cmp.setup({
   snippet = {
@@ -25,7 +29,6 @@ cmp.setup({
     { name = 'nvim_lsp_signature_help' },
   }),
   window = {
-    -- completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
 })
@@ -47,8 +50,10 @@ cmp.setup.cmdline('/', {
   }
 })
 
+
 vim.api.nvim_set_keymap("n", "<Tab>", "<Plug>(vsnip-jump-next)", {silent = false, noremap = false})
 vim.api.nvim_set_keymap("s", "<Tab>", "<Plug>(vsnip-jump-next)", {silent = false, noremap = false})
+
 
 -- Expand or jump
 -- imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
