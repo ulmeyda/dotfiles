@@ -12,5 +12,6 @@ $ make tool
 ## neovim
 
 ```
+:PackerInstall
 :TSInstall go
 ```
