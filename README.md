@@ -1,6 +1,6 @@
 # dotfiles
 
-dotfiles
+dotfiles2
 
 ## command 
 
