@@ -220,7 +220,12 @@ use({
 })
 
 -- filer
-use {'cocopon/vaffle.vim'}
+use {
+  'cocopon/vaffle.vim',
+  config = function()
+    require("config.vaffle")
+  end,
+}
 
 -- snippets
 use {"rafamadriz/friendly-snippets"}
