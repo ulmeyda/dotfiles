@@ -9,7 +9,8 @@ require("nvim-test").setup({
   },
 })
 require('nvim-test.runners.go-test'):setup {
-  command = "richgo",
+  command = "gotest",
+  args = {},
 }
 
 
