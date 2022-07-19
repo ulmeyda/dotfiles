@@ -15,6 +15,7 @@ opt.ruler=false -- ruler
 opt.autoindent=true -- 改行時に前の行のインデントを継続する
 opt.softtabstop=2 -- 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 opt.shiftwidth=4 -- 自動インデントでずれる幅
+opt.tabstop=4 -- タブによるスペース数
 opt.smarttab=true -- 行頭の余白内で Tab を打ち込むと、shiftwidth の数だけインデントする。
 opt.expandtab=true -- タブ入力を複数の空白入力に置き換える
 opt.smartindent=true -- 改行時に入力された行の末尾に合わせて次の行のインデントを増減する

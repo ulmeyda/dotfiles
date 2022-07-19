@@ -113,7 +113,7 @@ bindkey "^N" history-substring-search-up
 # fzf file access
 #-----------------------------------------------------------
 function fzf-dir-open-app () {
-    rg -l --glob "!.git/*" . | fzf | xargs sh -c 'nvim "$0" < /dev/tty'
+    rg -l --hidden --glob "!.git/*" . | fzf | xargs sh -c 'nvim "$0" < /dev/tty'
     zle clear-screen
 }
 zle -N fzf-dir-open-app
@@ -128,7 +128,7 @@ function _rgAndNVim() {
         echo 'Usage: rgg PATTERN'
         return 0
     fi
-    result=`rg -n $1 | fzf`
+    result=`rg -n --hidden $1 | fzf`
     line=`echo "$result" | awk -F ':' '{print $2}'`
     file=`echo "$result" | awk -F ':' '{print $1}'`
     if [ -n "$file" ]; then

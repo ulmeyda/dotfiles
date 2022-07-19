@@ -1,8 +1,9 @@
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
   fzf_opts = {
-    ['--keep-right'] = ''
-  }
+    ['--keep-right'] = '',
+    ['--border'] = false,
+  },
 }
 vim.api.nvim_set_keymap("n", "<Space>h", ":lua require('fzf-lua').oldfiles()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Space>b", ":lua require('fzf-lua').buffers()<CR>", {silent = true, noremap = true})
