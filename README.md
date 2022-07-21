@@ -14,6 +14,6 @@ $ make gotool
 
 ```
 :PackerInstall
-:LspInstall go
+:LspInstall gopls
 :TSInstall go
 ```
