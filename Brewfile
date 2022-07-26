@@ -9,6 +9,7 @@ tap "kyoshidajp/ghkw"
 tap "neovim/neovim"
 tap "olets/tap"
 tap "reviewdog/tap"
+brew "awscli"
 brew "bat"
 brew "curl"
 brew "delta", link: false
