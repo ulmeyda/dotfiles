@@ -23,6 +23,7 @@ abbr zshrc='nvim ~/.zshrc'
 abbr nviminit='nvim ~/.config/nvim/init.lua'
 abbr tigc='nvim ~/.tigrc'
 abbr abbrf="nvim $ABBR_USER_ABBREVIATIONS_FILE"
+abbr awscred="nvim ~/.aws/credentials"
 
 # git
 abbr g='git'
@@ -35,7 +36,8 @@ abbr gph='git push origin HEAD'
 abbr gphf='git push origin HEAD --force-with-lease --force-if-includes'
 abbr gb='git branch'
 abbr gsw='git switch'
-abbr gcm='git checkout origin/main -b'
+#abbr gcm='git checkout origin/main -b'
+abbr gcd='git checkout origin/develop -b'
 abbr gr='git restore'
 abbr gf='git fetch'
 abbr gc='git commit -v'
@@ -46,6 +48,7 @@ abbr gls="git ls-files"
 abbr grba="git rebase --abort"
 abbr grbc="git rebase --continue"
 abbr wip="git commit -am 'wip'"
+abbr gfx="git commit --amend --no-edit"
 
 # docker
 abbr di='docker images'
