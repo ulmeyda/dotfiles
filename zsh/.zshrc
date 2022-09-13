@@ -163,10 +163,10 @@ export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 
 function go_upgrade() {
-  /usr/local/bin/go install golang.org/dl/go$1@latest
+  go install golang.org/dl/go$1@latest
   go$1 download
   go$1 version
-  ln -fns ~/go/bin/go$1 /usr/local/bin/go
+  ln -fns ~/go/bin/go$1 ~/go/bin/go
 }
 
 ##-----------------------------------------------------------
