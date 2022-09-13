@@ -16,4 +16,5 @@ $ make gotool
 :PackerInstall
 :LspInstall gopls
 :TSInstall go
+:TSInstall typescript
 ```
